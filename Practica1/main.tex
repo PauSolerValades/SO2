@@ -1,0 +1,80 @@
+\documentclass[catalan, a4, 12pt]{article}
+\usepackage[a4paper]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{vmargin}
+\usepackage[catalan]{babel}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{program}
+\usepackage{color} 
+\usepackage{parskip}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{graphicx}
+
+\setpapersize{A4}
+\title{\textbf{Sistemes Operatius II - Pràctica I}}
+\author{Gabriel Lluís i Pau Soler}
+\date{Setembre 2019}
+\begin{document}
+\maketitle
+\pagenumbering{gobble}
+\thispagestyle{plain}
+
+\section*{Introducció}
+En aquesta primera pràctica ens centrarem en revisar algunes funcions que es poden usar per treballar amb fitxers, tals com write, read, fwrite, fread, fprintf o fscanf. 
+
+\section*{Preguntes a respondre}
+\subsection*{Exercici 1}
+
+\begin{enumerate}[(a)]
+    \item Ja que l'arxiu proporcionat escriu enters en un fitxer, la mida d'aquest mateix fitxer serà N multiplicat per quatre, que és el nombre de bits que ocupa un enter. Abans de tancar el fitxer, la mida és l'esperada, i no varia en tancar-lo ja que el fitxer ja està modificat abans de que el tanquem.
+    
+    \item La funció read que ens proporcionen per aquesta pràctica llegeix els valors correctes, ja que imprimeix els valors de 0 a N.
+    
+    \item La mida del fitxer, que no varia entre abans de tancar-lo i després de fer-ho, és la correcta, ja que té una mida de $4N$ (pels enters) més $3N$ (pels 'so2').
+    
+    \item Okteta ens mostra tant els caràcters com els enters en hexadecimal, els caràcters els llegeix correctament però els enters no perquè el programa parteix la informació cada 4 bits.
+    
+    \item Sí que apareixen els valors sencers correctes tot i que no s'entenguin. Això és perquè, en haver-hi tres chars, s'omplen primer tres bits d'informació i, per ompir el que falta (agafem els bits de 4 en 4 perquè és el tamany que té un enter), agafa el bit més significatiu del primer int que genera el programa. Si afegissim un char més, veuriem que el programa imprimeix els nombres perfectament, ja que no barreja la lectura dels enters am la dels caràcters i, per tant, la informació que ens retorna té sentit.
+\end{enumerate}
+
+\subsection*{Exercici 2}
+
+\begin{enumerate}[(a)]
+    \item ??
+    
+    \item Si sabem què fa el programa, podem saber quina mida tindrà el fitxer que escriu. En aquest cas, la mida del fitxer creat serà $4N$ bits, ja que escriu enters en un fitxer, que ocupen 4 bits cadascun.
+    
+    \item Fan el mateix, ja que es criden mutuament en l'execució.
+\end{enumerate}
+
+\subsection*{Exercici 3}
+
+\begin{enumerate}[(a)]
+    \item Quan no uses el lector proporcionat, okteta et llegeix caràcter a caràcter i al costat et tradueix en ascii el valor corresponent (00 = . , 01 = 1 , etc).
+    
+    \item El fitxer generat és, com en el cas del fitxer anterior, una llista d'enters del 0 al 99. La diferència està en què en el fitxer anterior s'escrivien els nombres del 0 al 99 llegint-ho bit a bit, i ara escriu els nombres del 0 al 99 però en binari. Per això, si llegim el nou document amb un editor de text ens mostra la llista de nombres correctament.
+    
+    \item \textit{fprintf-int} et retorna els enters correctes i ben impresos per lectura. Quan l’hi fas \textit{fread-int} et retorna les agrupacions de 4 bits que corresponen a dos enters i n'escriu els valors.
+    
+    \item ??
+\end{enumerate}
+
+\subsection*{Exercici 4}
+
+\begin{enumerate}[(a)]
+    \item \textit{mmap-read-int.c} ens mapeja a memòria virtual les dades d’un fitxer. Per imprimir els valors per consola, anem recorrent la memòria virtual des de l’adreça que \textit{mmap} ens retorna (que és el lloc on es comença a mapejar el fitxer a memòria). Com la memòria virtual es comporta igual que la memòria, podem iterar-la i llegir els nombres simplement sumant $1$ a la posició de memòria on hem desat les dades. \textit{printf} les llegiria si no estiguessin escrites en binari. \textit{fwrite} les escriu en binari i \textit{mmap} les llegeix en binari, fent que ens arribin els valors dels enters.
+    
+    \item Amb \textit{fread-int.c} es llegeixen les dades correctament perquè el document està escrit en binari i l'estem llegint en binari. En canvi, amb \textit{fscanf-int.c} no es llegeixen correctament perquè les dades estan escrites en binari però no les estem llegint en binari.
+    
+    \item El que fa \textit{lseek} és canviar l'\textit{offset} del fitxer i fer-lo coincidir amb la llargada del que hem d'escriure menys $1$, perquè així quan fem \textit{mmap} del fitxer es mapejarà correctament.
+    
+    Si traiem les dues comandes el programa ens retorna un error del bus. En concret, si traiem el write és quan ens retorna un error del bus, i si traiem \textit{lseek} aparentment el programa funciona, però en obrir el fitxer aquest està buit, ja que sense aquesta comanda el nostre programa escriu en un lloc diferent de la memòria.
+\end{enumerate}
+
+\end{document}
