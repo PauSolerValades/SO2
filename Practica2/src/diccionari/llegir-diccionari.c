@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 
 #define MAXCHAR 100
 
@@ -14,9 +16,12 @@ int main(void)
     exit(1);
   }
 
-  while (fgets(word, MAXCHAR, fp))
-    printf("%s", word);
+  while (fgets(word, MAXCHAR, fp)){
+    
+            printf("%s: %ld\n",word, strlen(word));
 
+  
+}
   fclose(fp);
 
   return  0;
