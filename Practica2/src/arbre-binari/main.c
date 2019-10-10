@@ -29,7 +29,7 @@
 int main(int argc, char **argv)
 {
   FILE *fd;
-  int a, maxnum, ct = 0, strLen;
+  int maxnum, ct = 0;
   char word[MAXCHAR];
 
   rb_tree *tree;
@@ -62,19 +62,35 @@ int main(int argc, char **argv)
     strLen = strlen(word)-1;
     char wordNais[strLen];
     *wordNais[strLen] = word;
-        */
-
+    falta allocar memoria dinamica    
+    */
+  char* auxWord; 
+  int lenWord;
   while(fgets(word, MAXCHAR, fd) != NULL && ct < maxnum){
     
-    /* Search if the key is in the tree */
-    n_data = find_node(tree, *word); 
+    /* Gestionem la memoria dinamica de les paraules:
+        Com que fgets guarda word al stack, no podem usar-la directament, sino estariem usant la mateixa direccio de memoria tota la estona, cosa que faria petar l'arbre
+     */
+    
+    lenWord = strlen(word); 
+    auxWord = malloc((lenWord+1)*sizeof(char)); /* Guardem un char mes per saber a on acaba l'string */
+    for(int i=0; i<lenWord;i++) 
+        auxWord[i] = word[i];
+    auxWord[lenWord]= 0;
+    
+    /* Search if the key is in the tree1 */
+    n_data = find_node(tree, auxWord); 
     
     /*printf("%s, %d",word,ct);*/
 
     if (n_data != NULL) {
 
+        printf("La paraula ja era a l'arbre\n");
       /* If the key is in the tree increment 'num' */
       n_data->num_times++;
+      
+      /* Com que no la estem fent servir, necessitem allibrerar la memoria. */
+      free(auxWord);
       
     } else {
 
@@ -84,21 +100,27 @@ int main(int argc, char **argv)
       n_data = malloc(sizeof(node_data));
       
       /* This is the key by which the node is indexed in the tree */
-      n_data->key = *word;
+      n_data->key = auxWord;
       
       /* This is additional information that is stored in the tree */
       n_data->num_times = 1;
+      
+      printf("Key: %s\n", n_data->key);
 
       /* We insert the node in the tree */
       insert_node(tree, n_data);
     }
     
     ct++;
-    
+    printf("Augmento C\n");
   }
   
+  fclose(fd);
+  
   /*TOTS ELS SEGMENTATIONS VENEN DE NO SABER GESTIONAR STRINGS LOCO Xd*/
-  printf("%s", (tree->root)->data->key);
+  printf("Surto del bucle\n");
+  
+  printf("Root: %s", (tree->root)->data->key);
   
   /* We now dump the information of the tree to screen */
 
@@ -116,6 +138,8 @@ int main(int argc, char **argv)
 
   printf("Nombre total que vegades que s'ha accedit a l'arbre: %d\n", ct);
   
+  */
+    
   /* Delete the tree */
   delete_tree(tree);
   free(tree);

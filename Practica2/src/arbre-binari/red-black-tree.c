@@ -49,19 +49,11 @@ void free_node_data(node_data *data)
  *
  */
 
-int compare_key1_less_than_key2(char * key1, char * key2)
+int compare_key1_less_than_key2(char* key1, char* key2)
 {
-    strc = strcasecmp(key1,key2);
+    if(strcasecmp(key1,key2) < 0){return 1;}
+    else {return 0;}
     
-    if(!strc){
-        return 0;
-    }else if(strc < 0){
-        return -1;
-    }else{
-        return 1;
-    }
-     
-    exit(1);
 }
 
 /**
@@ -73,17 +65,9 @@ int compare_key1_less_than_key2(char * key1, char * key2)
 
 int compare_key1_equal_to_key2(char * key1, char * key2)
 {
-    strc = strcasecmp(key1,key2);
+    if(strcasecmp(key1,key2) == 0){return 1;}
+    else {return 0;}
     
-    if(!strc){
-        return 0;
-    }else if(strc < 0){
-        return -1;
-    }else{
-        return 1;
-    }
-     
-    exit(1);
 }
 
 /**
@@ -112,14 +96,14 @@ void init_tree(rb_tree *tree)
  *
  */
 
-node_data *find_node(rb_tree *tree, char key) {
+node_data *find_node(rb_tree *tree, char* key) {
 
     node *current = tree->root;
     while(current != NIL)
-        if(compare_key1_equal_to_key2(&key, &current->data->key))
+        if(compare_key1_equal_to_key2(key, current->data->key))
             return (current->data);
         else
-            current = compare_key1_less_than_key2(&key, &current->data->key) ?
+            current = compare_key1_less_than_key2(key, current->data->key) ?
                 current->left : current->right;
 
     return NULL;
@@ -301,12 +285,12 @@ void insert_node(rb_tree *tree, node_data *data) {
     current = tree->root;
     parent = 0;
     while (current != NIL) {
-        if (compare_key1_equal_to_key2(&data->key, &current->data->key)) {
+        if (compare_key1_equal_to_key2(data->key, current->data->key)) {
             printf("insert_node: trying to insert but primary key is already in tree.\n");
             exit(1);
         }
         parent = current;
-        current = compare_key1_less_than_key2(&data->key, &current->data->key) ?
+        current = compare_key1_less_than_key2(data->key, current->data->key) ?
             current->left : current->right;
     }
 
@@ -331,7 +315,7 @@ void insert_node(rb_tree *tree, node_data *data) {
 
     /* Insert node in tree */
     if(parent) {
-        if(compare_key1_less_than_key2(&data->key, &parent->data->key))
+        if(compare_key1_less_than_key2(data->key, parent->data->key))
             parent->left = x;
         else
             parent->right = x;
