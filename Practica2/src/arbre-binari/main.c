@@ -12,73 +12,14 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <ctype.h>  
+
 
 #include "red-black-tree.h"
 
 #define MAXVALUE 10
 #define MAXCHAR 100 /*El fem servir com a limit temporal per recollir les paraules del fitxer.*/
 
-
-/**
- *
- *  Main function. This function is an example that shows
- *  how the binary tree works.
- *
- */
-
-void process_line(char *line)
-{
-    int i, j, is_word, len_line;
-    char paraula[MAXCHAR];
-
-    i = 0;
-
-    len_line = strlen(line);
-
-    /* Search for the beginning of a candidate word */
-
-    while ((i < len_line) && (isspace(line[i]) || (ispunct(line[i])))) i++; 
-
-    /* This is the main loop that extracts all the words */
-
-    while (i < len_line)
-    {
-        j = 0;
-        is_word = 1;
-
-        /* Extract the candidate word including digits if they are present */
-
-        do {
-
-            if (isalpha(line[i])) //lugar donde poner apostrofes
-                paraula[j] = line[i];
-            else 
-                is_word = 0;
-
-            j++; i++;
-
-            /* Check if we arrive to an end of word: space or punctuation character */
-
-        } while ((i < len_line) && (!isspace(line[i])) && (!ispunct(line[i])));
-
-        /* If word insert in list */
-
-        if (is_word) {
-
-            /* Put a '\0' (end-of-word) at the end of the string*/
-            paraula[j] = 0;
-
-            /* Print found word. Lugar dónde ponde el malloc */
-            
-            printf("%s\n", paraula);
-        }
-
-        /* Search for the beginning of a candidate word */
-
-        while ((i < len_line) && (isspace(line[i]) || (ispunct(line[i])))) i++; 
-
-    } /* while (i < len_line) */
-}
 
 int main(int argc, char **argv)
 {
@@ -181,13 +122,11 @@ int main(int argc, char **argv)
   for(a = 1; a <= MAXVALUE; a++)
   {
     n_data = find_node(tree, a);
-
     if (n_data) { 
       printf("El numero %d apareix %d cops a l'arbre.\n", a, n_data->num_times);
       ct += n_data->num_times;
     }
   }
-
   printf("Nombre total que vegades que s'ha accedit a l'arbre: %d\n", ct);
   
   */
@@ -198,4 +137,3 @@ int main(int argc, char **argv)
 
   return 0;
 }
-
