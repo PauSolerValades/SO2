@@ -35,7 +35,7 @@ void process_line(char *line)
 
         do {
 
-            if (isalpha(line[i]))
+            if (isalpha(line[i])) //lugar donde poner apostrofes
                 paraula[j] = line[i];
             else 
                 is_word = 0;
@@ -53,7 +53,8 @@ void process_line(char *line)
             /* Put a '\0' (end-of-word) at the end of the string*/
             paraula[j] = 0;
 
-            /* Print found word */
+            /* Print found word. Lugar dónde ponde el malloc */
+            
             printf("%s\n", paraula);
         }
 

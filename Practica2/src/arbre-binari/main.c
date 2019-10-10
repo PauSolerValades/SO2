@@ -26,6 +26,60 @@
  *
  */
 
+void process_line(char *line)
+{
+    int i, j, is_word, len_line;
+    char paraula[MAXCHAR];
+
+    i = 0;
+
+    len_line = strlen(line);
+
+    /* Search for the beginning of a candidate word */
+
+    while ((i < len_line) && (isspace(line[i]) || (ispunct(line[i])))) i++; 
+
+    /* This is the main loop that extracts all the words */
+
+    while (i < len_line)
+    {
+        j = 0;
+        is_word = 1;
+
+        /* Extract the candidate word including digits if they are present */
+
+        do {
+
+            if (isalpha(line[i])) //lugar donde poner apostrofes
+                paraula[j] = line[i];
+            else 
+                is_word = 0;
+
+            j++; i++;
+
+            /* Check if we arrive to an end of word: space or punctuation character */
+
+        } while ((i < len_line) && (!isspace(line[i])) && (!ispunct(line[i])));
+
+        /* If word insert in list */
+
+        if (is_word) {
+
+            /* Put a '\0' (end-of-word) at the end of the string*/
+            paraula[j] = 0;
+
+            /* Print found word. Lugar dónde ponde el malloc */
+            
+            printf("%s\n", paraula);
+        }
+
+        /* Search for the beginning of a candidate word */
+
+        while ((i < len_line) && (isspace(line[i]) || (ispunct(line[i])))) i++; 
+
+    } /* while (i < len_line) */
+}
+
 int main(int argc, char **argv)
 {
   FILE *fd;
@@ -58,12 +112,8 @@ int main(int argc, char **argv)
         printf("Could not open file\n");
         exit(1);
     }
-  /*
-    strLen = strlen(word)-1;
-    char wordNais[strLen];
-    *wordNais[strLen] = word;
-    falta allocar memoria dinamica    
-    */
+    
+    /* Aquesta es la funcio del fitxer extreu-paraules.c, on hi insertem el que volem vamos */
   char* auxWord; 
   int lenWord;
   while(fgets(word, MAXCHAR, fd) != NULL && ct < maxnum){
@@ -73,15 +123,17 @@ int main(int argc, char **argv)
      */
     
     lenWord = strlen(word); 
-    auxWord = malloc((lenWord+1)*sizeof(char)); /* Guardem un char mes per saber a on acaba l'string */
+    printf("%d\n", lenWord);
+    auxWord = malloc((lenWord+1)*sizeof(char)); /* Guardem un char mes per saber a on acaba l'string. TODO: mirar si canviant char per size of word*/
     for(int i=0; i<lenWord;i++) 
         auxWord[i] = word[i];
     auxWord[lenWord]= 0;
     
+    
+    
     /* Search if the key is in the tree1 */
     n_data = find_node(tree, auxWord); 
     
-    /*printf("%s, %d",word,ct);*/
 
     if (n_data != NULL) {
 
@@ -112,7 +164,7 @@ int main(int argc, char **argv)
     }
     
     ct++;
-    printf("Augmento C\n");
+    
   }
   
   fclose(fd);
