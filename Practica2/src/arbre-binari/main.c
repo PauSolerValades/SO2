@@ -22,6 +22,7 @@
 
 void diccionari_arbre(rb_tree* tree, int maxnum){
     
+    /* diccionari arbre omple l'arbre amb les paraules del fitxer diccionari (el que ja teniem a la practica) */  
     FILE *fd;
     int ct = 0, lenWord;
     char* auxWord; 
@@ -94,6 +95,11 @@ void diccionari_arbre(rb_tree* tree, int maxnum){
 
 void search_words(rb_tree* tree, char* filename){
     
+    /* search_words ARA extreu les paraules del fitxer filename i les printeja
+    HA DE: crear nodes per bucar-los al arbre que se li passa per parametre
+    Es la funció que extreu les paraules sense separar els números.   
+ */
+
     FILE *fp;
     char line[MAXCHAR], paraula[MAXCHAR];
     int i, j, is_word, len_line, apostrof = 39;
@@ -186,7 +192,7 @@ int main(int argc, char **argv)
     /* Omplim l'arbre amb les paraules del fitxer "words" */
     diccionari_arbre(tree, maxnum);
     
-    data = fopen("llista.cfg","r");
+    data = fopen("llista.cfg","r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
 
     if (!data) {
         printf("Could not open file: llista.cfg in MAIN\n");
@@ -198,9 +204,9 @@ int main(int argc, char **argv)
         /* Busquem les paraules al arbre de tots els diccionaris */
         if(control==0){
             //numFitxers = atoi(filename); /* Es possible que aixo falli uwu */
-            control++;
+            control++; /* El primer element de llista.cfg és un int del nombre de fitxers que hi ha al document. ens els saltem perque no hi podrem accedir */
         }else{
-            
+            /* Retallem l'string per poder-lo passar a la funcio i que llegeixi be el path */
             lenFilePath = strlen(filename)-1; 
             printf("Len: %d\n", lenFilePath);
             auxFilePath = malloc((lenFilePath+1)*sizeof(char)); /* Guardem un char mes per saber a on acaba l'string. TODO: mirar si canviant char per size of word*/
@@ -215,7 +221,7 @@ int main(int argc, char **argv)
         }
     }
     
-    fclose(data);
+    fclose(data); /* tanca llista.cfg */
     /* Delete the tree */
     delete_tree(tree);
     free(tree);
