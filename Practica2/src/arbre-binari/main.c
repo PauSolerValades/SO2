@@ -50,10 +50,11 @@ void diccionari_arbre(rb_tree* tree, int maxnum){
          * 
         */
 
-        lenWord = strlen(word); 
-        printf("%d\n", lenWord);
-        auxWord = malloc((lenWord+1)*sizeof(char)); /* Guardem un char mes per saber a on acaba l'string. TODO: mirar si canviant char per size of word*/
-        for(int i=0; i<lenWord;i++) 
+        lenWord = strlen(word) - 1; 
+        //printf("%d\n", lenWord);
+        
+        auxWord = malloc((lenWord + 1) * sizeof(char)); /* Guardem un char mes per saber a on acaba l'string. TODO: mirar si canviant char per size of word*/
+        for(int i = 0; i <= lenWord; i++) 
             auxWord[i] = word[i];
         auxWord[lenWord]= 0;
 
@@ -65,7 +66,7 @@ void diccionari_arbre(rb_tree* tree, int maxnum){
 
             printf("La paraula ja era a l'arbre\n");
         
-            n_data->num_times++; /* If the key is in the tree increment 'num' */
+            /* n_data->num_times++; If the key is in the tree increment 'num'*/
             free(auxWord);  /* Com que no la estem fent servir, necessitem allibrerar la memoria. */
             
         } else {
@@ -79,9 +80,10 @@ void diccionari_arbre(rb_tree* tree, int maxnum){
             n_data->key = auxWord;
             
             /* This is additional information that is stored in the tree */
-            n_data->num_times = 1;
+            n_data->num_times = 0;
             
-            printf("Key: %s\n", n_data->key);
+            //printf("Key: %s\n", n_data->key);
+            //printf("len_key: %ld\n", strlen(n_data->key));
 
             /* We insert the node in the tree */
             insert_node(tree, n_data);
@@ -89,7 +91,7 @@ void diccionari_arbre(rb_tree* tree, int maxnum){
 
         ct++;
     }
-
+    
     fclose(fd);
 }
 
@@ -105,8 +107,6 @@ void search_words(rb_tree* tree, char* filename){
     int i, j, is_word, len_line, apostrof = 39;
     
     fp = fopen(filename, "r");
-    
-    printf("File %s\n", filename);
 
     if (!fp) {
         printf("Could not open file: %s in SEARCH_WORDS\n", filename);
@@ -149,10 +149,12 @@ void search_words(rb_tree* tree, char* filename){
 
                 /* Put a '\0' (end-of-word) at the end of the string*/
                 paraula[j] = 0;
-
-                /* Print found word. Lugar dónde ponde el malloc */
                 
-                printf("%s\n", paraula);
+                if (find_node(tree, paraula) != NULL) {
+                    (find_node(tree, paraula)->num_times++);
+                    //printf("%s\n", paraula);
+                    //printf("%d\n", find_node(tree, paraula)->num_times);
+                }
             }
 
             /* Search for the beginning of a candidate word */
@@ -160,8 +162,6 @@ void search_words(rb_tree* tree, char* filename){
             while ((i < len_line) && (isspace(line[i]) || (ispunct(line[i])))) i++; 
 
         } /* while (i < len_line) */
-    
-    
     
     }
     
@@ -207,19 +207,21 @@ int main(int argc, char **argv)
             control++; /* El primer element de llista.cfg és un int del nombre de fitxers que hi ha al document. ens els saltem perque no hi podrem accedir */
         }else{
             /* Retallem l'string per poder-lo passar a la funcio i que llegeixi be el path */
-            lenFilePath = strlen(filename)-1; 
-            printf("Len: %d\n", lenFilePath);
-            auxFilePath = malloc((lenFilePath+1)*sizeof(char)); /* Guardem un char mes per saber a on acaba l'string. TODO: mirar si canviant char per size of word*/
+            lenFilePath = strlen(filename) - 1; 
+            //printf("Len: %d\n", lenFilePath);
+            auxFilePath = malloc((lenFilePath + 1)*sizeof(char)); /* Guardem un char mes per saber a on acaba l'string. TODO: mirar si canviant char per size of word*/
             for(int i=0; i<=lenFilePath;i++) 
                 auxFilePath[i] = filename[i];
             auxFilePath[lenFilePath]= 0;
             
-            printf("Len: %ld\n", strlen(auxFilePath));
-
-            printf("File %s\n", auxFilePath);
+            //printf("Len: %ld\n", strlen(auxFilePath));
+            //printf("File %s\n", auxFilePath);
+            
             search_words(tree, auxFilePath);
         }
     }
+    
+    print_tree_inorder(tree->root);
     
     fclose(data); /* tanca llista.cfg */
     /* Delete the tree */

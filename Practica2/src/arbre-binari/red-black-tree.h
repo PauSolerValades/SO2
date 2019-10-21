@@ -77,5 +77,5 @@ typedef struct rb_tree_ {
 void init_tree(rb_tree *tree);
 void insert_node(rb_tree *tree, node_data *d);
 node_data *find_node(rb_tree *tree, char* key); 
+void print_tree_inorder(node *current);
 void delete_tree(rb_tree *tree);
-

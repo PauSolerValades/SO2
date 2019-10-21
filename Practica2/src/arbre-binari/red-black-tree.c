@@ -54,7 +54,6 @@ int compare_key1_less_than_key2(char* key1, char* key2)
 {
     if(strcasecmp(key1,key2) < 0){return 1;}
     else {return 0;}
-    
 }
 
 /**
@@ -68,7 +67,6 @@ int compare_key1_equal_to_key2(char * key1, char * key2)
 {
     if(strcasecmp(key1,key2) == 0){return 1;}
     else {return 0;}
-    
 }
 
 /**
@@ -100,14 +98,31 @@ void init_tree(rb_tree *tree)
 node_data *find_node(rb_tree *tree, char* key) {
 
     node *current = tree->root;
-    while(current != NIL)
+    while(current != NIL){
         if(compare_key1_equal_to_key2(key, current->data->key))
             return (current->data);
         else
             current = compare_key1_less_than_key2(key, current->data->key) ?
                 current->left : current->right;
-
+    }
     return NULL;
+}
+
+void print_tree_inorder(node *current) {
+ 
+    if (current == NULL){
+        return;
+    }
+    else{
+        if (current->left != NIL)
+            print_tree_inorder(current->left);
+        
+        printf("Key: %s\n", current->data->key);
+        printf("num_times: %d\n\n", current->data->num_times);
+        
+        if (current->right != NIL)
+            print_tree_inorder(current->right);
+    }
 }
 
 /** 

@@ -4,7 +4,7 @@
 int main(void)
 {
   char *str1 = "STRING";
-  char *str2 = "strinnn";
+  char *str2 = "string";
   int result;
 
   result = strcasecmp(str1, str2);
