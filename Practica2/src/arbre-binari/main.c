@@ -38,10 +38,11 @@ void diccionari_arbre(rb_tree* tree, int maxnum){
         exit(1);
     }
 
+    printf("Omplint l'arbre amb el diccionari...\n");
     
     /* Aquesta es la funcio del fitxer extreu-paraules.c, on hi insertem el que volem vamos */
 
-    while(fgets(word, MAXCHAR, fd) != NULL && ct < maxnum){
+    while(fgets(word, MAXCHAR, fd) != NULL /*&& ct < maxnum*/){
 
         /* 
          * Gestionem la memoria dinamica de les paraules:
@@ -92,6 +93,8 @@ void diccionari_arbre(rb_tree* tree, int maxnum){
         ct++;
     }
     
+    printf("Arbre creat amb %d paraules!\n", ct);
+    
     fclose(fd);
 }
 
@@ -105,6 +108,7 @@ void search_words(rb_tree* tree, char* filename){
     FILE *fp;
     char line[MAXCHAR], paraula[MAXCHAR];
     int i, j, is_word, len_line, apostrof = 39;
+     node_data *temp;
     
     fp = fopen(filename, "r");
 
@@ -150,11 +154,16 @@ void search_words(rb_tree* tree, char* filename){
                 /* Put a '\0' (end-of-word) at the end of the string*/
                 paraula[j] = 0;
                 
-                if (find_node(tree, paraula) != NULL) {
-                    (find_node(tree, paraula)->num_times++);
+                temp = find_node(tree, paraula);
+                
+                if (temp != NULL) {
+                    (temp->num_times++);
+                    
                     //printf("%s\n", paraula);
                     //printf("%d\n", find_node(tree, paraula)->num_times);
                 }
+                
+                
             }
 
             /* Search for the beginning of a candidate word */
@@ -218,10 +227,12 @@ int main(int argc, char **argv)
             //printf("File %s\n", auxFilePath);
             
             search_words(tree, auxFilePath);
+            
+            free(auxFilePath);
         }
     }
     
-    print_tree_inorder(tree->root);
+//     print_tree_inorder(tree->root);
     
     fclose(data); /* tanca llista.cfg */
     /* Delete the tree */
