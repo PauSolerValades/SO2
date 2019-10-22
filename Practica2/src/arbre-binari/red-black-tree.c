@@ -108,6 +108,12 @@ node_data *find_node(rb_tree *tree, char* key) {
     return NULL;
 }
 
+/**
+ * 
+ * Prints tree inorder beginning in the specified node.
+ * 
+ */ 
+
 void print_tree_inorder(node *current) {
  
     if (current == NULL){
@@ -117,8 +123,8 @@ void print_tree_inorder(node *current) {
         if (current->left != NIL)
             print_tree_inorder(current->left);
         
-        printf("Key: %s\n", current->data->key);
-        printf("num_times: %d\n\n", current->data->num_times);
+        printf("%d  ", current->data->num_times);
+        printf("%s\n", current->data->key);
         
         if (current->right != NIL)
             print_tree_inorder(current->right);
