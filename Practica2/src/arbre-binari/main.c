@@ -20,17 +20,33 @@
 #define MAXVALUE 10
 #define MAXCHAR 100 /*El fem servir com a limit temporal per recollir les paraules del fitxer.*/
 
-/**
- * 
- * Aquesta funcio indexa en el nostre arbre les paraules del fitxer que vulguem,
- * en aquest cas, fa servir el fitxer 'words'.
- * 
- */
+char* retallar_strings(char* string){
+
+    char* newString;
+    int lenString;
+    
+    lenString = strlen(string) - 1;
+    newString = malloc((lenString + 1) * sizeof(char));
+    for(int i = 0; i <= lenString; i++) 
+        newString[i] = string[i];
+    newString[lenString] = 0;
+    
+    return newString;
+    
+}
 
 void diccionari_arbre(rb_tree* tree){
     
+    /**
+    * 
+    * diccionari_arbre indexa les paraules del fitxer 'words' a l'arbre passat per paràmetre.
+    * Arguments: rb_tree* tree
+    * Retorn: void
+    * 
+    */
+        
     FILE *fd;
-    int ct = 0, lenWord;
+    int ct = 0;
     char* auxWord; 
     char word[MAXCHAR];
     
@@ -43,8 +59,6 @@ void diccionari_arbre(rb_tree* tree){
         printf("Could not open file: words in DICCIONARI_ARBRE\n");
         exit(1);
     }
-
-    //printf("Omplint l'arbre amb el diccionari...\n");
     
     /* Aquesta es la funcio del fitxer extreu-paraules.c, adaptada per poder usar-la */
 
@@ -57,20 +71,13 @@ void diccionari_arbre(rb_tree* tree){
          * de memoria tota la estona, cosa que faria petar l'arbre.
          * 
         */
-
-        lenWord = strlen(word) - 1; 
         
-        auxWord = malloc((lenWord + 1) * sizeof(char)); /* Guardem un char mes per saber a on acaba l'string */
-        for(int i = 0; i <= lenWord; i++) 
-            auxWord[i] = word[i];
-        auxWord[lenWord] = 0;
+        auxWord = retallar_strings(word); 
 
         /* Search if the key is in the tree */
         n_data = find_node(tree, auxWord); 
 
         if (n_data != NULL) {
-
-            //printf("La paraula ja era a l'arbre\n");
         
             free(auxWord);  /* Com que no la estem fent servir, necessitem allibrerar la memoria */
             
@@ -106,7 +113,11 @@ void search_words(rb_tree* tree, char* filename){
      * 'search_words' extreu les paraules del fitxer 'filename' i, per cada paraula,
      * recorre l'arbre comparant-la amb les keys dels nodes. Si troba una coincidencia
      * augmenta el num_times del node amb la key corresponent en 1.
-     *   
+     * Arguments:
+     *  rb_tree* tree: arbre red_black_tree.c proporcionat a la pràctica
+     *  char* filename: nom del fitxer que extraurem les paraules.
+     * Retorn: void
+     *
      */
 
     FILE *fp;
@@ -184,10 +195,11 @@ int main(int argc, char **argv)
 {
     FILE *data;
     char filename[MAXCHAR];
-    char* auxFilePath; 
-    int control = 0, lenFilePath;
+    char* llistaDocuments;
+    char* auxFilePath;
+    int control = 0;
     
-    if (argc != 1)
+    if (argc != 2)
     {
         printf("Usage: %s\n", argv[0]);
         exit(1);
@@ -196,11 +208,13 @@ int main(int argc, char **argv)
     rb_tree *tree;
     tree = (rb_tree *) malloc(sizeof(rb_tree));
     init_tree(tree);
-
+    
+    llistaDocuments = argv[1];
+    
     /* Omplim l'arbre amb les paraules del fitxer "words" */
     diccionari_arbre(tree);
     
-    data = fopen("llista.cfg","r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
+    data = fopen(llistaDocuments,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
 
     if (!data) {
         printf("Could not open file: llista.cfg in MAIN\n");
@@ -214,30 +228,21 @@ int main(int argc, char **argv)
         if(control==0){
             control++; /* El primer element de llista.cfg és un int del nombre de fitxers que hi ha al document. Ens els saltem perque no hi podrem accedir */
         }else{
+           
             /* Retallem l'string per poder-lo passar a la funcio i que llegeixi be el path */
-            lenFilePath = strlen(filename) - 1; 
-            auxFilePath = malloc((lenFilePath + 1) * sizeof(char)); /* Guardem un char mes per saber a on acaba l'string. TODO: mirar si canviant char per size of word*/
-            for(int i = 0; i <= lenFilePath; i++) 
-                auxFilePath[i] = filename[i];
-            auxFilePath[lenFilePath] = 0;
+            auxFilePath = retallar_strings(filename);
             
             search_words(tree, auxFilePath);
             
             free(auxFilePath);
         }
     }
-    
-    //printf("S'han acabat de recorrer els arxius, printejant les n paraules més usades.\n");
-    
-    /**
-     * 
-     * Printejem tot el diccionari
-     * ordenat alfabeticament.
-     * 
-     */ 
+        
+    /* printejem el diccionari ordenat alfabèticament */
     print_tree_inorder(tree->root);
     
     fclose(data); /* tanca llista.cfg */
+    
     /* Delete the tree */
     delete_tree(tree);
     free(tree);
