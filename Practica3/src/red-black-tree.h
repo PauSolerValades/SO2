@@ -25,7 +25,8 @@ typedef struct node_data_
     // This is the additional information that will be stored
     // within the structure. You may adapt it to your needs:
     // add or remove fields as you need.
-    int num_times;   
+    int num_times;
+    int len; /* longitud de la paraula */
 } node_data; 
 
 /**
@@ -67,6 +68,7 @@ extern node sentinel;  /* declared in file red-black-tree.c */
 
 typedef struct rb_tree_ {
     node *root;                   /* root of Red-Black tree */
+    int num_elements;             /* Nombre de nodes que hi ha a l'arbre */
 } rb_tree;
 
 /*

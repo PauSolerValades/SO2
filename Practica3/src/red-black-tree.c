@@ -86,6 +86,7 @@ node sentinel = { NULL, NULL, NULL, NULL, BLACK};
 void init_tree(rb_tree *tree)
 {
     tree->root = NIL;
+    tree->num_elements = 0;
 }
 
 /**
@@ -346,6 +347,8 @@ void insert_node(rb_tree *tree, node_data *data) {
     }
 
     insert_fixup(tree, x);
+    
+    tree->num_elements++;
 }
 
 

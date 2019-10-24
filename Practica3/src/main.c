@@ -114,6 +114,8 @@ void diccionari_arbre(rb_tree* tree, char* diccionari){
             /* This is additional information that is stored in the tree */
             n_data->num_times = 0;
             
+            n_data->len = strlen(auxWord);
+            
             /* We insert the node in the tree */
             insert_node(tree, n_data);
         }
@@ -143,7 +145,7 @@ void search_words(rb_tree* tree, char* filename){
     FILE *fp;
     char line[MAXCHAR], paraula[MAXCHAR];
     int i, j, is_word, len_line, apostrof = 39;
-     node_data *temp;
+    node_data *temp;
     
     fp = fopen(filename, "r");
 
@@ -256,6 +258,28 @@ rb_tree* practica2(char* str1, char* str2)
     return tree;
 
 }
+
+void guardar_arbre(char* filename, rb_tree* tree){
+
+    FILE* fd;
+    
+    fd = fopen(filename, "w");
+    
+    if (!fd) {
+        printf("Could not open file: %s in GUARDAR_ARBRE\n", filename);
+        return;
+    }
+    
+    int magic = MAGIC_NUMBER;
+    int num_elements = tree->num_elements;
+    
+    /* Aixo ja es binari */
+    fwrite(&magic, sizeof(int), 1, fd);
+    fwrite(&tree, sizeof(int), 1, fd);
+    
+    fclose(fd);
+    
+}
 /**
  * 
  *  Main procedure
@@ -270,7 +294,7 @@ int main(int argc, char **argv)
     
     rb_tree *tree;
     tree = NULL;
-
+    
     if (argc != 1)
         printf("Opcions de la linia de comandes ignorades\n");
 
@@ -289,9 +313,10 @@ int main(int argc, char **argv)
                 printf("Fitxer de base de dades: ");
                 fgets(str2, MAXCHAR, stdin);
                 str2[strlen(str2)-1]=0;
-
+                
                 tree = practica2(str1, str2);
 
+                printf("Fucking elements: %d\n", tree->num_elements);
                 break;
 
             case 2:
@@ -299,8 +324,10 @@ int main(int argc, char **argv)
                 fgets(str1, MAXCHAR, stdin);
                 str1[strlen(str1)-1]=0;
 
-                /* Falta codi */
-
+                if(tree !=NULL){
+                    guardar_arbre(str1, tree);
+                
+                }else{ printf("L'arbre no ha estat creat.\n"); } 
                 break;
 
             case 3:
