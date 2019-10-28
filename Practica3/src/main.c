@@ -145,7 +145,7 @@ void search_words(rb_tree* tree, char* filename){
     FILE *fp;
     char line[MAXCHAR], paraula[MAXCHAR];
     int i, j, is_word, len_line, apostrof = 39;
-    node_data *temp;
+    node_data* temp;
     
     fp = fopen(filename, "r");
 
@@ -259,9 +259,13 @@ rb_tree* practica2(char* str1, char* str2)
 
 }
 
-void guardar_arbre(char* filename, rb_tree* tree){
+void guardar_arbre(char* filename, char* diccionari, rb_tree* tree){
 
     FILE* fd;
+    FILE* fd2;
+    char* auxWord;
+    char word[MAXCHAR];
+    node_data* n_data;
     
     fd = fopen(filename, "w");
     
@@ -274,8 +278,92 @@ void guardar_arbre(char* filename, rb_tree* tree){
     int num_elements = tree->num_elements;
     
     /* Aixo ja es binari */
-    fwrite(&magic, sizeof(int), 1, fd);
-    fwrite(&tree, sizeof(int), 1, fd);
+    fwrite(&magic, sizeof(int), 1, fd); /* Assumim que hi ha un /0 despres de fwrite */
+    fwrite(&num_elements, sizeof(int), 1, fd);
+    
+    fd2 = fopen(diccionari, "r");
+    
+    while(fgets(word, MAXCHAR, fd2) != NULL){
+        
+        auxWord = retallar_strings(word); 
+        n_data = find_node(tree, auxWord);
+        
+        int len = n_data->len;
+        char* key = n_data->key;
+        int num_times = n_data->num_times;
+        
+        free(auxWord);
+        
+        fwrite(&len, sizeof(int), 1, fd);
+        fwrite(&key, len*sizeof(char), 1, fd);
+        fwrite(&num_times, sizeof(int), 1, fd);
+        
+    }
+    
+    fclose(fd);
+    fclose(fd2);
+    
+}
+
+void recuperar_arbre(char* filename, rb_tree* tree){
+    
+    FILE* fd;
+    int magic, MAGIC, num_nodes, len_key, num_times, i = -2;
+    char* key;
+    char* pic;
+    char linia[MAXCHAR];
+    node_data* tmp;
+    tmp = NULL;
+    
+    fd = fopen(filename, "r");
+    
+    if (!fd) {
+        printf("Could not open file: %s in RECUPERAR_ARBRE\n", filename);
+        return;
+    }
+    
+    while(fgets(linia, MAXCHAR, fd) != NULL){
+        
+        printf("linia %s\n", linia);
+        
+        pic = retallar_strings(linia);
+
+        if(i==-2){
+            MAGIC = MAGIC_NUMBER;    
+    
+            fread(&magic, sizeof(int), 1, fd); /* Llegeix el magic */
+            printf("%d, %d\n", magic, MAGIC);
+            if(magic != MAGIC){
+                printf("Magic error");
+                fclose(fd);
+                return;
+            }
+        }
+        if(i==-1){
+            
+            fread(&num_nodes, sizeof(int), 1, fd);
+            tree->num_elements = num_nodes;
+        }
+
+        if(i % 3 == 0){
+            fread(&len_key, sizeof(int), 1, fd);
+        }
+        if(i % 3 == 1){
+            fread(&key, sizeof(char)*len_key, 1, fd);
+        }
+        if(i % 3 == 2){
+            fread(&num_times, sizeof(int), 1, fd);
+            
+            tmp->len = len_key;
+            tmp->key = key;
+            tmp->num_times = num_times;
+            
+            insert_node(tree, tmp);
+        }
+        
+        free(pic);
+        i++;
+    }
     
     fclose(fd);
     
@@ -289,7 +377,7 @@ void guardar_arbre(char* filename, rb_tree* tree){
 
 int main(int argc, char **argv)
 {
-    char str1[MAXCHAR], str2[MAXCHAR];
+    char str1[MAXCHAR], str2[MAXCHAR], diccionari[MAXCHAR];
     int opcio;
     
     rb_tree *tree;
@@ -316,16 +404,25 @@ int main(int argc, char **argv)
                 
                 tree = practica2(str1, str2);
 
-                printf("Fucking elements: %d\n", tree->num_elements);
+                diccionari[strlen(str1)-1]=0;
+                strcpy(diccionari, str1);
+                
+                printf("Elements: %d\n", tree->num_elements);
                 break;
 
             case 2:
                 printf("Nom de fitxer en que es desara l'arbre: ");
                 fgets(str1, MAXCHAR, stdin);
                 str1[strlen(str1)-1]=0;
-
+                
+                /*
+                printf("Nom del diccionari: ");
+                fgets(str2, MAXCHAR, stdin);
+                str2[strlen(str2)-1]=0;
+                */
+                
                 if(tree !=NULL){
-                    guardar_arbre(str1, tree);
+                    guardar_arbre(str1, diccionari, tree);
                 
                 }else{ printf("L'arbre no ha estat creat.\n"); } 
                 break;
@@ -335,7 +432,7 @@ int main(int argc, char **argv)
                 fgets(str1, MAXCHAR, stdin);
                 str1[strlen(str1)-1]=0;
 
-                /* Falta codi */
+                recuperar_arbre(str1, tree);
 
                 break;
 
