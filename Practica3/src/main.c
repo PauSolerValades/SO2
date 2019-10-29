@@ -24,7 +24,7 @@
 int menu() 
 {
     char str[5];
-    int opcio;
+    int opcio=0;
 
     printf("\n\nMenu\n\n");
     printf(" 1 - Creacio de l'arbre\n");
@@ -34,8 +34,8 @@ int menu()
     printf(" 5 - Sortir\n\n");
     printf("   Escull opcio: ");
 
-    fgets(str, 5, stdin);
-    opcio = atoi(str); 
+    if(fgets(str, 5, stdin))
+        opcio = atoi(str); 
 
     return opcio;
 }
@@ -322,6 +322,32 @@ void recuperar_arbre(char* filename, rb_tree* tree){
         return;
     }
     
+    if(fread(&magic, sizeof(int), 1, fd)){
+    
+         printf("MAGIC DEL FITXER: %d\n", magic);
+         MAGIC = MAGIC_NUMBER;    
+
+         if(magic != MAGIC){
+         
+            printf("Magic error");
+            fclose(fd);
+            return;
+            
+        }
+    }
+    
+    if(fread(&num_nodes, sizeof(int), 1, fd)){
+        
+        printf("Num nodes: %d\n",num_nodes);
+        tree->num_elements = num_nodes;
+    }
+    /*
+    for(int i = 0; i<num_nodes; i++){
+    
+        
+    }
+    */
+    
     while(fgets(linia, MAXCHAR, fd) != NULL){
         
         printf("linia %s\n", linia);
@@ -331,7 +357,7 @@ void recuperar_arbre(char* filename, rb_tree* tree){
         if(i==-2){
             MAGIC = MAGIC_NUMBER;    
     
-            fread(&magic, sizeof(int), 1, fd); /* Llegeix el magic */
+            if(fread(&magic, sizeof(int), 1, fd)) /* Llegeix el magic */
             printf("%d, %d\n", magic, MAGIC);
             if(magic != MAGIC){
                 printf("Magic error");
@@ -341,24 +367,32 @@ void recuperar_arbre(char* filename, rb_tree* tree){
         }
         if(i==-1){
             
-            fread(&num_nodes, sizeof(int), 1, fd);
+            if(fread(&num_nodes, sizeof(int), 1, fd))
             tree->num_elements = num_nodes;
         }
 
         if(i % 3 == 0){
-            fread(&len_key, sizeof(int), 1, fd);
+            if(fread(&len_key, sizeof(int), 1, fd)){
+            
+                
+            }
         }
         if(i % 3 == 1){
-            fread(&key, sizeof(char)*len_key, 1, fd);
+            if(fread(&key, sizeof(char)*len_key, 1, fd)){
+            
+                
+            }
         }
         if(i % 3 == 2){
-            fread(&num_times, sizeof(int), 1, fd);
+            if(fread(&num_times, sizeof(int), 1, fd)){
+                
             
-            tmp->len = len_key;
-            tmp->key = key;
-            tmp->num_times = num_times;
+                tmp->len = len_key;
+                tmp->key = key;
+                tmp->num_times = num_times;
             
-            insert_node(tree, tmp);
+                insert_node(tree, tmp);
+            }
         }
         
         free(pic);
@@ -395,12 +429,12 @@ int main(int argc, char **argv)
         switch (opcio) {
             case 1:
                 printf("Fitxer de diccionari de paraules: ");
-                fgets(str1, MAXCHAR, stdin);
-                str1[strlen(str1)-1]=0;
+                if(fgets(str1, MAXCHAR, stdin))
+                    str1[strlen(str1)-1]=0;
 
                 printf("Fitxer de base de dades: ");
-                fgets(str2, MAXCHAR, stdin);
-                str2[strlen(str2)-1]=0;
+                if(fgets(str2, MAXCHAR, stdin))
+                    str2[strlen(str2)-1]=0;
                 
                 tree = practica2(str1, str2);
 
@@ -412,8 +446,8 @@ int main(int argc, char **argv)
 
             case 2:
                 printf("Nom de fitxer en que es desara l'arbre: ");
-                fgets(str1, MAXCHAR, stdin);
-                str1[strlen(str1)-1]=0;
+                if(fgets(str1, MAXCHAR, stdin))
+                    str1[strlen(str1)-1]=0;
                 
                 /*
                 printf("Nom del diccionari: ");
@@ -429,8 +463,8 @@ int main(int argc, char **argv)
 
             case 3:
                 printf("Nom del fitxer que conte l'arbre: ");
-                fgets(str1, MAXCHAR, stdin);
-                str1[strlen(str1)-1]=0;
+                if(fgets(str1, MAXCHAR, stdin))
+                    str1[strlen(str1)-1]=0;
 
                 recuperar_arbre(str1, tree);
 
@@ -438,8 +472,8 @@ int main(int argc, char **argv)
 
             case 4:
                 printf("Paraula a buscar o polsa enter per saber la paraula que apareix mes vegades: ");
-                fgets(str1, MAXCHAR, stdin);
-                str1[strlen(str1)-1]=0;
+                if(fgets(str1, MAXCHAR, stdin))
+                    str1[strlen(str1)-1]=0;
 
                 /* Falta codi */
 
