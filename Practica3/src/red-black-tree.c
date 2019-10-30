@@ -132,6 +132,23 @@ void print_tree_inorder(node *current) {
     }
 }
 
+void print_tree_inorder_file(node *current, FILE *fd) {
+ 
+    if (current == NULL){
+        return;
+    }
+    else{
+        if (current->left != NIL)
+            print_tree_inorder_file(current->left, fd);
+        
+        fprintf(fd, "%d  ", current->data->num_times);
+        fprintf(fd, "%s\n", current->data->key);
+        
+        if (current->right != NIL)
+            print_tree_inorder_file(current->right, fd);
+    }
+}
+
 /** 
  *
  * NO FA FALTA MODIFICAR EL CODI QUE HI HA SOTA PER FER LES PRACTIQUES.
