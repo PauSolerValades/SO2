@@ -271,7 +271,7 @@ void nodes_tree_inorder(node *current, FILE* fd) {
         char* key = current->data->key;
         int num_times = current->data->num_times;
         
-        printf("Key: %s\t Len: %d\t Times: %d\n", key, len, num_times);
+        printf("Key: %s\t\t Len: %d\t Times: %d\n", key, len, num_times);
         
         fwrite(&len, sizeof(int), 1, fd);
         fwrite(key, len*sizeof(char), 1, fd);
@@ -307,12 +307,11 @@ void guardar_arbre(char* filename, char* diccionari, rb_tree* tree){
     
 }
 
-void recuperar_arbre(char* filename){
+rb_tree* recuperar_arbre(char* filename){
     
     FILE* fd;
-    int magic, MAGIC, num_nodes, len_key=0, num_times=0;
-    node_data* tmp;
-    tmp = NULL;
+    int magic, MAGIC, num_nodes, len_key=0, num_times=0;    
+    
     
     rb_tree *tree;
     tree = (rb_tree *) malloc(sizeof(rb_tree));
@@ -322,7 +321,7 @@ void recuperar_arbre(char* filename){
     
     if (!fd) {
         printf("Could not open file: %s in RECUPERAR_ARBRE\n", filename);
-        return;
+        return NULL;
     }
     
     if(fread(&magic, sizeof(int), 1, fd)){
@@ -334,20 +333,22 @@ void recuperar_arbre(char* filename){
          
             printf("Magic error");
             fclose(fd);
-            return;
+            return NULL;
             
+        
         }
     }
+    
     
     if(fread(&num_nodes, sizeof(int), 1, fd)){
         
         printf("Num nodes: %d\n",num_nodes);
         tree->num_elements = num_nodes;
         printf("%d\n", tree->num_elements);
+    
     }
     
-    printf("aaa");
-//     for(int i = 0; i < 6; i++){
+    for(int i = 0; i < num_nodes; i++){
         if(fread(&len_key, sizeof(int), 1, fd)){}
 
         char *key = malloc(sizeof(char)*len_key + 1);
@@ -356,16 +357,20 @@ void recuperar_arbre(char* filename){
         
         if(fread(&num_times, sizeof(int), 1, fd)){}
         
+        node_data* tmp = malloc(sizeof(node_data));
+        
         tmp->len = len_key;
         tmp->key = key;
         tmp->num_times = num_times;
         
-        printf("Key: %s\t Len: %d\t Times: %d\n", key, len_key, num_times);
+        printf("Key: %s\t\t Len: %d\t Times: %d\n", key, len_key, num_times);
         
         insert_node(tree, tmp);
-//      }
+     }
     
     fclose(fd);
+    
+    return tree;
     
 }
 
@@ -441,7 +446,13 @@ int main(int argc, char **argv)
                 if(fgets(str1, MAXCHAR, stdin))
                     str1[strlen(str1)-1]=0;
 
-                recuperar_arbre(str1);
+                if(tree != NULL){
+                    delete_tree(tree);
+                    free(tree);                
+                }
+                
+
+                tree = recuperar_arbre(str1);
 
                 break;
 
