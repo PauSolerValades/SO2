@@ -46,7 +46,7 @@ char* retallar_strings(char* string){
     int lenString;
     
     lenString = strlen(string) - 1;
-    newString = malloc((lenString + 1) * sizeof(char));
+    newString = malloc((lenString+1) * sizeof(char));
     for(int i = 0; i <= lenString; i++) 
         newString[i] = string[i];
     newString[lenString] = 0;
@@ -229,8 +229,9 @@ rb_tree* practica2(char* str1, char* str2)
     data = fopen(str2,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
 
     if (!data) {
-        printf("Could not open file: llista.cfg in MAIN\n");
-        exit(1);
+        printf("Could not open file: %s in MAIN\n", str2);
+        fclose(data);
+        return tree;
     }
     
     //printf("S'estan recorrent els fitxers, esperi si us plau.");
@@ -249,22 +250,42 @@ rb_tree* practica2(char* str1, char* str2)
             free(auxFilePath);
         }
     }
-        
-    /* printejem el diccionari ordenat alfabèticament */
-    //print_tree_inorder(tree->root);
     
-    fclose(data); /* tanca llista.cfg */
+    fclose(data); /* tanca str2 */
     
     return tree;
 
 }
 
+
+void nodes_tree_inorder(node *current, FILE* fd) {
+ 
+    if (current == NULL){
+        return;
+    }
+    else{
+        if (current->left != NIL)
+            nodes_tree_inorder(current->left, fd);
+        
+        int len = current->data->len;
+        char* key = current->data->key;
+        int num_times = current->data->num_times;
+        
+        printf("Key: %s\t Len: %d\t Times: %d\n", key, len, num_times);
+        
+        fwrite(&len, sizeof(int), 1, fd);
+        fwrite(key, len*sizeof(char), 1, fd);
+        fwrite(&num_times, sizeof(int), 1, fd);
+        
+        
+        if (current->right != NIL)
+            nodes_tree_inorder(current->right, fd);
+    }
+}
+
 void guardar_arbre(char* filename, char* diccionari, rb_tree* tree){
 
     FILE* fd;
-//     char* auxWord;
-//     char word[MAXCHAR];
-//     node_data* n_data;
     
     fd = fopen(filename, "w");
     
@@ -277,51 +298,25 @@ void guardar_arbre(char* filename, char* diccionari, rb_tree* tree){
     int num_elements = tree->num_elements;
     
     /* Aixo ja es binari */
-    fwrite(&magic, sizeof(int), 1, fd); /* Assumim que hi ha un /0 despres de fwrite */
+    fwrite(&magic, sizeof(int), 1, fd);
     fwrite(&num_elements, sizeof(int), 1, fd);
     
-    /*
-    while(fgets(word, MAXCHAR, fd2) != NULL){
-        
-        auxWord = retallar_strings(word); 
-        n_data = find_node(tree, auxWord);
-        
-        int len = n_data->len;
-        char* key = n_data->key;
-        int num_times = n_data->num_times;
-                
-        fwrite(&len, sizeof(int), 1, fd);
-        fwrite(&key, len*sizeof(char), 1, fd);
-        fwrite(&num_times, sizeof(int), 1, fd);
-        
-        free(auxWord);
-
-    }
-    */
-    
-    int len = tree->root->data->len;
-    char* key = tree->root->data->key;
-    int num_times = tree->root->data->num_times;
-    
-    printf("Key: %s, Len: %d, Rlen: %ld", key, len, strlen(key));
-                
-    fwrite(&len, sizeof(int), 1, fd);
-    fwrite(key, len*sizeof(char), 1, fd);
-    fwrite(&num_times, sizeof(int), 1, fd);
-    
+    nodes_tree_inorder(tree->root, fd);
     
     fclose(fd);
     
 }
 
-void recuperar_arbre(char* filename, rb_tree* tree){
+void recuperar_arbre(char* filename){
     
     FILE* fd;
-    int magic, MAGIC, num_nodes, len_key, num_times;
-//     char* pic;
-//     char linia[MAXCHAR];
-//     node_data* tmp;
-//     tmp = NULL;
+    int magic, MAGIC, num_nodes, len_key=0, num_times=0;
+    node_data* tmp;
+    tmp = NULL;
+    
+    rb_tree *tree;
+    tree = (rb_tree *) malloc(sizeof(rb_tree));
+    init_tree(tree);
     
     fd = fopen(filename, "r");
     
@@ -348,72 +343,27 @@ void recuperar_arbre(char* filename, rb_tree* tree){
         
         printf("Num nodes: %d\n",num_nodes);
         tree->num_elements = num_nodes;
+        printf("%d\n", tree->num_elements);
     }
     
-//     for(int i = 0; i < num_nodes; i++){
-        if(fread(&len_key, sizeof(int), 1, fd))
-            printf("%d\n", len_key);
-        char *key = malloc(sizeof(char)*len_key);
+    printf("aaa");
+//     for(int i = 0; i < 6; i++){
+        if(fread(&len_key, sizeof(int), 1, fd)){}
+
+        char *key = malloc(sizeof(char)*len_key + 1);
         if(fread(key,sizeof(char)*len_key, 1, fd))
-            printf("Key %s\n", key);
-        if(fread(&num_times, sizeof(int), 1, fd))
-            printf("%d\n", num_times);
-            
-
-//     }
-    
-    /*
-    while(fgets(linia, MAXCHAR, fd) != NULL){
+            key[len_key] = '\0';
         
-        printf("linia %s\n", linia);
+        if(fread(&num_times, sizeof(int), 1, fd)){}
         
-        pic = retallar_strings(linia);
-
-        if(i==-2){
-            MAGIC = MAGIC_NUMBER;    
-    
-            if(fread(&magic, sizeof(int), 1, fd)) 
-            printf("%d, %d\n", magic, MAGIC);
-            if(magic != MAGIC){
-                printf("Magic error");
-                fclose(fd);
-                return;
-            }
-        }
-        if(i==-1){
-            
-            if(fread(&num_nodes, sizeof(int), 1, fd))
-            tree->num_elements = num_nodes;
-        }
-
-        if(i % 3 == 0){
-            if(fread(&len_key, sizeof(int), 1, fd)){
-            
-                
-            }
-        }
-        if(i % 3 == 1){
-            if(fread(&key, sizeof(char)*len_key, 1, fd)){
-            
-                
-            }
-        }
-        if(i % 3 == 2){
-            if(fread(&num_times, sizeof(int), 1, fd)){
-                
-            
-                tmp->len = len_key;
-                tmp->key = key;
-                tmp->num_times = num_times;
-            
-                insert_node(tree, tmp);
-            }
-        }
+        tmp->len = len_key;
+        tmp->key = key;
+        tmp->num_times = num_times;
         
-        free(pic);
-        i++;
-    }
-    */
+        printf("Key: %s\t Len: %d\t Times: %d\n", key, len_key, num_times);
+        
+        insert_node(tree, tmp);
+//      }
     
     fclose(fd);
     
@@ -480,12 +430,6 @@ int main(int argc, char **argv)
                 if(fgets(str1, MAXCHAR, stdin))
                     str1[strlen(str1)-1]=0;
                 
-                /*
-                printf("Nom del diccionari: ");
-                fgets(str2, MAXCHAR, stdin);
-                str2[strlen(str2)-1]=0;
-                */
-                
                 if(tree !=NULL){
                     guardar_arbre(str1, diccionari, tree);
                 
@@ -497,7 +441,7 @@ int main(int argc, char **argv)
                 if(fgets(str1, MAXCHAR, stdin))
                     str1[strlen(str1)-1]=0;
 
-                recuperar_arbre(str1, tree);
+                recuperar_arbre(str1);
 
                 break;
 
