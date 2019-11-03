@@ -55,7 +55,7 @@ char* retallar_strings(char* string){
     
 }
 
-void diccionari_arbre(rb_tree* tree, char* diccionari){
+void diccionari_arbre(rb_tree* tree, char* word){
     
     /**
     * 
@@ -64,68 +64,43 @@ void diccionari_arbre(rb_tree* tree, char* diccionari){
     * Retorn: void
     * 
     */
-        
-    FILE *fd;
-    int ct = 0;
-    char* auxWord; 
-    char word[MAXCHAR];
-    
+    char* auxWord;
     node_data *n_data;
-  
-    /* Obrim el fitxer per lectura */
-    fd = fopen(diccionari, "r");
+    int ct = 0;
+        
+    auxWord = retallar_strings(word); 
 
-    if (!fd){
-        printf("Could not open file: words in DICCIONARI_ARBRE\n");
-        exit(1);
-    }
+    /* Search if the key is in the tree */
+    n_data = find_node(tree, auxWord); 
+
+    if (n_data != NULL) {
     
-    /* Aquesta es la funcio del fitxer extreu-paraules.c, adaptada per poder usar-la */
-
-    while(fgets(word, MAXCHAR, fd) != NULL){
-
-        /**
-         * 
-         * Gestionem la memoria dinamica de les paraules:
-         * Com que fgets guarda word al stack, no podem usar-la directament, sino estariem usant la mateixa direccio 
-         * de memoria tota la estona, cosa que faria petar l'arbre.
-         * 
-        */
+        free(auxWord);  /* Com que no la estem fent servir, necessitem allibrerar la memoria */
         
-        auxWord = retallar_strings(word); 
+    } else {
 
-        /* Search if the key is in the tree */
-        n_data = find_node(tree, auxWord); 
+        /* If the key is not in the tree, allocate memory for the data
+        * and insert in the tree */
 
-        if (n_data != NULL) {
+        n_data = malloc(sizeof(node_data));
         
-            free(auxWord);  /* Com que no la estem fent servir, necessitem allibrerar la memoria */
-            
-        } else {
-
-            /* If the key is not in the tree, allocate memory for the data
-            * and insert in the tree */
-
-            n_data = malloc(sizeof(node_data));
-            
-            /* This is the key by which the node is indexed in the tree */
-            n_data->key = auxWord;
-            
-            /* This is additional information that is stored in the tree */
-            n_data->num_times = 0;
-            
-            n_data->len = strlen(auxWord);
-            
-            /* We insert the node in the tree */
-            insert_node(tree, n_data);
-        }
-
-        ct++;
+        /* This is the key by which the node is indexed in the tree */
+        n_data->key = auxWord;
+        
+        /* This is additional information that is stored in the tree */
+        n_data->num_times = 0;
+        
+        n_data->len = strlen(auxWord);
+        
+        /* We insert the node in the tree */
+        insert_node(tree, n_data);
     }
+
+    ct++;
+    
     
     //printf("Arbre creat amb %d paraules!\n", ct);
     
-    fclose(fd);
 }
 
 void search_words(rb_tree* tree, char* filename){
@@ -214,7 +189,7 @@ void search_words(rb_tree* tree, char* filename){
 
 rb_tree* practica2(char* str1, char* str2)
 {
-    FILE *data;
+    FILE *data, *diccionari;
     char filename[MAXCHAR];
     char* auxFilePath;
     int control = 0;
@@ -223,18 +198,36 @@ rb_tree* practica2(char* str1, char* str2)
     tree = (rb_tree *) malloc(sizeof(rb_tree));
     init_tree(tree);
     
-    /* Omplim l'arbre amb les paraules del fitxer "words" */
-    diccionari_arbre(tree, str1);
+    /* Obrim el diccionari que ens passin */
+    diccionari = fopen(str1, "r");
     
+    if (!diccionari) {
+        printf("Could not open file: %s in MAIN\n", str1);
+        fclose(diccionari);
+        return tree;
+    }
+    
+    char word[MAXCHAR];
+    
+    /* Omplim l'arbre amb les paraules del fitxer "diccionari" */
+    while(fgets(word, MAXCHAR, diccionari) != NULL)
+        diccionari_arbre(tree, word);
+    
+    fclose(diccionari);
+    
+    
+    
+    /* Obrim el fitxer de fitxers */
     data = fopen(str2,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
 
     if (!data) {
         printf("Could not open file: %s in MAIN\n", str2);
-        fclose(data);
+        delete_tree(tree);
+        init_tree(tree);
         return tree;
     }
     
-    //printf("S'estan recorrent els fitxers, esperi si us plau.");
+    printf("S'estan recorrent els fitxers, esperi si us plau.\n");
     
     while(fgets(filename, MAXCHAR, data)){
         /* Busquem les paraules al arbre de tots els diccionaris */
@@ -397,6 +390,7 @@ int main(int argc, char **argv)
 {
     char str1[MAXCHAR], str2[MAXCHAR], diccionari[MAXCHAR];
     int opcio;
+
     
     rb_tree *tree;
     tree = NULL;
@@ -470,7 +464,11 @@ int main(int argc, char **argv)
                         
                     }else{
 //                         ./main "$1" | sort -nr | head -n 1
+                        if(fgets(str2, MAXCHAR, stdin))
+                            str2[strlen(str2)-1]=0;
+                        
                         top_1(tree);
+
                         if(system("cat tmp.txt | sort -nr | head -n1")){
                         }
                     }
@@ -499,4 +497,3 @@ int main(int argc, char **argv)
 
     return 0;
 }
-
