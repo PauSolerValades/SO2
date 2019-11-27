@@ -197,10 +197,10 @@ void search_words(rb_tree* tree, char* filename){
 rb_tree* practica2(char* str1, char* str2)
 {
     FILE *data, *diccionari;
-    char filename[MAXCHAR];
     char* auxFilePath;
     char* mmap;
-    int control = 0;
+    char* mmap_data;
+    int num_fitxers;
 
     /* L'arbre amb el diccionari s'ha de crear de la mateixa manera que a la practica 2 i 3 */
     
@@ -227,9 +227,7 @@ rb_tree* practica2(char* str1, char* str2)
     
     /* Mapejem l'arbre a memòria. */
     mmap = serialize_node_data_to_mmap(tree);
-    
-    printf("%s\n", mmap);
-    
+        
     /* Obrim el fitxer de fitxers */
     data = fopen(str2,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
 
@@ -239,23 +237,31 @@ rb_tree* practica2(char* str1, char* str2)
         init_tree(tree);
         return tree;
     }
-        
-    while(fgets(filename, MAXCHAR, data)){
-        /* Busquem les paraules al arbre de tots els diccionaris */
-        if(control==0){
-            control++; /* El primer element de llista.cfg és un int del nombre de fitxers que hi ha al document. Ens els saltem perque no hi podrem accedir */
-        }else{
-           
-            /* Retallem l'string per poder-lo passar a la funcio i que llegeixi be el path */
-            auxFilePath = retallar_strings(filename);
-            
-            search_words(tree, auxFilePath);
-            
-            free(auxFilePath);
-        }
+    
+    /* Necessitem el nombre de fitxers que hi ha a llista.cfg per poder accedir a cadaun d'ells. */
+    if(!fread(num_fitxers, sizeof(int), 1, data)){
+        printf("Problem in lecture of NUM_FITXERS in PRACTICA4\n");
+        delete_tree(tree);
+        init_tree(tree);
+        return tree;
     }
     
-    fclose(data); /* tanca str2 */
+    printf("%d\n", num_fitxers);
+    
+    /* Carrega TOTS els fitxers de data al MMAP */
+    mmap_data = dbfnames_to_mmap(data); /* HA FALLAT AQUÍ. */
+    
+    fclose(data); /* tanca str2. Ja no el necessitem perque ja està mapat a memòria. */
+    
+    for(int fitxer=1; fitxer<=num_fitxers; fitxer++){
+        auxFilePath = get_dbfname_from_mmap(mmap_data, fitxer);
+        
+        search_words(tree, auxFilePath);
+        
+    }
+    
+    /* Quan acabem alliberem memòria??? */
+    dbfnames_munmmap(mmap_data);
     
     /* Deserialitzem l'arbre del mmap. */
     deserialize_node_data_from_mmap(tree, mmap);
