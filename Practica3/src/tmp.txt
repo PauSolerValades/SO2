@@ -1,4 +1,4 @@
-5422  A
+5424  A
 0  A'asia
 0  a'body
 0  A's
@@ -91,7 +91,7 @@
 0  abaser
 0  abasers
 0  abases
-1  abash
+0  abash
 8  abashed
 0  abashedly
 0  abashes
@@ -138,7 +138,7 @@
 0  abbacy's
 0  Abbado
 0  Abbado's
-16  Abbas
+17  Abbas
 0  Abbasid
 0  Abbasids
 0  abbatial
@@ -151,8 +151,8 @@
 0  Abbevillian
 14  abbey
 0  abbey's
-39  abbot
-0  abbot's
+29  abbot
+10  abbot's
 0  abbotcies
 0  abbotcy
 0  Abbotsford
@@ -602,7 +602,7 @@
 0  abounds
 570  about
 1  abouts
-106  above
+107  above
 0  above's
 0  aboveboard
 0  aboveground
@@ -2046,7 +2046,7 @@
 0  acrasin
 0  acrasins
 0  acrawl
-2  acre
+3  acre
 0  acre's
 0  acreage
 0  acreage's
@@ -2415,7 +2415,7 @@
 0  Adairsville's
 0  Adairville
 0  Adairville's
-3  Adam
+4  Adam
 0  Adam's
 0  adamance
 0  adamance's
@@ -2921,7 +2921,7 @@
 0  Admiralties
 0  Admiralty
 0  admiralty's
-9  admiration
+8  admiration
 0  admiration's
 0  admirative
 3  admire
@@ -4026,14 +4026,14 @@
 0  afloat
 0  aflutter
 0  AFN
-23  afoot
+24  afoot
 4  afore
 0  aforehand
 0  aforementioned
-27  aforesaid
+28  aforesaid
 0  aforethought
 0  aforethought's
-15  aforetime
+16  aforetime
 0  afortiori
 0  afoul
 0  Afr
@@ -4087,7 +4087,7 @@
 0  afrormosia
 0  afrormosias
 0  AFT
-308  after
+309  after
 0  afterall
 0  afterbirth
 0  afterbirth's
@@ -4180,7 +4180,7 @@
 0  Agadic's
 0  Agadir
 0  Agadoth
-556  again
+558  again
 133  against
 0  agalactia
 0  agalactia's
@@ -4246,7 +4246,7 @@
 0  agateware
 0  agateware's
 53  Agatha
-0  Agatha's
+1  Agatha's
 0  agathodaimon
 0  agatize
 0  agatized
@@ -4554,7 +4554,7 @@
 0  agnostically
 0  agnosticism
 0  agnosticism's
-63  ago
+64  ago
 0  agog
 0  agoge
 0  agoges
@@ -4949,7 +4949,7 @@
 0  Ainu
 0  Ainus
 0  aiolis
-74  air
+75  air
 0  air's
 0  airbag
 0  airbag's
@@ -5389,7 +5389,7 @@
 0  alarumed
 0  alaruming
 0  alary
-31  Alas
+32  Alas
 0  alases
 0  Alaska
 0  Alaska's
@@ -5458,8 +5458,8 @@
 0  albertites
 0  Albertlea
 0  Albertlea's
-1  Alberto
-0  Alberto's
+0  Alberto
+1  Alberto's
 0  Alberton
 0  Alberton's
 0  alberts
@@ -6262,7 +6262,7 @@
 0  alkylic
 0  alkyne
 0  alkynes
-1400  all
+1401  all
 0  all's
 0  Allah
 0  Allah's
@@ -6988,7 +6988,7 @@
 0  Alsey's
 0  alsike
 0  alsikes
-241  also
+242  also
 0  Alsop
 0  Alsop's
 0  Alstead
@@ -7268,7 +7268,7 @@
 0  Alzada's
 0  Alzheimer
 0  Alzheimer's
-325  AM
+323  AM
 0  AM's
 0  AMA
 0  Amabel
@@ -8859,7 +8859,7 @@
 0  ancestry's
 0  Anchises
 0  ancho
-1  anchor
+0  anchor
 0  anchor's
 0  Anchorage
 0  Anchorage's
@@ -8951,7 +8951,7 @@
 0  ancresses
 0  ancylostomiases
 0  ancylostomiasis
-15484  AND
+15485  AND
 0  Andale
 0  Andale's
 0  Andalusia
@@ -9221,8 +9221,8 @@
 0  angekkoks
 0  angekok
 0  angekoks
-21  Angel
-0  Angel's
+20  Angel
+1  Angel's
 0  Angela
 0  Angela's
 0  angeled
@@ -9427,11 +9427,11 @@
 0  Angostura's
 1  angrier
 0  angriest
-7  angrily
+8  angrily
 0  angriness
 0  angriness's
 0  angrinesses
-7  angry
+8  angry
 0  Angst
 0  Angst's
 0  angstrom
@@ -9540,8 +9540,8 @@
 0  animadverters
 0  animadverting
 0  animadverts
-9  animal
-0  animal's
+7  animal
+1  animal's
 0  animalcula
 0  animalcular
 0  animalcule
@@ -9707,8 +9707,8 @@
 0  anlases
 0  Anmoore
 0  Anmoore's
-1  Ann
-0  Ann's
+0  Ann
+1  Ann's
 1  Anna
 0  anna's
 11  Annabel
@@ -10044,7 +10044,7 @@
 0  Anschauungen's
 0  Anschluss
 0  Anschlusses
-2  Anselm
+3  Anselm
 0  Anselmo
 0  Anselmo's
 0  anserine
@@ -12815,7 +12815,7 @@
 0  Arabella's
 0  arabesk
 0  arabesks
-3  arabesque
+2  arabesque
 0  arabesque's
 0  arabesqued
 0  Arabi
@@ -13952,7 +13952,7 @@
 0  Armbrust's
 1  armchair
 0  armchair's
-58  armed
+60  armed
 0  Armenia
 0  Armenia's
 0  Armenian
@@ -14036,7 +14036,7 @@
 0  armorplated
 0  armory
 0  armory's
-72  Armour
+73  Armour
 0  Armour's
 0  armozeen
 0  armozeens
@@ -14193,7 +14193,7 @@
 0  Arran
 0  arrange
 0  arrangeable
-5  arranged
+6  arranged
 4  arrangement
 0  arrangement's
 0  arranger
@@ -14209,7 +14209,7 @@
 0  arrases
 0  Arrau
 0  Arrau's
-16  array
+17  array
 0  array's
 0  arrayal
 0  arrayals
@@ -14368,7 +14368,7 @@
 0  arsphenamine
 0  arsphenamines
 0  arsyversy
-317  Art
+318  Art
 0  Art's
 0  artal
 0  Artas
@@ -14819,7 +14819,7 @@
 0  asexuality's
 0  asexually
 0  Asgard
-1  ash
+2  ash
 0  ash's
 0  ashake
 0  ashame
@@ -14886,7 +14886,7 @@
 0  Ashkhabad's
 0  Ashkum
 0  Ashkum's
-3  ashlar
+4  ashlar
 0  ashlar's
 0  ashlared
 0  ashlaring
@@ -14967,7 +14967,7 @@
 0  asininity
 0  asininity's
 0  Asir
-101  Ask
+100  Ask
 11  askance
 0  askant
 0  askar
@@ -15549,8 +15549,8 @@
 0  astarboard
 0  astare
 0  astart
-1  Astarte
-0  Astarte's
+0  Astarte
+1  Astarte's
 0  astasia
 0  astasia's
 0  astatic
@@ -15869,7 +15869,7 @@
 0  asystole's
 0  asystolism
 0  Asyut
-1801  At
+1806  At
 0  atabal
 0  atabals
 0  atabeg
@@ -16956,8 +16956,8 @@
 0  austerity's
 0  Austerlitz
 0  Austerlitz's
-6  Austin
-0  Austin's
+3  Austin
+3  Austin's
 0  Austinburg
 0  Austinburg's
 0  Austinville
@@ -17055,8 +17055,8 @@
 0  authenticities
 0  authenticity
 0  authenticity's
-27  author
-0  author's
+22  author
+6  author's
 0  authorcraft
 0  authored
 0  authoress
@@ -17885,9 +17885,9 @@
 0  awaiters
 7  awaiting
 2  awaits
-23  awake
+24  awake
 1  awaked
-5  awaken
+4  awaken
 3  awakened
 0  awakener
 0  awakeners
@@ -17920,7 +17920,7 @@
 0  awash
 0  awatch
 0  awave
-297  away
+296  away
 0  awayness
 0  awayness's
 0  awaynesses
@@ -18577,7 +18577,7 @@
 0  bacilluses
 0  bacitracin
 0  bacitracin's
-387  back
+388  back
 0  back's
 0  backache
 0  backache's
@@ -20191,7 +20191,7 @@
 0  Bannocks
 0  banns
 0  banns's
-4  banquet
+5  banquet
 0  banquet's
 0  Banquete
 0  Banquete's
@@ -20778,8 +20778,8 @@
 0  barometry
 0  barometz
 0  barometzes
-19  baron
-0  baron's
+18  baron
+1  baron's
 2  baronage
 0  baronage's
 0  baroness
@@ -21439,7 +21439,7 @@
 0  bathophobia
 0  bathorse
 0  bathorses
-0  bathos
+1  bathos
 0  bathos's
 0  bathoses
 0  bathrobe
@@ -21580,7 +21580,7 @@
 0  battinesses
 0  batting
 0  batting's
-69  Battle
+70  Battle
 0  Battle's
 0  battleax
 0  battleax's
@@ -21980,7 +21980,7 @@
 0  beany
 0  beany's
 85  bear
-0  bear's
+1  bear's
 0  bearabilities
 0  bearability
 0  bearable
@@ -22043,8 +22043,8 @@
 0  Beasley's
 0  Beason
 0  Beason's
-46  beast
-0  beast's
+42  beast
+5  beast's
 0  beasthood
 0  beasthoods
 0  beastie
@@ -22156,8 +22156,8 @@
 0  beautifulnesses
 0  beautify
 0  beautifying
-82  beauty
-0  beauty's
+76  beauty
+6  beauty's
 0  beautybush
 0  beautybushes
 0  Beauvais
@@ -22727,7 +22727,7 @@
 0  beemasters
 0  Beemer
 0  Beemer's
-523  been
+525  been
 0  beenah
 0  beenahs
 0  beep
@@ -22736,7 +22736,7 @@
 0  beeper
 0  beeper's
 0  beeping
-0  beer
+1  beer
 0  beer's
 0  beerage
 0  beerbelly
@@ -22841,7 +22841,7 @@
 1  befooled
 0  befooling
 0  befools
-463  before
+465  before
 1  beforehand
 0  beforementioned
 0  beforetime
@@ -22888,7 +22888,7 @@
 0  begazes
 0  begazing
 0  begem
-1  begemmed
+2  begemmed
 0  begemming
 0  begems
 1  beget
@@ -22932,7 +22932,7 @@
 0  begilded
 0  begilding
 0  begilds
-14  Begin
+13  Begin
 1  beginner
 0  beginner's
 19  beginning
@@ -23506,7 +23506,7 @@
 0  Belorussian's
 0  Belostok
 0  belove
-65  beloved
+67  beloved
 0  beloved's
 0  beloves
 0  beloving
@@ -23848,7 +23848,7 @@
 2  Benito
 0  Benito's
 0  benj
-1  Benjamin
+2  Benjamin
 0  benjamin's
 0  Benjy
 0  Benjy's
@@ -24730,7 +24730,7 @@
 0  bethwacking
 0  bethwacks
 12  betid
-18  betide
+19  betide
 0  betided
 0  betides
 0  betiding
@@ -26475,7 +26475,7 @@
 0  birse
 0  birses
 0  birsy
-7  birth
+9  birth
 0  birth's
 0  birthcontrol
 0  birthcontrol's
@@ -27540,7 +27540,7 @@
 0  blesbuck
 0  blesbucks
 10  bless
-27  blessed
+28  blessed
 0  blesseder
 0  blessedest
 0  blessedly
@@ -27552,7 +27552,7 @@
 0  blesses
 18  Blessing
 0  Blessing's
-5  blest
+6  blest
 0  blet
 0  bletch
 0  blether
@@ -27901,7 +27901,7 @@
 0  bloodworm's
 0  bloodwort
 0  bloodwort's
-8  bloody
+9  bloody
 0  bloodybones
 0  bloodying
 0  bloodymindedness
@@ -28431,7 +28431,7 @@
 0  Boas
 0  Boas's
 0  Boasian
-0  boast
+1  boast
 0  boast's
 1  boasted
 0  boaster
@@ -28638,7 +28638,7 @@
 0  Bodoni
 0  Bodoni's
 0  bodrag
-92  body
+94  body
 0  body's
 0  bodyboard
 0  bodyboarder
@@ -29120,7 +29120,7 @@
 0  Bomont's
 0  Bomoseen
 0  Bomoseen's
-99  Bon
+101  Bon
 0  Bona
 0  bonaci
 0  bonacis
@@ -29430,7 +29430,7 @@
 0  boohooing
 0  boohs
 0  booing
-85  Book
+84  Book
 0  Book's
 0  bookable
 0  bookbinder
@@ -29919,8 +29919,8 @@
 0  Bosnia's
 0  Bosnian
 0  Bosnians
-31  bosom
-0  bosom's
+30  bosom
+1  bosom's
 1  bosomed
 0  bosomier
 0  bosomiest
@@ -30034,7 +30034,7 @@
 0  botflies
 0  botfly
 0  botfly's
-194  both
+195  both
 0  both's
 0  Botha
 0  Botham
@@ -30389,7 +30389,7 @@
 0  Bovril
 0  Bovril's
 0  bovver
-36  bow
+35  bow
 0  bow's
 0  Bowbells
 0  Bowbells's
@@ -30517,7 +30517,7 @@
 0  bowyangs
 1  bowyer
 0  bowyers
-21  box
+22  box
 0  box's
 0  boxball
 0  boxballs
@@ -30532,7 +30532,7 @@
 0  Boxelder
 0  Boxelder's
 0  boxen
-0  Boxer
+1  Boxer
 0  boxercise
 0  Boxers
 0  boxes
@@ -31123,7 +31123,7 @@
 0  Brandon's
 0  Brandonville
 0  Brandonville's
-1  brandreth
+0  brandreth
 0  brandreths
 0  Brandsville
 0  Brandsville's
@@ -31545,7 +31545,7 @@
 0  breastsummers
 0  breastwork
 0  breastwork's
-20  breath
+19  breath
 0  breath's
 0  breathabilities
 0  breathability
@@ -31561,7 +31561,7 @@
 0  breathalyzes
 0  breathalyzing
 11  breathe
-6  breathed
+7  breathed
 0  breather
 0  breather's
 3  breathes
@@ -31605,7 +31605,7 @@
 0  Brecon's
 0  Breconshire
 0  Breconshire's
-11  bred
+12  bred
 0  Breda
 0  brede
 0  breded
@@ -31621,7 +31621,7 @@
 0  breechclout
 0  breechclout's
 0  breeched
-4  breeches
+3  breeches
 0  breeching
 0  breechings
 0  breechless
@@ -31909,7 +31909,7 @@
 0  bridewell
 0  bridewells
 0  bridgable
-31  Bridge
+32  Bridge
 0  bridgeable
 0  bridgeboard
 0  bridgeboards
@@ -32182,7 +32182,7 @@
 0  Brisbin's
 0  Briscoe
 0  Briscoe's
-7  brisk
+8  brisk
 0  brisked
 0  brisken
 0  briskened
@@ -32473,7 +32473,7 @@
 0  Brohard's
 0  Brohman
 0  Brohman's
-1  broider
+0  broider
 12  broidered
 0  broiderer
 0  broiderers
@@ -32792,11 +32792,11 @@
 0  broth's
 0  brothel
 0  brothel's
-103  Brother
-0  Brother's
+96  Brother
+8  Brother's
 0  brothered
-2  brotherhood
-0  brotherhood's
+1  brotherhood
+1  brotherhood's
 0  brothering
 0  brotherlike
 0  brotherliness
@@ -33355,7 +33355,7 @@
 0  buckie
 0  buckies
 0  bucking
-10  Buckingham
+11  Buckingham
 0  Buckinghamshire
 0  buckings
 0  buckish
@@ -33752,7 +33752,7 @@
 0  bulking
 0  bulkings
 0  bulky
-119  Bull
+114  Bull
 0  bulla
 0  bulla's
 0  bullace
@@ -34257,7 +34257,7 @@
 0  burd
 0  burdash
 0  burdashes
-18  burden
+17  burden
 0  burden's
 1  burdened
 0  burdener
@@ -34307,7 +34307,7 @@
 0  burette's
 0  Burfordville
 0  Burfordville's
-196  burg
+197  burg
 0  burg's
 0  burgage
 0  burgages
@@ -34469,7 +34469,7 @@
 0  Burmans
 0  Burmese
 0  Burmese's
-5  burn
+4  burn
 0  Burna
 0  Burna's
 0  burnable
@@ -34625,8 +34625,8 @@
 0  burthen's
 0  burthened
 0  burthening
-1  Burton
-0  Burton's
+0  Burton
+1  Burton's
 0  Burtonsville
 0  Burtonsville's
 0  Burtrum
@@ -34837,7 +34837,7 @@
 0  busynesses
 0  busywork
 0  busywork's
-2995  but
+2997  but
 0  but's
 0  butacaine
 0  butacaine's
@@ -35124,7 +35124,7 @@
 0  bwazis
 0  bx
 0  bxs
-1248  by
+1249  by
 0  by's
 0  Byars
 0  Byars's
@@ -35278,7 +35278,7 @@
 0  Byzantinists
 1  Byzantium
 0  Byzantium's
-7  C
+6  C
 0  C's
 1  CA
 0  ca'canny
@@ -36285,7 +36285,7 @@
 0  calkin's
 0  calking
 0  calking's
-54  call
+52  call
 0  call's
 0  calla
 0  callable
@@ -36995,7 +36995,7 @@
 0  Camuy's
 0  camwood
 0  camwood's
-178  Can
+173  Can
 0  can's
 0  Cana
 0  Canaan
@@ -38076,8 +38076,8 @@
 0  capsulotomies
 0  capsulotomy
 0  Capt
-114  Captain
-0  Captain's
+112  Captain
+3  Captain's
 0  captaincies
 0  Captaincook
 0  Captaincook's
@@ -38112,8 +38112,8 @@
 0  captivation's
 0  captivator
 0  captivator's
-15  captive
-0  captive's
+14  captive
+1  captive's
 0  captivities
 10  captivity
 0  captivity's
@@ -38798,7 +38798,7 @@
 0  Carla's
 0  Carland
 0  Carland's
-101  carle
+99  carle
 0  Carlene
 0  Carlene's
 57  carles
@@ -38809,7 +38809,7 @@
 0  Carlile's
 0  Carlin
 0  Carlin's
-64  carline
+62  carline
 0  carlines
 0  carling
 0  carlings
@@ -39747,7 +39747,7 @@
 0  castigator
 0  castigator's
 0  castigatory
-18  Castiglione
+17  Castiglione
 0  Castile
 0  Castile's
 0  Castilian
@@ -39760,7 +39760,7 @@
 0  Castine's
 14  casting
 0  casting's
-121  castle
+123  castle
 0  castle's
 0  Castleberry
 0  Castleberry's
@@ -40648,7 +40648,7 @@
 0  cavatinas
 0  cavatine
 21  cave
-0  cave's
+1  cave's
 0  caveat
 0  caveat's
 0  caveated
@@ -40798,7 +40798,7 @@
 0  Ceanothus
 0  Ceanothus's
 0  ceanothuses
-1  ceas
+0  ceas
 2  cease
 0  cease's
 15  ceased
@@ -41899,7 +41899,7 @@
 0  chagrinned
 0  chagrinning
 0  chai
-20  Chain
+19  Chain
 0  chain's
 0  chainbrake
 2  chained
@@ -42112,7 +42112,7 @@
 0  chambermaid's
 0  chamberpot
 0  chamberpot's
-8  Chambers
+9  Chambers
 0  Chambersburg
 0  Chambersburg's
 0  Chambersville
@@ -42213,7 +42213,7 @@
 0  chancelleries
 0  chancellery
 0  chancellery's
-1  Chancellor
+0  Chancellor
 0  chancellories
 0  Chancellors
 0  chancellorship
@@ -42445,13 +42445,13 @@
 0  chapleted
 0  Chaplin
 0  Chaplinesque
-23  Chapman
-0  chapman's
+21  Chapman
+2  chapman's
 0  Chapmansboro
 0  Chapmansboro's
 0  Chapmanville
 0  Chapmanville's
-39  chapmen
+36  chapmen
 0  chappal
 0  Chappaqua
 0  Chappaqua's
@@ -42682,7 +42682,7 @@
 0  Charlestown's
 0  Charlevoix
 0  Charlevoix's
-24  Charley
+23  Charley
 0  charleyhorse
 0  charleyhorse's
 1  Charleys
@@ -42700,7 +42700,7 @@
 0  Charlottetown
 0  Charlottetown's
 0  Charlton
-4  charm
+2  charm
 0  charm's
 0  Charmaine
 0  Charmaine's
@@ -42851,7 +42851,7 @@
 0  chassis's
 1  chaste
 0  chastely
-1  chasten
+0  chasten
 0  chastened
 0  chastener
 0  chasteners
@@ -43191,7 +43191,7 @@
 0  cheeper
 0  cheepers
 0  cheeping
-17  Cheer
+18  Cheer
 0  Cheer's
 2  cheered
 0  cheerer
@@ -44012,7 +44012,7 @@
 0  chilblained
 0  Chilcoot
 0  Chilcoot's
-38  child
+37  child
 0  childbearing
 0  childbearing's
 0  childbed
@@ -44031,8 +44031,8 @@
 0  Childersburg
 0  Childersburg's
 0  childes
-6  childhood
-0  childhood's
+5  childhood
+1  childhood's
 0  childing
 1  childish
 0  childishly
@@ -44057,7 +44057,7 @@
 0  childproofed
 0  childproofing
 0  childproofs
-30  children
+29  children
 0  Childress
 0  Childress's
 0  Childs
@@ -45145,8 +45145,8 @@
 0  chorisis
 0  chorism
 0  chorist
-1  chorister
-0  chorister's
+0  chorister
+1  chorister's
 0  chorists
 0  chorization
 0  chorizo
@@ -45286,8 +45286,8 @@
 0  chrisom's
 0  Chrissie
 0  Chrissie's
-2  Christ
-0  Christ's
+1  Christ
+1  Christ's
 0  Christa
 0  Christa's
 0  Christabel
@@ -45775,7 +45775,7 @@
 0  chuprassies
 0  chuprassy
 0  Chur
-46  Church
+47  Church
 0  church's
 0  churched
 2  Churches
@@ -46869,7 +46869,7 @@
 0  clags
 0  Claiborne
 0  Claiborne's
-3  claim
+2  claim
 0  claim's
 0  claimable
 0  claimant
@@ -47112,8 +47112,8 @@
 0  Clark
 0  Clarkdale
 0  Clarkdale's
-1  Clarke
-0  Clarke's
+0  Clarke
+1  Clarke's
 0  Clarkedale
 0  Clarkedale's
 0  Clarkesville
@@ -47573,8 +47573,8 @@
 0  clemency
 0  clemency's
 0  Clemens
-212  Clement
-0  Clement's
+204  Clement
+8  Clement's
 0  Clementina
 0  Clementina's
 0  Clementine
@@ -48001,7 +48001,7 @@
 0  clochards
 0  cloche
 0  cloche's
-6  clock
+3  clock
 0  clock's
 0  clocked
 0  clocker
@@ -48826,7 +48826,7 @@
 0  coatdress
 0  coatdress's
 0  coatdresses
-1  coated
+2  coated
 0  coatee
 0  coatee's
 0  coater
@@ -49068,8 +49068,8 @@
 0  Cochranville's
 0  cocinera
 0  cocineras
-3  cock
-0  cock's
+2  cock
+1  cock's
 0  cockabondy
 0  cockabully
 0  cockade
@@ -50142,8 +50142,8 @@
 0  Colerain's
 0  Coleraine
 0  Coleraine's
-7  Coleridge
-0  Coleridge's
+6  Coleridge
+1  Coleridge's
 0  Coleridgean
 0  Coleridgian
 0  Colesburg
@@ -50767,16 +50767,16 @@
 0  Colrain's
 0  Colstrip
 0  Colstrip's
-1  Colt
-0  Colt's
+0  Colt
+1  Colt's
 0  colter
 0  colter's
 0  coltish
 0  coltishly
 0  coltishness
 0  coltishnesses
-1  Colton
-0  Colton's
+0  Colton
+1  Colton's
 0  Coltrane
 0  coltsfoot
 0  coltsfoot's
@@ -50828,7 +50828,7 @@
 0  columellate
 0  columelliform
 0  columels
-3  column
+2  column
 0  column's
 0  columnal
 1  columnar
@@ -50856,7 +50856,7 @@
 0  coly
 0  colza
 0  colza's
-8  COM
+6  COM
 0  coma
 0  coma's
 0  comade
@@ -51007,8 +51007,8 @@
 0  comember
 0  comembers
 0  Comenius
-18  Comer
-0  Comer's
+17  Comer
+1  Comer's
 0  Comerio
 0  Comerio's
 0  comestible
@@ -51550,7 +51550,7 @@
 0  compandors
 0  companied
 3  Companies
-1  Companion
+0  Companion
 0  companionabilities
 0  companionability
 0  companionability's
@@ -52181,7 +52181,7 @@
 0  Comtisms
 0  Comtist
 0  Comtists
-1  Comus
+0  Comus
 0  comuses
 3  Con
 0  conacre
@@ -52266,7 +52266,7 @@
 0  conceivableness's
 0  conceivablenesses
 0  conceivably
-1  conceive
+2  conceive
 2  conceived
 0  conceiver
 0  conceiver's
@@ -53647,7 +53647,7 @@
 0  consanguinities
 0  consanguinity
 0  consanguinity's
-12  conscience
+11  conscience
 0  conscience's
 0  conscienceless
 0  conscient
@@ -56360,7 +56360,7 @@
 0  corposant
 0  corposant's
 0  corps's
-14  corpse
+15  corpse
 0  corpse's
 0  corpsman
 0  corpsman's
@@ -57216,9 +57216,9 @@
 0  coughing's
 0  couguar
 0  couguars
-294  could
+295  could
 1  couldest
-0  couldn't
+2  couldn't
 7  couldst
 0  coulibiaca
 0  coulis
@@ -57822,7 +57822,7 @@
 0  countline
 3  countries
 0  countrified
-72  country
+73  country
 0  country's
 0  countryfied
 0  countryfolk
@@ -57936,7 +57936,7 @@
 0  courtesan's
 0  courtesied
 0  courtesies
-3  courtesy
+4  courtesy
 0  courtesy's
 0  courtesying
 0  courtezan
@@ -58521,8 +58521,8 @@
 0  craftmanships
 0  Craftsbury
 0  Craftsbury's
-3  craftsman
-0  craftsman's
+2  craftsman
+1  craftsman's
 0  craftsmanlike
 0  craftsmanly
 2  craftsmanship
@@ -59694,7 +59694,7 @@
 0  criticizer's
 0  criticizes
 0  criticizing
-4  critique
+5  critique
 0  critique's
 0  critiqued
 0  critiquing
@@ -60287,8 +60287,8 @@
 0  cruelnesses
 0  cruels
 0  cruelties
-7  cruelty
-0  cruelty's
+6  cruelty
+1  cruelty's
 0  cruet
 0  cruet's
 0  Cruft
@@ -61095,7 +61095,7 @@
 0  culvertage
 0  culvertages
 0  culvertailed
-5  cum
+1  cum
 0  cum's
 0  Cumae
 0  Cumaean
@@ -61237,7 +61237,7 @@
 0  cunningnesses
 0  cunt
 0  cunt's
-47  cup
+48  cup
 0  cup's
 0  Cupar
 0  Cupar's
@@ -61723,8 +61723,8 @@
 0  cushiness
 0  cushinesses
 0  Cushing
-1  cushion
-0  cushion's
+0  cushion
+1  cushion's
 1  cushioned
 0  cushionet
 0  cushionets
@@ -62667,7 +62667,7 @@
 0  Czerny
 0  Czestochowa
 0  Czestochowa's
-153  D
+6  D
 0  d'accord
 0  D'Annunzio
 0  d'Arezzo
@@ -62987,7 +62987,7 @@
 0  dairywoman
 0  dairywoman's
 0  dairywomen
-14  Dais
+15  Dais
 0  dais's
 0  daises
 0  Daisetta
@@ -63174,7 +63174,7 @@
 0  dammers
 0  dammes
 0  damming
-24  dammit
+22  dammit
 1  dammits
 0  damn
 0  damn's
@@ -63240,8 +63240,8 @@
 0  dampnesses
 0  dampproof
 0  dampy
-85  damsel
-0  damsel's
+82  damsel
+3  damsel's
 0  damselfish
 0  damselfish's
 0  damselfishes
@@ -63699,8 +63699,8 @@
 0  dassie
 0  dassie's
 0  dast
-16  dastard
-0  dastard's
+15  dastard
+1  dastard's
 0  dastardliness
 0  dastardliness's
 0  dastardlinesses
@@ -63814,8 +63814,8 @@
 0  Daugavpils
 0  Daugherty
 0  Daugherty's
-24  daughter
-0  daughter's
+23  daughter
+1  daughter's
 0  daughterboard
 0  daughterboards
 0  daughterless
@@ -63925,7 +63925,7 @@
 0  dawks
 0  Dawmont
 0  Dawmont's
-23  Dawn
+24  Dawn
 0  Dawn's
 1  dawned
 3  dawning
@@ -63942,7 +63942,7 @@
 0  dawties
 0  dawting
 0  dawts
-409  Day
+403  Day
 0  Dayak
 0  Dayaks
 0  Dayan
@@ -63993,7 +63993,7 @@
 0  daylily
 0  daylily's
 0  daylit
-2  daylong
+3  daylong
 0  daymare
 0  daymares
 0  daymark
@@ -64004,7 +64004,7 @@
 0  daypeep
 0  dayroom
 0  dayrooms
-255  Days
+247  Days
 0  dayshift
 0  dayshifts
 0  dayside
@@ -64067,7 +64067,7 @@
 0  DDT
 0  DDTs
 0  DDVP
-44  DE
+45  DE
 0  DEA
 0  deaccession
 0  deaccessioned
@@ -64101,7 +64101,7 @@
 0  deactivation's
 0  deactivator
 0  deactivators
-142  dead
+143  dead
 0  dead's
 0  deadbeat
 0  deadbeat's
@@ -64287,7 +64287,7 @@
 0  Dearing
 0  Dearing's
 0  dearling
-6  dearly
+7  dearly
 0  Dearmanville
 0  Dearmanville's
 0  dearn
@@ -64314,8 +64314,8 @@
 0  deaspirating
 0  deaspiration
 0  deaspirations
-106  Death
-0  Death's
+103  Death
+3  Death's
 0  deathbed
 0  deathbed's
 0  deathblow
@@ -65486,8 +65486,8 @@
 0  deductively
 0  deducts
 0  Dee
-29  deed
-0  deed's
+27  deed
+2  deed's
 0  deedbox
 0  deedbox's
 0  deeded
@@ -65507,7 +65507,7 @@
 0  deejaying
 0  deek
 164  deem
-186  deemed
+187  deemed
 19  deeming
 0  deemphasize
 0  deemphasized
@@ -65518,7 +65518,7 @@
 0  deemsters
 0  Deena
 0  Deena's
-68  deep
+69  deep
 0  deep's
 2  deepen
 3  deepened
@@ -66712,7 +66712,7 @@
 0  deliverable
 17  deliverance
 0  deliverance's
-20  delivered
+21  delivered
 3  deliverer
 0  deliverer's
 0  deliveries
@@ -67159,8 +67159,8 @@
 0  demolitionist
 0  demolitionists
 0  demology
-3  demon
-0  demon's
+2  demon
+1  demon's
 0  demoness
 0  demonesses
 0  demonetization
@@ -67817,7 +67817,7 @@
 0  departmentally
 0  Departments
 2  departs
-25  departure
+26  departure
 0  departure's
 0  depasture
 0  depastured
@@ -68809,8 +68809,8 @@
 0  Desoto
 0  Desoto's
 0  desoxy
-13  despair
-0  despair's
+12  despair
+1  despair's
 2  despaired
 0  despairer
 0  despairers
@@ -68952,7 +68952,7 @@
 0  desterilized
 0  desterilizes
 0  desterilizing
-1  Destin
+0  Destin
 0  Destin's
 0  destinate
 0  destination
@@ -68962,8 +68962,8 @@
 0  destines
 3  destinies
 0  destining
-2  destiny
-0  destiny's
+1  destiny
+1  destiny's
 1  destitute
 0  destituteness
 0  destitutenesses
@@ -69492,7 +69492,7 @@
 3  device
 0  device's
 0  deviceful
-39  Devil
+40  Devil
 0  Devil's
 0  devildom
 0  deviled
@@ -69863,7 +69863,7 @@
 0  dhuti
 0  dhutis
 0  dhyana
-14  DI
+15  DI
 0  diabase
 0  diabases
 0  diabasic
@@ -69944,7 +69944,7 @@
 0  Diadelphia
 0  Diadelphia's
 0  diadelphous
-2  diadem
+1  diadem
 0  diadem's
 0  diademed
 0  diademing
@@ -70135,8 +70135,8 @@
 0  diamyl
 2  Dian
 0  Dian's
-3  Diana
-0  Diana's
+2  Diana
+1  Diana's
 0  Diandria
 0  Diandria's
 0  diandrous
@@ -70612,7 +70612,7 @@
 0  dicycly
 0  dicynodont
 0  dicynodont's
-308  did
+306  did
 0  Didache
 0  didact
 1  didactic
@@ -70675,7 +70675,7 @@
 0  didies
 0  didjeridoo
 0  didjeridoos
-0  didn't
+1  didn't
 0  Dido
 0  Dido's
 0  didoes
@@ -70969,7 +70969,7 @@
 0  Diggins's
 0  Diggs
 0  Diggs's
-25  dight
+26  dight
 0  dighted
 4  dighting
 0  Dighton
@@ -71268,7 +71268,7 @@
 0  diluviums
 0  Dilworth
 0  Dilworth's
-28  dim
+29  dim
 0  DiMaggio
 0  dimble
 0  Dimbleby
@@ -75281,8 +75281,8 @@
 0  dockworker's
 0  dockyard
 0  dockyard's
-30  Doctor
-0  Doctor's
+27  Doctor
+3  Doctor's
 0  doctoral
 0  doctorand
 0  doctorands
@@ -75457,8 +75457,8 @@
 0  doffers
 0  doffing
 0  doffs
-19  dog
-0  dog's
+17  dog
+2  dog's
 0  dog'sbane
 0  dogaressa
 0  dogaressas
@@ -75729,8 +75729,8 @@
 0  dolium
 0  doll
 0  doll's
-5  dollar
-0  dollar's
+4  dollar
+1  dollar's
 0  dollarbird
 0  dollared
 0  dollarfish
@@ -75940,9 +75940,9 @@
 0  Domitian
 0  Doms
 0  domy
-22  Don
+8  Don
 0  Don's
-0  don't
+14  don't
 0  Dona
 0  Donaana
 0  Donaana's
@@ -76030,7 +76030,7 @@
 0  donkeyman
 0  donkeywork
 0  donkeywork's
-1  Donn
+0  Donn
 0  Donn's
 0  Donna
 0  donnard
@@ -76485,7 +76485,7 @@
 0  dossil
 0  dossils
 0  dossing
-66  dost
+67  dost
 0  Dostoevski
 0  Dostoevski's
 0  Dostoevskian
@@ -76815,7 +76815,7 @@
 0  dowl
 0  Dowland
 0  dowlas
-597  Down
+598  Down
 0  downa
 0  downbeat
 0  downbeat's
@@ -77456,7 +77456,7 @@
 0  dreadnaught's
 0  dreadnought
 0  dreadnought's
-75  dream
+73  dream
 0  dream's
 0  dreamboat
 0  dreamboat's
@@ -79209,8 +79209,8 @@
 0  dwams
 0  dwang
 0  dwangs
-21  dwarf
-0  dwarf's
+19  dwarf
+2  dwarf's
 0  dwarfed
 0  dwarfer
 0  dwarfest
@@ -79235,7 +79235,7 @@
 0  dweeb
 0  dweeb's
 0  dweebish
-44  dwell
+45  dwell
 0  dwell's
 0  dwelled
 0  dweller
@@ -79545,9 +79545,9 @@
 0  dzo
 0  dzos
 0  Dzungaria
-31  E
-0  e'en
-0  e'er
+4  E
+26  e'en
+1  e'er
 0  E's
 0  Ea
 0  Ea's
@@ -79632,8 +79632,8 @@
 0  earhole
 0  earing
 0  earings
-34  Earl
-0  Earl's
+33  Earl
+1  Earl's
 0  earlap
 0  earlap's
 1  earldom
@@ -79730,8 +79730,8 @@
 0  earsplitting
 0  earstone
 0  earstones
-117  Earth
-0  Earth's
+114  Earth
+4  Earth's
 0  earthboard
 0  earthborn
 0  earthbound
@@ -79875,7 +79875,7 @@
 0  Eastleigh's
 0  Eastman
 0  eastmost
-7  eastward
+8  eastward
 0  eastward's
 0  eastwardly
 0  Eastwood
@@ -80625,8 +80625,8 @@
 4  editing
 8  edition
 0  edition's
-9  editor
-0  editor's
+8  editor
+1  editor's
 1  editorial
 0  editorial's
 0  editorialist
@@ -80946,8 +80946,8 @@
 0  effluxion
 0  effluxions
 0  efforce
-12  effort
-0  effort's
+11  effort
+1  effort's
 0  effortful
 0  effortfully
 0  effortfulness
@@ -81152,8 +81152,8 @@
 0  egret's
 8  Egypt
 0  Egypt's
-16  Egyptian
-0  Egyptian's
+15  Egyptian
+1  Egyptian's
 0  Egyptological
 0  Egyptologies
 0  Egyptologist
@@ -81488,8 +81488,8 @@
 2  eld
 0  Eldena
 0  Eldena's
-44  elder
-0  elder's
+43  elder
+1  elder's
 0  elderberries
 0  elderberry
 0  elderberry's
@@ -82214,8 +82214,8 @@
 0  Ellwood's
 0  Ellyn
 0  Ellyn's
-5  elm
-0  elm's
+4  elm
+1  elm's
 0  Elma
 0  Elma's
 0  Elmaton
@@ -82542,7 +82542,7 @@
 0  emballing
 0  emballs
 1  embalm
-9  embalmed
+8  embalmed
 0  embalmer
 0  embalmer's
 3  embalming
@@ -83410,7 +83410,7 @@
 0  emulation's
 0  emulative
 0  emulatively
-0  emulator
+1  emulator
 0  emulator's
 0  emulatress
 0  emule
@@ -83454,7 +83454,7 @@
 0  emydes
 0  emyds
 0  emys
-32  en
+6  en
 1  enable
 4  enabled
 0  enabler
@@ -83841,7 +83841,7 @@
 0  enculturating
 0  enculturation
 0  enculturations
-1  encumber
+0  encumber
 1  encumbered
 0  encumbering
 0  encumberment
@@ -83881,7 +83881,7 @@
 0  encystment
 0  encystment's
 0  encysts
-346  end
+347  end
 0  end's
 0  endamage
 0  endamaged
@@ -86710,7 +86710,7 @@
 0  Equuleus
 0  Equus
 0  Equus's
-45  ER
+2  ER
 0  ERA
 0  era's
 0  eradiate
@@ -87547,7 +87547,7 @@
 0  espressivo
 0  espresso
 0  espresso's
-1  esprit
+0  esprit
 0  esprit's
 0  espumoso
 0  espumosos
@@ -88888,8 +88888,8 @@
 0  evasiveness
 0  evasiveness's
 0  evasivenesses
-17  Eve
-0  Eve's
+16  Eve
+1  Eve's
 0  evection
 0  evectional
 0  evections
@@ -89931,7 +89931,7 @@
 0  Exira's
 3  exist
 2  existed
-6  existence
+7  existence
 0  existence's
 0  existent
 0  existent's
@@ -91376,14 +91376,14 @@
 0  facade's
 0  facadism
 0  facadisms
-292  face
+293  face
 0  face's
 0  faceable
 0  Facebook
 0  Facebook's
 0  facecloth
 0  facecloth's
-27  faced
+28  faced
 0  facedown
 0  facedowns
 0  faceharden
@@ -91671,7 +91671,7 @@
 0  faible
 0  faibles
 0  faikes
-32  fail
+31  fail
 0  fail's
 24  failed
 6  failing
@@ -91902,7 +91902,7 @@
 0  Falkner
 0  Falkville
 0  Falkville's
-73  fall
+72  fall
 0  Falla
 0  fallacies
 0  fallacious
@@ -91957,13 +91957,13 @@
 0  fallowing
 0  fallowness
 0  fallownesses
-7  Falls
+8  Falls
 0  Fallsburg
 0  Fallsburg's
 0  Fallston
 0  Fallston's
 0  Falmouth
-22  false
+23  false
 0  falseface
 0  falsehearted
 1  falsehood
@@ -92018,7 +92018,7 @@
 0  falx
 0  fam
 0  Famagusta
-11  fame
+12  fame
 0  fame's
 1  famed
 0  fameless
@@ -92276,7 +92276,7 @@
 0  faqir's
 0  faquir
 0  faquir's
-177  far
+178  far
 0  farad
 0  farad's
 0  faradaic
@@ -92371,7 +92371,7 @@
 0  farina
 0  farina's
 0  farinaceous
-11  faring
+12  faring
 0  farinha
 0  farinhas
 0  farinose
@@ -92597,7 +92597,7 @@
 0  fashes
 0  Fashing
 0  Fashing's
-75  fashion
+73  fashion
 0  fashion's
 0  fashionabilities
 0  fashionability
@@ -92606,7 +92606,7 @@
 0  fashionableness
 0  fashionablenesses
 0  fashionably
-12  fashioned
+13  fashioned
 0  fashioner
 0  fashioner's
 1  fashioning
@@ -92700,8 +92700,8 @@
 0  fatheadedly
 0  fatheadedness
 0  fatheadednesses
-120  Father
-1  Father's
+106  Father
+16  Father's
 0  fathered
 0  fatherhood
 0  fatherhood's
@@ -93050,7 +93050,7 @@
 0  feasiblenesses
 0  feasibly
 0  feasing
-17  feast
+18  feast
 0  feast's
 7  feasted
 0  feaster
@@ -93274,7 +93274,7 @@
 0  feeler's
 0  feeless
 0  feelgood
-15  feeling
+16  feeling
 0  feeling's
 0  feelingless
 0  feelingly
@@ -93285,7 +93285,7 @@
 0  feers
 0  Feesburg
 0  Feesburg's
-149  feet
+150  feet
 0  feetfirst
 0  feetless
 0  feeze
@@ -93307,7 +93307,7 @@
 0  Fehmic
 0  Fehmic's
 0  fehs
-2  feign
+1  feign
 1  feigned
 0  feignedly
 0  feignedness
@@ -93436,7 +93436,7 @@
 0  felloe
 0  felloe's
 0  fellon
-61  fellow
+59  fellow
 0  fellowed
 0  fellowing
 0  fellowly
@@ -94144,7 +94144,7 @@
 0  Feurabush
 0  Feurabush's
 0  feus
-12  fever
+11  fever
 0  fever's
 1  fevered
 0  feverfew
@@ -94162,7 +94162,7 @@
 0  feverweeds
 0  feverwort
 0  feverworts
-152  few
+153  few
 0  few's
 0  fewer
 0  fewest
@@ -94415,8 +94415,8 @@
 0  fiddlehead's
 0  fiddleneck
 0  fiddleneck's
-1  fiddler
-0  fiddler's
+0  fiddler
+1  fiddler's
 0  fiddlestick
 0  fiddlestick's
 0  fiddlestring
@@ -94508,7 +94508,7 @@
 0  Fieldon's
 0  fieldpiece
 0  fieldpieces
-37  Fields
+38  Fields
 0  fieldsman
 0  fieldsman's
 0  fieldsmen
@@ -94767,7 +94767,7 @@
 0  Filipino's
 0  filister
 0  filisters
-18  fill
+17  fill
 0  fill's
 0  fillable
 0  fillagree
@@ -94961,7 +94961,7 @@
 0  Finchley's
 0  Finchville
 0  Finchville's
-134  find
+135  find
 0  find's
 0  findable
 1  finder
@@ -95087,7 +95087,7 @@
 0  finises
 1  finish
 0  finish's
-6  finished
+7  finished
 0  finisher
 0  finisher's
 0  finishes
@@ -95283,7 +95283,7 @@
 0  firehouse
 0  firehouse's
 0  fireless
-3  firelight
+4  firelight
 0  firelight's
 0  firelighter
 0  firelighter's
@@ -95540,7 +95540,7 @@
 0  fissure's
 0  fissured
 0  fissuring
-12  fist
+13  fist
 0  fist's
 0  fisted
 0  fistfight
@@ -96306,7 +96306,7 @@
 0  flection
 0  flection's
 0  flectional
-25  fled
+26  fled
 0  fledge
 0  fledged
 0  fledgeling
@@ -97571,9 +97571,9 @@
 0  foe's
 0  foehn
 0  foehn's
-14  foeman
+15  foeman
 0  foeman's
-54  foemen
+53  foemen
 0  foetal
 0  foetid
 0  foetus
@@ -97735,8 +97735,8 @@
 0  folium's
 0  folivore
 0  folivores
-372  folk
-0  folk's
+373  folk
+1  folk's
 0  folkcraft
 0  Folkestone
 0  Folketing
@@ -97806,7 +97806,7 @@
 0  folliculous
 1  follies
 0  follis
-50  follow
+52  follow
 0  follow's
 46  followed
 0  follower
@@ -97817,8 +97817,8 @@
 0  following's
 0  followup
 0  followups
-15  folly
-0  folly's
+14  folly
+1  folly's
 0  Folsom
 0  Folsomville
 0  Folsomville's
@@ -97917,8 +97917,8 @@
 0  foody
 0  foofaraw
 0  foofaraws
-36  fool
-0  fool's
+31  fool
+5  fool's
 0  fooled
 0  fooleries
 0  foolery
@@ -97951,8 +97951,8 @@
 0  Foosball's
 0  Foosland
 0  Foosland's
-62  foot
-0  foot's
+61  foot
+1  foot's
 0  footage
 0  footage's
 0  footbag
@@ -97985,7 +97985,7 @@
 0  footcloths
 0  footdragger
 0  footdraggers
-4  footed
+5  footed
 0  footer
 0  footer's
 0  footfall
@@ -99101,7 +99101,7 @@
 0  forslack
 0  forslow
 0  forsook
-121  forsooth
+125  forsooth
 0  forspeak
 0  forspeaking
 0  forspeaks
@@ -99875,8 +99875,8 @@
 0  frankincense's
 0  franking
 0  Frankish
-6  Franklin
-0  franklin's
+5  Franklin
+1  franklin's
 0  franklinite
 0  franklinites
 0  Franklinton
@@ -100000,7 +100000,7 @@
 0  Fraxinella's
 0  Fraxinus
 0  Fraxinus's
-7  fray
+8  fray
 0  fray's
 0  frayed
 0  fraying
@@ -100442,8 +100442,8 @@
 0  friande
 0  Friant
 0  Friant's
-7  friar
-0  friar's
+6  friar
+1  friar's
 0  friarbird
 0  friarbirds
 0  friaries
@@ -100496,8 +100496,8 @@
 0  Friedheim's
 0  Friedman
 0  Friedrich
-241  Friend
-0  Friend's
+243  Friend
+1  Friend's
 0  friended
 0  friending
 0  friendless
@@ -100773,7 +100773,7 @@
 0  Froebelism
 0  Froebelism's
 0  froes
-31  Frog
+30  Frog
 0  frogbit
 0  frogbit's
 0  frogeater
@@ -100832,7 +100832,7 @@
 0  frolicsomely
 0  frolicsomeness
 0  frolicsomeness's
-1282  from
+1284  from
 0  fromage
 0  fromages
 0  Fromberg
@@ -101805,8 +101805,8 @@
 0  furlers
 0  furless
 0  furling
-3  furlong
-0  furlong's
+2  furlong
+1  furlong's
 0  furlough
 0  furlough's
 0  furloughed
@@ -103390,7 +103390,7 @@
 0  Garfunkel's
 0  garganey
 0  garganey's
-1  Gargantua
+0  Gargantua
 0  Gargantuan
 0  Gargantuism
 0  Gargantuism's
@@ -103447,7 +103447,7 @@
 0  garlicking
 0  garlicks
 0  garlicky
-2  garment
+3  garment
 0  garment's
 0  garmented
 0  garmenting
@@ -104788,8 +104788,8 @@
 0  gentlefolks's
 0  gentlehearted
 0  gentlehood
-28  gentleman
-0  gentleman's
+27  gentleman
+1  gentleman's
 0  gentlemanhood
 0  gentlemanlike
 0  gentlemanlikeness
@@ -105533,7 +105533,7 @@
 0  ghis
 0  ghomasio
 0  ghomasios
-6  ghost
+5  ghost
 0  ghost's
 0  ghostbuster
 0  ghostbusters
@@ -105576,8 +105576,8 @@
 0  giambeux
 0  Giannini
 0  Giannini's
-7  giant
-0  giant's
+6  giant
+1  giant's
 0  giantess
 0  giantess's
 0  giantesses
@@ -106162,8 +106162,8 @@
 0  giris
 0  girkin
 0  girkins
-8  girl
-0  girl's
+7  girl
+1  girl's
 0  girlfriend
 0  girlfriend's
 0  girlhood
@@ -106262,7 +106262,7 @@
 0  giust
 0  giusto
 0  givable
-157  give
+158  give
 0  give's
 0  giveable
 0  giveaway
@@ -106512,7 +106512,7 @@
 0  glasnost's
 0  glasnostian
 0  glasnostic
-23  Glass
+24  Glass
 0  Glass's
 0  glassblower
 0  glassblower's
@@ -106627,7 +106627,7 @@
 0  gleamers
 0  gleamier
 0  gleamiest
-9  gleaming
+10  gleaming
 0  gleaming's
 0  gleamingly
 0  gleamy
@@ -107634,7 +107634,7 @@
 0  GNP's
 0  GNU
 0  gnu's
-392  Go
+394  Go
 0  Goa
 0  goad
 0  goad's
@@ -107695,7 +107695,7 @@
 0  goatlike
 0  goatling
 0  goatlings
-40  Goats
+36  Goats
 0  goatsbeard
 0  goatsbeard's
 1  goatskin
@@ -107765,8 +107765,8 @@
 0  goby
 0  goby's
 0  gocart
-87  God
-1  God's
+78  God
+11  God's
 0  Godard
 0  Godavari
 0  godawful
@@ -107788,7 +107788,7 @@
 0  goddaughter
 0  goddaughter's
 0  godded
-8  goddess
+7  goddess
 0  goddess's
 1  goddesses
 0  goddessship
@@ -108032,8 +108032,8 @@
 0  goldsinnies
 0  goldsinny
 0  goldsize
-2  Goldsmith
-0  goldsmith's
+0  Goldsmith
+2  goldsmith's
 0  goldsmithery
 0  goldsmithry
 0  goldspink
@@ -108284,7 +108284,7 @@
 0  Gooch's
 0  Goochland
 0  Goochland's
-489  Good
+490  Good
 0  Good's
 0  Goodall
 0  Goodall's
@@ -108294,7 +108294,7 @@
 0  goodbye's
 0  Goodell
 0  Goodell's
-34  goodfellow
+29  goodfellow
 0  goodfellowship
 0  Goodfield
 0  Goodfield's
@@ -108345,7 +108345,7 @@
 0  Goodwell
 0  Goodwell's
 1  Goodwife
-5  Goodwill
+6  Goodwill
 0  Goodwill's
 0  goodwilled
 0  goodwilly
@@ -108689,8 +108689,8 @@
 0  gossan
 0  gossans
 0  Gosse
-46  gossip
-0  gossip's
+44  gossip
+3  gossip's
 0  gossiped
 0  gossiper
 0  gossiper's
@@ -108870,7 +108870,7 @@
 0  Gowen's
 0  Gower
 0  Gowers
-1  gowk
+0  gowk
 0  gowks
 0  gowl
 0  gowls
@@ -109085,8 +109085,8 @@
 0  grafting's
 0  Grafton
 0  Grafton's
-1  Graham
-0  graham's
+0  Graham
+1  graham's
 0  Grahame
 0  Grahamsville
 0  Grahamsville's
@@ -109095,7 +109095,7 @@
 0  Graiae
 0  Grail
 0  Grails
-0  grain
+1  grain
 0  grain's
 0  grainage
 0  graine
@@ -109861,7 +109861,7 @@
 0  greasinesses
 0  greasing
 1  greasy
-421  great
+422  great
 0  great's
 0  greatcoat
 0  greatcoat's
@@ -109935,7 +109935,7 @@
 0  Greeley
 0  Greeleyville
 0  Greeleyville's
-107  Green
+108  Green
 0  Green's
 0  Greenaway
 0  Greenback
@@ -111371,8 +111371,8 @@
 0  guesstimating
 0  guesswork
 0  guesswork's
-13  guest
-0  guest's
+11  guest
+2  guest's
 0  guestchamber
 3  guested
 0  guesthouse
@@ -111502,8 +111502,8 @@
 0  guillotine's
 0  guillotined
 0  guillotining
-5  guilt
-0  guilt's
+4  guilt
+1  guilt's
 0  guiltier
 0  guiltiest
 0  guiltily
@@ -112375,7 +112375,7 @@
 0  gyving
 3  H
 0  H's
-48  Ha
+46  Ha
 0  ha'it
 0  ha'p'orth
 0  ha'p'orths
@@ -113071,7 +113071,7 @@
 0  Haley's
 0  Haleyville
 0  Haleyville's
-108  half
+109  half
 0  half's
 0  halfa
 0  halfas
@@ -113158,7 +113158,7 @@
 0  halitous
 0  halitus
 0  halituses
-119  Hall
+120  Hall
 0  hallah
 0  hallah's
 0  hallal
@@ -113229,7 +113229,7 @@
 0  halloth
 0  halloumi
 0  halloumis
-1  hallow
+0  hallow
 0  Hallowe'en
 9  hallowed
 0  Halloween's
@@ -113852,8 +113852,8 @@
 0  hangfires
 22  hanging
 0  hanging's
-3  hangman
-0  hangman's
+2  hangman
+1  hangman's
 1  hangmen
 0  hangnail
 0  hangnail's
@@ -114050,7 +114050,7 @@
 0  happiness's
 0  happinesses
 0  happing
-71  happy
+72  happy
 0  Hapsburg
 0  Hapsburg's
 0  hapten
@@ -114602,7 +114602,7 @@
 0  harshnesses
 0  harslet
 0  harslets
-21  Hart
+20  Hart
 0  hartal
 0  hartals
 0  Harte
@@ -114792,7 +114792,7 @@
 0  hastate
 0  hastated
 0  hastately
-18  haste
+19  haste
 0  haste's
 0  hasted
 0  hasteful
@@ -115050,7 +115050,7 @@
 0  Havasupai's
 0  havdalah
 0  havdalahs
-1327  have
+1328  have
 0  have's
 0  Havel
 0  Havelock
@@ -115329,7 +115329,7 @@
 0  HDTV
 4040  HE
 0  he'd
-0  He's
+1  He's
 225  Head
 0  Head's
 1  headache
@@ -115422,8 +115422,8 @@
 0  headlock
 0  headlock's
 4  headlong
-1  headman
-0  headman's
+0  headman
+1  headman's
 0  headmark
 0  headmarks
 0  headmaster
@@ -115556,7 +115556,7 @@
 0  healingly
 0  heals
 0  healsome
-11  health
+12  health
 0  health's
 0  healthcare
 0  healthcare's
@@ -115595,7 +115595,7 @@
 0  hearie
 7  hearing
 0  hearing's
-46  hearken
+48  hearken
 12  hearkened
 0  hearkener
 0  hearkeners
@@ -115614,8 +115614,8 @@
 0  hearsing
 0  Hearst
 0  hearsy
-336  heart
-0  heart's
+333  heart
+3  heart's
 0  heartache
 0  heartache's
 0  heartbeat
@@ -115774,8 +115774,8 @@
 1  heave
 0  heave's
 2  heaved
-81  Heaven
-0  Heaven's
+82  Heaven
+1  Heaven's
 0  Heavener
 0  Heavener's
 0  heavenlier
@@ -115798,7 +115798,7 @@
 4  heaving
 0  heaving's
 0  Heaviside
-30  heavy
+31  heavy
 0  heavy's
 0  heavyhanded
 0  heavyheaded
@@ -116554,7 +116554,7 @@
 0  helotries
 0  helotry
 0  Helots
-105  Help
+106  Help
 0  Help's
 0  helpable
 0  helpdesk
@@ -116921,7 +116921,7 @@
 0  henbane's
 0  henbit
 0  henbit's
-26  hence
+28  hence
 5  henceforth
 3  henceforward
 0  hences
@@ -117188,7 +117188,7 @@
 0  Hepworth's
 0  Hepzibah
 0  Hepzibah's
-1875  her
+1881  her
 0  her's
 0  Hera
 0  Hera's
@@ -117381,7 +117381,7 @@
 0  heresy's
 0  heretic
 0  heretic's
-0  heretical
+1  heretical
 0  heretically
 0  hereticalness
 0  hereticalnesses
@@ -117490,8 +117490,8 @@
 0  Hermione's
 0  Hermiston
 0  Hermiston's
-9  hermit
-0  hermit's
+8  hermit
+1  hermit's
 6  Hermitage
 0  Hermitages
 0  Hermite
@@ -118489,7 +118489,7 @@
 0  higgles
 0  higgling
 0  higglings
-154  high
+155  high
 0  high's
 0  highball
 0  highball's
@@ -118687,7 +118687,7 @@
 0  hili
 0  Hiligaynon
 0  Hiligaynons
-76  Hill
+71  Hill
 0  Hillary
 0  hillbillies
 0  hillbilly
@@ -118732,7 +118732,7 @@
 0  hillos
 0  Hillrose
 0  Hillrose's
-43  Hills
+42  Hills
 0  Hillsboro
 0  Hillsboro's
 0  Hillsborough
@@ -118757,8 +118757,8 @@
 0  Hilmar's
 0  Hilo
 0  Hilo's
-5  hilt
-0  hilt's
+4  hilt
+1  hilt's
 0  hilted
 0  hilting
 0  hiltless
@@ -118771,7 +118771,7 @@
 0  Hilversum
 0  Hilwan
 0  Hilwan's
-1998  him
+2008  him
 0  him's
 0  Hima
 0  Hima's
@@ -118786,7 +118786,7 @@
 0  Himmler
 0  Himrod
 0  Himrod's
-221  himself
+222  himself
 0  himself's
 0  Himyarite
 0  Himyarites
@@ -119229,8 +119229,8 @@
 0  histophysiology
 0  histoplasmoses
 0  histoplasmosis
-3  historian
-0  historian's
+2  historian
+1  historian's
 0  historiated
 0  historic
 1  historical
@@ -120110,7 +120110,7 @@
 0  hombre's
 0  Homburg
 0  Homburgs
-150  Home
+151  Home
 0  home's
 0  homebodies
 0  homebody
@@ -120703,7 +120703,7 @@
 0  Honolulu's
 0  Honomu
 0  Honomu's
-12  Honor
+11  Honor
 0  Honora
 0  Honora's
 0  honorabilities
@@ -120935,7 +120935,7 @@
 0  Hooverville
 0  Hoovervilles
 0  hooves
-28  hop
+29  hop
 0  hop's
 0  Hopatcong
 0  Hopatcong's
@@ -121247,8 +121247,8 @@
 0  horror's
 0  hors
 0  Horsa
-246  horse
-0  horse's
+238  horse
+9  horse's
 22  horseback
 0  horseback's
 0  horsebean
@@ -121644,7 +121644,7 @@
 0  Hounslow
 0  Hounslow's
 0  houppelande
-82  hour
+79  hour
 0  hourglass
 0  hourglass's
 0  hourglasses
@@ -121656,7 +121656,7 @@
 2  hourly
 0  hourplate
 0  hourplates
-67  Hours
+64  Hours
 0  Housatonic
 0  Housatonic's
 341  House
@@ -121855,8 +121855,8 @@
 0  howdy
 0  howdy's
 0  howdying
-8  Howe
-0  howe'er
+7  Howe
+1  howe'er
 0  Howel
 0  Howel's
 0  Howell
@@ -121864,7 +121864,7 @@
 0  Howertons
 0  Howertons's
 0  Howes
-69  however
+71  however
 0  howf
 0  howff
 0  howffs
@@ -122012,8 +122012,8 @@
 0  huckleberrying
 0  hucklebone
 0  huckles
-1  huckster
-0  huckster's
+0  huckster
+1  huckster's
 0  hucksterage
 0  huckstered
 0  hucksteress
@@ -122513,7 +122513,7 @@
 0  Hungarian's
 0  Hungary
 0  Hungary's
-13  hunger
+14  hunger
 0  hunger's
 0  hungered
 0  Hungerford
@@ -122558,8 +122558,8 @@
 0  Hunnishnesses
 0  Hunspell
 0  Hunspell's
-4  Hunt
-0  hunt's
+3  Hunt
+1  hunt's
 0  huntable
 0  huntaway
 0  huntaways
@@ -122629,7 +122629,7 @@
 0  hurdling's
 0  Hurdsfield
 0  Hurdsfield's
-2  hurl
+0  hurl
 0  hurl's
 0  hurlbarrow
 0  hurlbat
@@ -122726,8 +122726,8 @@
 0  husbandless
 0  husbandlike
 0  husbandly
-2  husbandman
-0  husbandman's
+0  husbandman
+2  husbandman's
 10  husbandmen
 0  husbandries
 1  husbandry
@@ -124521,12 +124521,12 @@
 0  Hyundai's
 0  Hz
 0  Hz's
-4630  I
-0  I'd
-0  I'll
-0  I'm
+4603  I
+1  I'd
+19  I'll
+5  I'm
 0  I's
-0  I've
+3  I've
 0  IA
 0  Iaccoca
 0  Iaccoca's
@@ -124920,7 +124920,7 @@
 0  Idaville
 0  Idaville's
 3  ide
-30  Idea
+31  Idea
 0  idea'd
 0  ideaed
 5  ideal
@@ -125116,8 +125116,8 @@
 0  idocrase's
 0  Idoist
 0  Idoist's
-4  idol
-0  idol's
+3  idol
+1  idol's
 0  Idola
 0  Idola's
 1  idolater
@@ -125659,7 +125659,7 @@
 7  imagination
 0  imagination's
 0  imaginational
-4  imaginative
+5  imaginative
 0  imaginatively
 0  imaginativeness
 0  imaginativeness's
@@ -127303,7 +127303,7 @@
 0  imshy
 0  Imus
 0  Imus's
-4001  IN
+4003  IN
 0  Ina
 0  Ina's
 0  inabilities
@@ -128474,7 +128474,7 @@
 0  indecorousnesses
 0  indecorum
 0  indecorum's
-166  indeed
+170  indeed
 0  indeeds
 0  indef
 0  indefatigabilities
@@ -130809,7 +130809,7 @@
 0  inscriber's
 0  inscribes
 0  inscribing
-1  inscription
+2  inscription
 0  inscription's
 0  inscriptional
 0  inscriptive
@@ -134741,7 +134741,7 @@
 0  Ismay
 0  Ismay's
 0  ismy
-1  isn't
+5  isn't
 0  ISO
 0  isoagglutination
 0  isoagglutinations
@@ -135139,7 +135139,7 @@
 0  issuant
 9  issue
 0  issue's
-3  issued
+4  issued
 0  issueless
 0  issuer
 0  issuer's
@@ -135168,10 +135168,10 @@
 0  Istrians
 0  Isuzu
 0  Isuzu's
-3307  IT
+3294  IT
 0  it'd
 0  it'll
-0  it's
+19  it's
 0  ita
 0  itacism
 0  itacolumite
@@ -135401,7 +135401,7 @@
 0  izzard
 0  izzards
 0  izzat
-5  J
+4  J
 0  j'accuse
 0  j'adoube
 0  J's
@@ -136539,7 +136539,7 @@
 0  Jennie's
 0  Jennifer
 0  Jennifer's
-1  Jennings
+0  Jennings
 0  Jennings's
 0  Jenny
 0  Jenny's
@@ -136800,8 +136800,8 @@
 0  jeune
 0  jeux
 0  Jevons
-2  Jew
-0  Jew's
+1  Jew
+1  Jew's
 0  jewed
 4  Jewel
 0  Jewel's
@@ -137257,8 +137257,8 @@
 0  johanneses
 0  Johannine
 0  Johannisberger
-8  John
-0  John's
+6  John
+2  John's
 0  Johnadreams
 0  Johnadreams's
 0  Johnathan
@@ -137513,8 +137513,8 @@
 0  Josefa's
 0  Josefina
 0  Josefina's
-1  Joseph
-0  Joseph's
+0  Joseph
+1  Joseph's
 0  Josepha
 0  Josepha's
 0  Josephine
@@ -137611,8 +137611,8 @@
 0  journalizing
 0  journalled
 0  journalling
-51  journey
-0  journey's
+49  journey
+2  journey's
 10  journeyed
 0  journeyer
 0  journeyer's
@@ -137662,11 +137662,11 @@
 0  jowlinesses
 0  jowly
 0  jows
-92  Joy
-0  Joy's
+91  Joy
+1  Joy's
 5  joyance
 0  joyances
-8  Joyce
+7  Joyce
 0  Joycean
 0  Joyceans
 0  joyed
@@ -137685,7 +137685,7 @@
 0  joylessnesses
 0  Joyner
 0  Joyner's
-17  joyous
+18  joyous
 6  joyously
 1  joyousness
 0  joyousness's
@@ -137790,7 +137790,7 @@
 0  Judeans
 0  Judezmo
 12  Judge
-4  judged
+5  judged
 0  judgement
 0  judgement's
 0  judgemental
@@ -137803,7 +137803,7 @@
 0  judgmatic
 0  judgmatical
 0  judgmatically
-8  Judgment
+7  Judgment
 0  judgmental
 0  judgmentally
 0  Judgments
@@ -138502,8 +138502,8 @@
 0  Kainozoic's
 0  kains
 0  Kairouan
-1  Kaiser
-0  Kaiser's
+0  Kaiser
+1  Kaiser's
 0  kaiserdom
 0  kaiserdoms
 0  Kaiserin
@@ -139140,8 +139140,8 @@
 0  katharses
 0  katharsis
 0  katharsis's
-32  Katherine
-0  Katherine's
+29  Katherine
+3  Katherine's
 0  Katheryn
 0  Katheryn's
 0  Kathiawar
@@ -139447,8 +139447,8 @@
 78  keep
 0  keep's
 0  keepable
-2  keeper
-0  keeper's
+1  keeper
+1  keeper's
 0  keeperless
 0  keepership
 0  keeperships
@@ -140738,7 +140738,7 @@
 0  kinda
 0  Kinde
 0  Kinde's
-6  Kinder
+7  Kinder
 0  Kinder's
 0  kindergarten
 0  kindergarten's
@@ -140771,12 +140771,12 @@
 0  kindlinesses
 3  kindling
 0  kindling's
-51  kindly
-18  kindness
+52  kindly
+19  kindness
 0  kindness's
 0  kindnesses
-55  kindred
-0  kindred's
+54  kindred
+1  kindred's
 0  kindredness
 0  kindrednesses
 0  kindredship
@@ -140846,8 +140846,8 @@
 0  kinfolk
 0  kinfolk's
 0  kinfolks's
-216  King
-2  King's
+158  King
+61  King's
 0  kingbird
 0  kingbird's
 0  kingbolt
@@ -141153,7 +141153,7 @@
 0  Kismet
 0  kismetic
 0  Kismets
-32  kiss
+31  kiss
 0  kiss's
 0  kissable
 0  kissably
@@ -141592,7 +141592,7 @@
 0  knifing
 0  Knifley
 0  Knifley's
-211  Knight
+198  Knight
 0  knightage
 0  knightages
 0  Knightdale
@@ -141607,8 +141607,8 @@
 0  knightliness
 0  knightliness's
 0  knightlinesses
-15  knightly
-28  Knights
+16  knightly
+29  Knights
 0  Knightsbridge
 0  Knightsbridge's
 0  Knightsen
@@ -141739,7 +141739,7 @@
 0  know's
 0  knowable
 0  knowableness
-33  knowe
+34  knowe
 0  knower
 0  knowers
 0  knowes
@@ -141766,7 +141766,7 @@
 0  Knowles
 0  Knowlesville
 0  Knowlesville's
-65  known
+66  known
 0  known's
 0  knownothingism
 0  Knox
@@ -142738,7 +142738,7 @@
 0  kyus
 0  Kyushu
 0  Kyushu's
-15  L
+11  L
 0  L'Amour
 0  L'Enfant
 0  L'Oreal
@@ -142889,7 +142889,7 @@
 0  labyrinthitises
 0  labyrinthodont
 0  labyrinthodont's
-0  lac
+1  lac
 0  lac's
 0  Lacamp
 0  Lacamp's
@@ -142981,7 +142981,7 @@
 0  laciniated
 0  laciniation
 0  laciniations
-26  lack
+27  lack
 0  lack's
 0  lackadaisical
 0  lackadaisically
@@ -143136,7 +143136,7 @@
 0  Lacy's
 0  Lacygne
 0  Lacygne's
-66  lad
+67  lad
 0  lad's
 0  Ladakhi
 0  Ladakhis
@@ -143203,8 +143203,8 @@
 0  ladrons
 0  Ladson
 0  Ladson's
-332  Lady
-0  lady's
+322  Lady
+16  lady's
 0  ladybeetle
 0  ladybeetle's
 0  ladybird
@@ -143535,8 +143535,8 @@
 0  lamasery's
 0  Lamaze
 0  Lamazes
-6  Lamb
-0  lamb's
+5  Lamb
+1  lamb's
 0  lambada
 0  lambada's
 0  lambale
@@ -144943,8 +144943,8 @@
 0  latte's
 2  latten
 0  lattens
-31  latter
-0  latter's
+30  latter
+1  latter's
 0  latterly
 0  lattermath
 0  lattermint
@@ -145017,7 +145017,7 @@
 0  Laughlintown
 0  Laughlintown's
 0  laughsome
-16  laughter
+17  laughter
 0  laughter's
 0  Laughton
 0  laughworthy
@@ -145337,7 +145337,7 @@
 0  laxness
 0  laxness's
 0  laxnesses
-150  lay
+149  lay
 0  lay's
 0  layabout
 0  layabout's
@@ -145867,7 +145867,7 @@
 0  lecythis
 0  Lecythus
 0  Lecythus's
-148  LED
+149  LED
 0  LED's
 0  Leda
 0  Ledbetter
@@ -146419,7 +146419,7 @@
 0  Lengby's
 0  lenger
 0  lengest
-55  length
+56  length
 0  length's
 1  lengthen
 0  lengthened
@@ -147438,8 +147438,8 @@
 0  libertine's
 0  libertinism
 0  libertinisms
-6  Liberty
-0  Liberty's
+5  Liberty
+1  Liberty's
 0  Libertytown
 0  Libertytown's
 0  Libertyville
@@ -147677,8 +147677,8 @@
 0  lieve
 1  liever
 0  lievest
-187  life
-0  life's
+184  life
+4  life's
 0  lifebelt
 0  lifebelts
 0  lifeblood
@@ -147842,8 +147842,8 @@
 0  lightness
 0  lightness's
 0  lightnesses
-4  lightning
-0  lightning's
+3  lightning
+1  lightning's
 0  lightningbug
 0  lightninged
 0  lightplane
@@ -147930,7 +147930,7 @@
 0  likableness's
 0  likablenesses
 0  likably
-451  like
+455  like
 0  like's
 0  likeabilities
 0  likeability
@@ -147973,8 +147973,8 @@
 0  likuta's
 0  Lila
 0  Lila's
-1  lilac
-0  lilac's
+0  lilac
+1  lilac's
 0  lilangeni
 0  lilangeni's
 0  Lilbourn
@@ -147994,7 +147994,7 @@
 0  Liliana's
 0  lilied
 0  Lilienthal
-18  lilies
+17  lilies
 0  Lilith
 0  Lilith's
 0  Lilium
@@ -148344,7 +148344,7 @@
 19  Line
 0  Line's
 0  lineable
-12  lineage
+13  lineage
 0  lineage's
 0  lineal
 0  linealities
@@ -148497,7 +148497,7 @@
 2  lining
 0  lining's
 0  linins
-1  link
+0  link
 0  link's
 0  linkable
 0  linkage
@@ -148598,7 +148598,7 @@
 0  Linwood's
 0  liny
 0  Linz
-22  Lion
+23  Lion
 0  lioncel
 0  lioncelle
 0  lioncelles
@@ -149221,7 +149221,7 @@
 0  littermate
 0  littermates
 0  littery
-697  Little
+699  Little
 0  Little's
 0  Littlefield
 0  Littlefield's
@@ -149271,7 +149271,7 @@
 0  livable
 0  livableness
 0  livablenesses
-69  live
+70  live
 0  liveabilities
 0  liveability
 0  liveable
@@ -149408,7 +149408,7 @@
 0  Lizzy's
 0  Ljubljana
 0  Ljubljana's
-28  LL
+0  LL
 0  llama
 0  llama's
 0  Llandudno
@@ -150105,7 +150105,7 @@
 0  Lois
 0  Lois's
 0  loiter
-2  loitered
+3  loitered
 0  loiterer
 0  loiterer's
 4  loitering
@@ -150271,7 +150271,7 @@
 0  Lonestar's
 0  Lonetree
 0  Lonetree's
-415  Long
+414  Long
 0  longa
 0  longan
 0  longan's
@@ -150308,8 +150308,8 @@
 0  longevity
 0  longevity's
 0  longevous
-1  Longfellow
-0  Longfellow's
+0  Longfellow
+1  Longfellow's
 1  Longford
 0  longhair
 0  longhair's
@@ -150456,7 +150456,7 @@
 0  looie
 0  looies
 0  looing
-217  look
+213  look
 0  look's
 0  lookalike
 0  lookalike's
@@ -150467,7 +150467,7 @@
 468  looked
 0  looker
 0  looker's
-107  looking
+109  looking
 0  looking's
 0  lookism
 0  lookisms
@@ -150622,8 +150622,8 @@
 0  Lorca
 0  lorcha
 0  lorchas
-612  Lord
-0  Lord's
+570  Lord
+43  Lord's
 0  lorded
 0  lording
 0  lordings
@@ -150649,8 +150649,8 @@
 0  lordotic
 0  Lordsburg
 0  Lordsburg's
-12  Lordship
-0  Lordship's
+10  Lordship
+2  Lordship's
 0  Lordy
 40  lore
 0  lore's
@@ -150761,7 +150761,7 @@
 0  lossmaker
 0  lossmakers
 0  lossy
-42  lost
+43  lost
 0  Lostant
 0  Lostant's
 0  Lostine
@@ -150956,8 +150956,8 @@
 0  lovastatin's
 0  lovat
 0  lovats
-337  Love
-0  Love's
+334  Love
+5  Love's
 0  loveable
 0  loveableness
 0  loveably
@@ -151008,8 +151008,8 @@
 0  lovemaking
 0  lovemaking's
 0  lovemonger
-18  lover
-0  lover's
+17  lover
+1  lover's
 0  lovered
 0  loverless
 0  loverly
@@ -151033,7 +151033,7 @@
 0  loveys
 0  Lovilia
 0  Lovilia's
-14  Loving
+15  Loving
 0  Loving's
 0  lovingkindness
 6  lovingly
@@ -151044,7 +151044,7 @@
 0  Lovingston's
 0  Lovington
 0  Lovington's
-65  Low
+66  Low
 0  low's
 0  Lowake
 0  Lowake's
@@ -151223,7 +151223,7 @@
 0  LSD's
 0  LSI
 0  LST
-1  Lt
+0  Lt
 0  Ltd
 0  Lu
 0  Lu's
@@ -151303,7 +151303,7 @@
 0  Lucayo
 0  Lucayos
 0  Lucca
-13  Luce
+14  Luce
 0  Luce's
 0  Lucedale
 0  Lucedale's
@@ -151537,7 +151537,7 @@
 0  Lulea
 0  Luling
 0  Luling's
-4  lull
+2  lull
 0  lull's
 0  lullabied
 0  lullabies
@@ -151875,7 +151875,7 @@
 0  Lurie's
 1  luring
 0  luringly
-2  lurk
+1  lurk
 0  lurk's
 0  lurked
 0  lurker
@@ -151958,7 +151958,7 @@
 0  lustration
 0  lustrations
 0  lustrative
-8  lustre
+9  lustre
 0  lustre's
 0  lustred
 0  lustrine
@@ -151977,8 +151977,8 @@
 0  lutanist's
 0  Lutcher
 0  Lutcher's
-3  lute
-0  lute's
+2  lute
+1  lute's
 0  lutea
 0  luteal
 0  lutecium
@@ -152500,10 +152500,10 @@
 0  Lyublin
 0  LyX
 0  LyX's
-10  M
+5  M
 0  M's
-2  MA
-0  ma'am
+0  MA
+2  ma'am
 0  MA's
 0  maa
 0  maaing
@@ -152798,7 +152798,7 @@
 0  Macoun's
 0  macoya
 0  macoyas
-1  Macpherson
+0  Macpherson
 0  Macquarie
 0  Macquarie's
 0  macrami
@@ -153531,7 +153531,7 @@
 0  maidan
 0  maidans
 0  maided
-73  Maiden
+72  Maiden
 0  Maidenform
 0  Maidenform's
 0  maidenhair
@@ -153749,8 +153749,8 @@
 0  majesticalness
 0  majesticness
 0  Majesties
-22  Majesty
-0  majesty's
+21  Majesty
+1  majesty's
 0  Majlis
 0  Majlis's
 0  majlises
@@ -154474,8 +154474,8 @@
 0  mamzer
 0  mamzerim
 0  mamzers
-855  Man
-3  Man's
+829  Man
+31  Man's
 0  mana
 0  manacle
 0  manacle's
@@ -155245,7 +155245,7 @@
 0  Manxmen
 0  Manxwoman
 0  Manxwomen
-379  many
+380  many
 0  many's
 0  manyata
 0  manyatas
@@ -155795,7 +155795,7 @@
 0  Marjorie's
 0  Marjory
 0  Marjory's
-13  Mark
+12  Mark
 0  Mark's
 0  marka
 0  Markab
@@ -156099,7 +156099,7 @@
 0  Marshall's
 0  Marshallberg
 0  Marshallberg's
-2  marshalled
+3  marshalled
 0  marshaller
 0  marshallers
 0  Marshallese
@@ -156283,8 +156283,8 @@
 0  marvel's
 0  marveled
 0  marveling
-1  Marvell
-0  Marvell's
+0  Marvell
+1  Marvell's
 10  marvelled
 0  marvelling
 0  marvellously
@@ -156309,8 +156309,8 @@
 0  Marxism's
 0  Marxist
 0  Marxist's
-11  Mary
-0  Mary's
+4  Mary
+7  Mary's
 0  Maryalice
 0  Maryalice's
 0  Maryann
@@ -156490,8 +156490,8 @@
 0  masochist's
 0  masochistic
 0  masochistically
-1  Mason
-0  Mason's
+0  Mason
+1  Mason's
 0  masoned
 0  Masonic
 0  Masonically
@@ -156623,7 +156623,7 @@
 0  mastectomy
 0  mastectomy's
 0  masted
-108  Master
+106  Master
 0  masterate
 0  masterates
 0  MasterCard
@@ -157053,7 +157053,7 @@
 0  mattedly
 0  Mattel
 0  Mattel's
-89  matter
+90  matter
 0  matter's
 0  mattered
 0  matterful
@@ -157375,7 +157375,7 @@
 0  Maxwellian
 0  Maxwelton
 0  Maxwelton's
-569  May
+568  May
 0  May's
 0  Maya
 0  Maya's
@@ -157876,7 +157876,7 @@
 0  MDMA's
 0  mdse
 0  MDT
-1754  ME
+1766  ME
 0  me's
 0  meacock
 2  Mead
@@ -158009,7 +158009,7 @@
 0  measurableness
 0  measurablenesses
 0  measurably
-17  measure
+18  measure
 0  measure's
 1  measured
 0  measuredly
@@ -158026,7 +158026,7 @@
 0  measuring
 0  measuring's
 0  measuringworm
-76  meat
+77  meat
 0  meat's
 0  meatal
 0  meataxe
@@ -158902,7 +158902,7 @@
 0  Mellotrons
 0  Mellott
 0  Mellott's
-3  mellow
+2  mellow
 0  mellowed
 0  mellower
 0  mellowest
@@ -159093,7 +159093,7 @@
 0  memorizer's
 0  memorizes
 0  memorizing
-25  memory
+26  memory
 0  memory's
 0  Memphian
 0  Memphians
@@ -159103,7 +159103,7 @@
 0  Memphites
 0  memsahib
 0  memsahib's
-722  Men
+717  Men
 0  Mena
 0  Mena's
 0  menace
@@ -159528,7 +159528,7 @@
 0  merchandizing
 0  merchandizings
 21  merchant
-0  merchant's
+1  merchant's
 0  merchantabilities
 2  merchantability
 0  merchantable
@@ -159608,7 +159608,7 @@
 0  Mercury's
 0  Mercutio
 0  Mercutio's
-8  mercy
+9  mercy
 0  mercy's
 0  merde
 0  merdes
@@ -159818,7 +159818,7 @@
 0  Merrittstown's
 0  Merrouge
 0  Merrouge's
-67  Merry
+68  Merry
 0  Merry's
 0  merrymake
 0  merrymaker
@@ -160180,7 +160180,7 @@
 0  mesto
 0  mestranol
 0  mestranol's
-73  met
+74  met
 0  Meta
 0  metabases
 0  metabasis
@@ -161670,7 +161670,7 @@
 0  micturating
 0  micturition
 0  micturition's
-19  Mid
+20  Mid
 0  mid's
 0  midafternoon
 0  midafternoon's
@@ -161910,7 +161910,7 @@
 0  miggle
 0  miggles
 0  miggs
-466  might
+465  might
 0  might's
 0  mightful
 9  mightier
@@ -161920,7 +161920,7 @@
 0  mightiness's
 0  mightinesses
 0  mightn't
-56  mighty
+57  mighty
 0  mignon
 0  mignonette
 0  mignonette's
@@ -162038,7 +162038,7 @@
 0  milepost's
 0  miler
 0  miler's
-31  Miles
+32  Miles
 0  Milesburg
 0  Milesburg's
 0  Milesian
@@ -162455,7 +162455,7 @@
 0  miltier
 0  miltiest
 0  milting
-10  Milton
+7  Milton
 0  Miltona
 0  Miltona's
 0  miltonia
@@ -162595,8 +162595,8 @@
 0  Minco
 0  Minco's
 0  mincy
-168  mind
-0  mind's
+167  mind
+1  mind's
 0  Mindanao
 0  mindblower
 0  mindblowers
@@ -162991,8 +162991,8 @@
 0  Minsky's
 5  Minster
 0  Minster's
-38  minstrel
-0  minstrel's
+34  minstrel
+4  minstrel's
 0  minstrelsies
 4  minstrelsy
 0  minstrelsy's
@@ -163030,8 +163030,8 @@
 0  minuscule
 0  minuscule's
 0  minuses
-31  minute
-0  minute's
+30  minute
+1  minute's
 0  minuted
 3  minutely
 0  Minuteman
@@ -163504,7 +163504,7 @@
 0  mischarged
 0  mischarges
 0  mischarging
-4  mischief
+5  mischief
 0  mischief's
 0  mischiefed
 0  mischiefing
@@ -164660,7 +164660,7 @@
 0  missuses
 0  Missy
 0  Missy's
-8  mist
+9  mist
 0  mist's
 0  mistakable
 0  mistakably
@@ -164777,8 +164777,8 @@
 0  mistreatment
 0  mistreatment's
 0  mistreats
-34  Mistress
-0  mistress's
+33  Mistress
+1  mistress's
 0  Mistresses
 0  mistressless
 0  mistressly
@@ -165782,8 +165782,8 @@
 0  mome
 0  Momence
 0  Momence's
-48  moment
-0  moment's
+47  moment
+2  moment's
 0  momenta
 0  momentaneous
 0  momentany
@@ -165879,8 +165879,8 @@
 0  Monango
 0  Monango's
 0  monanthous
-8  monarch
-0  monarch's
+6  monarch
+2  monarch's
 0  monarchal
 0  monarchally
 0  monarchial
@@ -166141,11 +166141,11 @@
 0  monitory's
 0  monitress
 0  monitresses
-33  Monk
-0  Monk's
+31  Monk
+2  Monk's
 0  monkeries
 0  monkery
-2  monkey
+3  monkey
 0  monkey's
 0  monkeyboard
 0  monkeyed
@@ -166822,8 +166822,8 @@
 0  Montgomery's
 0  Montgomeryshire
 0  Montgomeryshire's
-25  month
-0  month's
+24  month
+1  month's
 0  Montherlant
 0  monthlies
 0  monthlong
@@ -166939,8 +166939,8 @@
 0  moolvie
 0  moolvies
 0  moolvis
-69  Moon
-0  Moon's
+66  Moon
+3  Moon's
 0  moonball
 0  moonballed
 0  moonballing
@@ -167186,7 +167186,7 @@
 0  moraine
 0  moraine's
 0  morainic
-15  moral
+16  moral
 0  moral's
 0  morale
 0  Morales
@@ -167280,7 +167280,7 @@
 0  Mordvin's
 0  Mordvinian
 0  Mordvinian's
-640  More
+641  More
 0  more's
 0  Morea
 0  Morean
@@ -167408,8 +167408,8 @@
 0  morne
 0  morned
 0  mornes
-108  morning
-0  morning's
+107  morning
+2  morning's
 0  morningly
 0  morningstar
 0  morningtide
@@ -167540,8 +167540,8 @@
 0  Morrisville's
 0  morro
 0  morros
-127  Morrow
-0  Morrow's
+123  Morrow
+6  Morrow's
 0  Morrowville
 0  Morrowville's
 0  Mors
@@ -167795,7 +167795,7 @@
 0  mothballed
 0  mothballing
 0  mothed
-104  Mother
+91  Mother
 0  motherboard
 0  motherboard's
 0  mothercraft
@@ -168051,8 +168051,8 @@
 13  Mount
 0  mount's
 0  mountable
-64  mountain
-0  mountain's
+61  mountain
+3  mountain's
 0  mountained
 0  mountaineer
 0  mountaineer's
@@ -168092,7 +168092,7 @@
 0  mouped
 0  mouping
 0  moups
-4  mourn
+3  mourn
 0  Mourne
 0  Mourne's
 0  mourned
@@ -168171,7 +168171,7 @@
 0  mousy
 0  moutan
 0  moutans
-64  mouth
+65  mouth
 0  mouth's
 0  mouthable
 0  mouthbreather
@@ -168221,7 +168221,7 @@
 0  movableness's
 0  movablenesses
 0  movably
-14  move
+15  move
 0  move's
 0  moveability
 0  moveable
@@ -168352,7 +168352,7 @@
 0  mph's
 0  mpret
 0  mprets
-126  Mr
+129  Mr
 0  Mr's
 0  MRA
 0  MRI
@@ -168389,7 +168389,7 @@
 0  mucate
 0  mucates
 0  mucedinous
-317  much
+318  much
 0  much's
 0  muchacha
 0  muchachas
@@ -168495,7 +168495,7 @@
 0  mucus
 0  mucus's
 0  mucuses
-4  MUD
+5  MUD
 0  mud's
 0  mudbath
 0  mudbaths
@@ -169301,8 +169301,8 @@
 0  mumming
 0  mummings
 0  mumms
-20  mummy
-0  mummy's
+18  mummy
+2  mummy's
 0  mummying
 0  mummyings
 0  mump
@@ -169497,8 +169497,8 @@
 4  murdered
 0  murderee
 0  murderees
-1  murderer
-0  murderer's
+0  murderer
+1  murderer's
 0  murderess
 0  murderess's
 0  murderesses
@@ -169564,7 +169564,7 @@
 0  murlins
 0  murly
 0  Murmansk
-8  murmur
+7  murmur
 0  murmur's
 0  murmuration
 0  murmuration's
@@ -169752,8 +169752,8 @@
 0  mushy
 0  Musial
 0  Musial's
-37  music
-0  music's
+35  music
+2  music's
 1  musical
 0  musical's
 0  musicale
@@ -170053,7 +170053,7 @@
 0  Mutsuhito's
 0  mutt
 0  mutt's
-3  mutter
+2  mutter
 0  mutter's
 7  muttered
 0  mutterer
@@ -170679,7 +170679,7 @@
 0  mzees
 0  mzungu
 0  mzungus
-7  N
+2  N
 0  N'Djamena
 0  n'importe
 0  N's
@@ -170972,8 +170972,8 @@
 0  namastes
 0  Namath
 0  Namath's
-88  name
-0  name's
+87  name
+1  name's
 0  nameable
 0  namecheck
 0  namechecked
@@ -171651,8 +171651,8 @@
 2  naturalness
 0  naturalness's
 0  naturalnesses
-21  Nature
-0  nature's
+19  Nature
+2  nature's
 1  natured
 0  naturing
 0  naturism
@@ -171819,7 +171819,7 @@
 0  Naxera
 0  Naxera's
 0  Naxos
-229  nay
+231  nay
 0  nay's
 0  Nayar
 0  Nayar's
@@ -171888,8 +171888,8 @@
 0  Ndongos
 0  Ndrangheta
 0  Ndrangheta's
-5  NE
-0  ne'er
+2  NE
+3  ne'er
 0  Ne'erday
 0  NE's
 0  neafe
@@ -172062,7 +172062,7 @@
 0  necessity's
 0  Neche
 0  Neche's
-51  neck
+52  neck
 0  neck's
 0  Neckar
 0  Neckar's
@@ -172258,7 +172258,7 @@
 0  needment
 0  Needmore
 0  Needmore's
-0  needn't
+1  needn't
 0  Needville
 0  Needville's
 3  needy
@@ -172453,8 +172453,8 @@
 0  neifs
 0  neigh
 0  neigh's
-4  neighbor
-0  neighbor's
+3  neighbor
+1  neighbor's
 0  neighbored
 1  neighborhood
 0  neighborhood's
@@ -172827,8 +172827,8 @@
 0  nephelometrically
 0  nephelometries
 0  nephelometry
-15  nephew
-0  nephew's
+14  nephew
+1  nephew's
 0  Nephi
 0  Nephi's
 0  nephogram
@@ -174097,8 +174097,8 @@
 0  nighness
 0  nighnesses
 0  nighs
-306  Night
-0  Night's
+298  Night
+9  Night's
 0  nightbird
 0  nightbird's
 0  nightblind
@@ -174137,8 +174137,8 @@
 0  nighthawk's
 0  nightie
 0  nightie's
-1  Nightingale
-0  Nightingale's
+0  Nightingale
+1  Nightingale's
 0  nightjar
 0  nightjar's
 0  nightless
@@ -174804,7 +174804,7 @@
 0  nodations
 0  Nodaway
 0  Nodaway's
-35  nodded
+36  nodded
 0  nodder
 0  nodders
 0  noddies
@@ -176931,8 +176931,8 @@
 0  nooky's
 0  noology
 0  noometry
-49  noon
-0  noon's
+48  noon
+1  noon's
 0  Noonan
 0  Noonan's
 0  noonday
@@ -177330,7 +177330,7 @@
 0  nostrum
 0  nostrum's
 12  nosy
-2313  NOT
+2316  NOT
 0  nota
 0  notabene
 0  notabilia
@@ -177527,7 +177527,7 @@
 0  Nouakchott's
 0  nougat
 0  nougat's
-114  nought
+115  nought
 0  nought's
 0  nould
 0  noule
@@ -177671,7 +177671,7 @@
 0  Novosibirsk
 0  Novosibirsk's
 0  novum
-1169  NOW
+1170  NOW
 0  now's
 0  nowadays
 0  nowadays's
@@ -177738,7 +177738,7 @@
 0  NSAIDs
 0  NSC
 0  NSF
-1  NT
+0  NT
 0  nth
 0  nu
 0  nu's
@@ -177974,7 +177974,7 @@
 0  numbat
 0  numbat's
 0  numbed
-20  number
+21  number
 0  numberable
 4  numbered
 0  numberer
@@ -178448,14 +178448,14 @@
 0  nystatin's
 0  Nyx
 0  NZ
-237  O
+153  O
 0  O'Brien
 0  O'Casey
-0  o'clock
+3  o'clock
 0  O'Connell
 0  O'Connor
 0  O'Donnell
-2  o'er
+37  o'er
 0  O'Flaherty
 0  O'Hara
 0  O'Higgins
@@ -178587,7 +178587,7 @@
 0  Oaxaca
 0  Oaxaca's
 0  Oaxacan
-1  OB
+0  OB
 0  Ob's
 0  oba
 0  Obad
@@ -179222,7 +179222,7 @@
 0  Occamistic
 0  occamy
 0  occas
-29  occasion
+30  occasion
 0  occasion's
 2  occasional
 0  occasionalism
@@ -179317,8 +179317,8 @@
 0  occurring
 0  occurs
 0  OCD
-12  Ocean
-0  Ocean's
+11  Ocean
+1  Ocean's
 0  Oceana
 0  Oceana's
 0  oceanaria
@@ -179906,7 +179906,7 @@
 0  ofays
 0  Ofelia
 0  Ofelia's
-201  off
+202  off
 0  off's
 0  Offa
 0  Offa's
@@ -180069,7 +180069,7 @@
 0  oflag
 0  oflags
 0  OFris
-34  oft
+35  oft
 49  often
 3  oftener
 7  oftenest
@@ -180148,7 +180148,7 @@
 0  Ogunquit's
 0  Ogygian
 0  Ogygian's
-51  OH
+52  OH
 0  oh's
 0  Ohatchee
 0  Ohatchee's
@@ -180398,7 +180398,7 @@
 0  Olav
 0  Olav's
 0  Olcott
-351  Old
+352  Old
 0  Oldcastle
 0  olde
 2  olden
@@ -180773,7 +180773,7 @@
 0  ominousness's
 0  ominousnesses
 0  omissible
-0  omission
+1  omission
 0  omission's
 0  omissive
 0  omissively
@@ -180893,7 +180893,7 @@
 0  Oms
 0  Omsk
 0  Omsk's
-2001  ON
+2004  ON
 0  on's
 0  Ona
 0  Ona's
@@ -180928,7 +180928,7 @@
 0  Onaway
 0  Onaway's
 0  onboard
-246  once
+247  once
 0  once's
 0  oncer
 0  oncers
@@ -180988,8 +180988,8 @@
 0  ondogram
 0  ondograms
 0  ondometer
-799  one
-0  one's
+797  one
+4  one's
 0  Oneal
 0  Oneal's
 0  Oneco
@@ -181344,7 +181344,7 @@
 0  opacous
 0  opah
 0  opah's
-1  Opal
+0  Opal
 0  Opal's
 0  opaled
 0  opalesce
@@ -181388,7 +181388,7 @@
 0  Opelika's
 0  Opelousas
 0  Opelousas's
-76  Open
+77  Open
 0  openabilities
 0  openability
 0  openable
@@ -181884,7 +181884,7 @@
 0  Oquawka's
 0  Oquossoc
 0  Oquossoc's
-1070  OR
+1069  OR
 0  or's
 0  Ora
 0  Ora's
@@ -182138,7 +182138,7 @@
 0  ordalium
 0  ordeal
 0  ordeal's
-29  order
+30  order
 0  order's
 0  orderable
 9  ordered
@@ -183156,7 +183156,7 @@
 0  Ossi
 0  Ossi's
 0  ossia
-1  Ossian
+0  Ossian
 0  Ossianesque
 0  Ossianesque's
 0  Ossianic
@@ -183414,8 +183414,8 @@
 0  Otello's
 0  Othello
 0  Othello's
-405  other
-0  other's
+402  other
+5  other's
 0  othergates
 0  otherguess
 0  otherness
@@ -183508,7 +183508,7 @@
 0  Ottawa
 0  Ottawa's
 75  otter
-0  otter's
+2  otter's
 0  Otterbein
 0  Otterbein's
 0  Otterburn
@@ -185286,7 +185286,7 @@
 0  ovenware
 0  ovenware's
 0  ovenwood
-421  over
+422  over
 0  over's
 0  overable
 0  overabound
@@ -187646,7 +187646,7 @@
 0  Owlspiegle
 0  Owlspiegle's
 0  owly
-198  own
+199  own
 0  ownable
 1  owned
 3  owner
@@ -187939,7 +187939,7 @@
 0  Ozymandias's
 0  Ozzie
 0  Ozzie's
-10  P
+9  P
 0  P's
 0  PA
 0  pa'anga
@@ -190648,7 +190648,7 @@
 0  pardine
 0  pardner
 0  pardner's
-26  pardon
+27  pardon
 0  pardon's
 0  pardonable
 0  pardonableness
@@ -190895,7 +190895,7 @@
 0  parle
 0  parled
 0  parles
-0  parley
+1  parley
 0  parley's
 0  parleyed
 0  parleyer
@@ -191471,7 +191471,7 @@
 0  pasquinader
 0  pasquinaders
 0  pasquinading
-85  pass
+82  pass
 0  pass's
 1  passable
 0  passableness
@@ -191554,7 +191554,7 @@
 16  passing
 0  passing's
 0  passingly
-19  Passion
+18  Passion
 0  Passion's
 0  passional
 0  passionals
@@ -193742,7 +193742,7 @@
 0  Pennlaird's
 0  Pennock
 0  Pennock's
-7  pennon
+6  pennon
 0  pennon's
 0  pennoncel
 0  pennoncel's
@@ -194088,7 +194088,7 @@
 0  peonisms
 0  peony
 0  peony's
-86  people
+87  people
 10  peopled
 0  peoplehood
 0  peoplehoods
@@ -195812,8 +195812,8 @@
 0  petechia
 0  petechiae
 0  petechial
-46  Peter
-0  Peter's
+38  Peter
+8  Peter's
 0  Peterboro
 0  Peterboro's
 0  Peterborough
@@ -196810,8 +196810,8 @@
 0  philosophaster
 0  philosophasters
 0  philosophe
-18  philosopher
-0  philosopher's
+15  philosopher
+3  philosopher's
 0  philosopheress
 0  philosopheresses
 0  philosophes
@@ -199139,7 +199139,7 @@
 0  pinchcommons
 0  pincheck
 0  pinchecks
-2  pinched
+3  pinched
 0  pincher
 0  pinchers
 0  pinches
@@ -200107,7 +200107,7 @@
 0  placative
 0  placatory
 0  placcate
-213  Place
+215  Place
 0  place's
 0  placeable
 0  placebo
@@ -200238,7 +200238,7 @@
 0  plaiding
 0  plaidman
 0  plaidmen
-83  plain
+84  plain
 0  plainchant
 0  plainchant's
 0  plainclothes
@@ -200934,7 +200934,7 @@
 0  Pleasantville
 0  Pleasantville's
 29  please
-22  pleased
+23  pleased
 0  pleaseman
 0  Pleasence
 0  Pleasence's
@@ -202008,12 +202008,12 @@
 0  podzolized
 0  podzolizes
 0  podzolizing
-28  Poe
+25  Poe
 0  poebird
 0  poechore
 0  poechores
-60  poem
-0  poem's
+58  poem
+2  poem's
 0  poematic
 0  poenology
 0  poenology's
@@ -202024,8 +202024,8 @@
 2  poesy
 0  poesy's
 0  poesying
-35  poet
-0  poet's
+23  poet
+12  poet's
 0  poetaster
 0  poetaster's
 0  poetastering
@@ -202059,7 +202059,7 @@
 0  poetless
 0  poetlike
 0  poetries
-40  poetry
+39  poetry
 0  poetry's
 0  poetship
 0  pogey
@@ -203463,8 +203463,8 @@
 0  Pontypool's
 0  Pontypridd
 0  Pontypridd's
-3  pony
-0  pony's
+1  pony
+2  pony's
 0  ponying
 0  ponyskin
 0  ponytail
@@ -205080,7 +205080,7 @@
 0  powerplay
 0  PowerPoint
 0  PowerPoint's
-7  Powers
+6  Powers
 0  powerset
 0  Powersite
 0  Powersite's
@@ -205399,7 +205399,7 @@
 0  Praxitelean
 0  Praxitelean's
 0  Praxiteles
-45  pray
+46  pray
 13  prayed
 6  prayer
 0  prayer's
@@ -207490,7 +207490,7 @@
 0  Prestwick's
 0  presumable
 0  presumably
-6  presume
+7  presume
 0  presumed
 0  presumedly
 0  presumer
@@ -208155,7 +208155,7 @@
 0  principial
 0  principials
 0  principium
-11  principle
+12  principle
 0  principle's
 0  principled
 0  principling
@@ -208202,8 +208202,8 @@
 0  Prinz
 0  prion
 0  prions
-17  Prior
-0  prior's
+16  Prior
+1  prior's
 0  priorate
 0  priorates
 0  prioress
@@ -209024,8 +209024,8 @@
 0  proinsulin
 0  proinsulins
 0  prointervention
-65  project
-0  project's
+63  project
+4  project's
 0  projectable
 2  projected
 0  projectile
@@ -209668,8 +209668,8 @@
 0  proprietary's
 1  proprieties
 0  proprieties's
-4  proprietor
-0  proprietor's
+3  proprietor
+1  proprietor's
 0  proprietorial
 0  proprietorially
 0  proprietorship
@@ -212562,7 +212562,7 @@
 0  pustule's
 0  pustuled
 0  pustulous
-113  put
+114  put
 0  put's
 0  putamen
 0  putamina
@@ -213290,7 +213290,7 @@
 0  qt
 0  qto
 0  qty
-3  qu
+0  qu
 0  qua
 0  Quaalude
 0  Quaalude's
@@ -213534,7 +213534,7 @@
 3  quaint
 0  quainter
 0  quaintest
-0  quaintly
+1  quaintly
 2  quaintness
 0  quaintness's
 0  quaintnesses
@@ -213955,7 +213955,7 @@
 0  Quechuan
 0  Quechuans
 0  queechy
-82  Queen
+73  Queen
 0  Queenanne
 0  Queenanne's
 0  queencake
@@ -214100,7 +214100,7 @@
 1  questing
 0  questingly
 0  questings
-51  question
+52  question
 0  question's
 0  questionabilities
 0  questionability
@@ -214763,8 +214763,8 @@
 0  rabbinite
 0  rabbinites
 0  rabbins
-4  rabbit
-0  rabbit's
+3  rabbit
+1  rabbit's
 0  rabbitbrush
 0  rabbitbrushes
 0  rabbited
@@ -214787,7 +214787,7 @@
 0  rabblings
 0  rabboni
 0  rabbonis
-1  Rabelais
+0  Rabelais
 0  Rabelais's
 0  Rabelaisian
 0  Rabelaisianism
@@ -215541,9 +215541,9 @@
 0  railwaymen
 0  railwoman
 0  railwomen
-75  raiment
+76  raiment
 0  raiment's
-15  rain
+16  rain
 0  rainband
 0  rainbands
 0  rainbird
@@ -215718,12 +215718,12 @@
 0  rallyingly
 0  rallyist
 0  rallyists
-1794  Ralph
-1  Ralph's
+1725  Ralph
+77  Ralph's
 0  ralphed
 0  ralphing
-5  RAM
-0  RAM's
+1  RAM
+4  RAM's
 0  Rama
 0  Rama's
 0  Ramachandra
@@ -216931,7 +216931,7 @@
 0  rcpt
 0  RD
 0  RDA
-12  Re
+9  Re
 0  Re's
 0  Rea
 0  Rea's
@@ -216981,7 +216981,7 @@
 0  reaccustomed
 0  reaccustoming
 0  reaccustoms
-23  reach
+22  reach
 0  reach's
 0  reachable
 19  reached
@@ -217360,7 +217360,7 @@
 0  reapproves
 0  reapproving
 0  reaps
-2  rear
+1  rear
 0  rear's
 0  Reardan
 0  Reardan's
@@ -218881,7 +218881,7 @@
 0  recyclers
 0  recycling
 0  recycling's
-86  Red
+87  Red
 0  Red's
 0  redact
 0  redacted
@@ -219131,8 +219131,8 @@
 0  Redgrave
 0  Redgrave's
 0  redhanded
-77  redhead
-0  redhead's
+75  redhead
+3  redhead's
 0  redheaded
 0  Redhook
 0  Redhook's
@@ -219756,7 +219756,7 @@
 0  reevaluating
 0  reevaluation
 0  reevaluation's
-3  reeve
+1  reeve
 0  reeved
 0  Reeves
 0  Reevesville
@@ -220337,7 +220337,7 @@
 0  Reg
 0  regain
 0  regainable
-2  regained
+0  regained
 0  regainer
 0  regainers
 0  regaining
@@ -221279,7 +221279,7 @@
 0  rejiggers
 0  rejigging
 0  rejigs
-11  rejoice
+12  rejoice
 14  rejoiced
 0  rejoiceful
 0  rejoicement
@@ -221853,7 +221853,7 @@
 0  remelted
 0  remelting
 0  remelts
-34  remember
+33  remember
 0  rememberabilities
 0  rememberability
 0  rememberable
@@ -226478,7 +226478,7 @@
 0  ricey
 40  Rich
 0  Rich's
-190  Richard
+187  Richard
 0  Richardia
 0  Richardia's
 0  Richards
@@ -226660,7 +226660,7 @@
 0  Riderwood's
 0  ridesharing
 0  ridesharings
-41  ridge
+42  ridge
 0  ridge's
 0  ridgeback
 0  ridgebacks
@@ -227059,7 +227059,7 @@
 0  Rineyville
 0  Rineyville's
 0  rinforzando
-26  ring
+25  ring
 0  ring's
 0  ringbark
 0  ringbarked
@@ -227423,7 +227423,7 @@
 0  rivelling
 0  rivels
 4  riven
-81  river
+80  river
 0  Rivera
 0  riverain
 0  riverains
@@ -228015,7 +228015,7 @@
 0  rogatory
 0  Rogelio
 0  Rogelio's
-188  Roger
+189  Roger
 0  rogered
 0  rogering
 0  Rogers
@@ -228112,7 +228112,7 @@
 0  Rolfing
 0  Rolfings
 0  Rolfs
-9  roll
+7  roll
 0  roll's
 0  Rolla
 0  Rolla's
@@ -228521,7 +228521,7 @@
 0  rootworms
 0  rooty
 0  ropable
-12  rope
+13  rope
 0  rope's
 0  ropeable
 0  roped
@@ -229699,7 +229699,7 @@
 0  rue's
 0  rued
 1  rueful
-2  ruefully
+3  ruefully
 0  ruefulness
 0  ruefulness's
 0  ruefulnesses
@@ -229801,7 +229801,7 @@
 0  Ruhr's
 0  Ruidoso
 0  Ruidoso's
-13  ruin
+12  ruin
 0  ruin's
 0  ruinable
 0  ruinate
@@ -230409,7 +230409,7 @@
 0  Rwy
 0  Rx
 0  Rxs
-5  Ry
+0  Ry
 0  rya
 0  rya's
 0  ryal
@@ -230464,7 +230464,7 @@
 0  Ryukyuan
 0  Ryukyuan's
 0  Ryurik
-1012  S
+19  S
 0  S's
 0  SA
 0  Saab
@@ -230870,7 +230870,7 @@
 0  saddhu
 0  saddhu's
 0  saddish
-56  saddle
+58  saddle
 0  saddle's
 0  saddleback
 0  saddleback's
@@ -231042,8 +231042,8 @@
 0  sagathy
 0  sagbut
 0  sagbuts
-171  sage
-0  sage's
+165  sage
+6  sage's
 0  sagebrush
 0  sagebrush's
 0  sagebrushes
@@ -231152,7 +231152,7 @@
 0  saick
 0  saicks
 0  saics
-2405  said
+2418  said
 0  said's
 0  Saida
 0  saidest
@@ -231543,7 +231543,7 @@
 0  sallee
 0  salleeman
 0  sallenders
-23  sallet
+24  sallet
 0  sallet's
 0  Salley
 0  Salley's
@@ -233222,8 +233222,8 @@
 0  saturation's
 0  saturator
 0  saturators
-5  Saturday
-0  Saturday's
+4  Saturday
+1  Saturday's
 0  Saturn
 0  Saturn's
 0  Saturnalia
@@ -233628,7 +233628,7 @@
 0  Saxton's
 0  saxtuba
 0  saxtubas
-383  say
+385  say
 0  say's
 0  sayable
 0  Saybrook
@@ -234734,7 +234734,7 @@
 0  scholium
 0  scholiums
 6  school
-0  school's
+1  school's
 0  schoolage
 0  schoolbag
 0  schoolbag's
@@ -235874,8 +235874,8 @@
 0  scribings
 0  scribism
 0  scribisms
-2  Scribner
-0  Scribner's
+0  Scribner
+2  Scribner's
 0  scried
 0  scries
 0  scrieve
@@ -236475,7 +236475,7 @@
 0  sdrucciola
 1  SE
 0  SE's
-80  sea
+81  sea
 0  sea's
 0  seabag
 0  seabag's
@@ -236720,8 +236720,8 @@
 0  seaside's
 0  seasnail
 0  seasnail's
-14  season
-0  season's
+13  season
+1  season's
 0  seasonability
 1  seasonable
 0  seasonableness
@@ -236744,7 +236744,7 @@
 0  seastar
 0  seastrand
 0  seastrands
-29  seat
+30  seat
 0  seat's
 0  seatang
 0  seatback
@@ -237272,7 +237272,7 @@
 0  seely
 0  Seelyville
 0  Seelyville's
-34  seem
+31  seem
 191  seemed
 0  seemer
 0  seemers
@@ -238765,7 +238765,7 @@
 0  Sequoya
 0  Sequoyah
 0  Sequoyah's
-1  ser
+0  ser
 0  sera
 0  serac
 0  seracs
@@ -239803,7 +239803,7 @@
 0  Shaffer's
 0  Shafiite
 0  Shafiite's
-13  shaft
+14  shaft
 0  shaft's
 0  shafted
 0  Shafter
@@ -239967,7 +239967,7 @@
 156  shalt
 0  shalwar
 1  shaly
-1  sham
+0  sham
 0  sham's
 0  shama
 0  shamable
@@ -240328,7 +240328,7 @@
 0  shave's
 1  shaved
 0  shavegrass
-1  shaveling
+0  shaveling
 0  shavelings
 3  shaven
 0  shaver
@@ -240400,9 +240400,9 @@
 0  Shcherbakov
 0  shchi
 0  shchis
-1524  she
+1522  she
 0  she'd
-0  she's
+3  she's
 0  Shea
 0  Shea's
 0  sheading
@@ -240514,8 +240514,8 @@
 0  sheening
 1  Sheeny
 0  sheeny's
-34  sheep
-0  sheep's
+33  sheep
+1  sheep's
 0  sheepberries
 0  sheepberry
 0  sheepbiter
@@ -240770,8 +240770,8 @@
 0  Shepard's
 0  Shepardsville
 0  Shepardsville's
-14  Shepherd
-0  Shepherd's
+11  Shepherd
+3  Shepherd's
 0  shepherded
 0  shepherdess
 0  shepherdess's
@@ -241440,7 +241440,7 @@
 0  shocked
 0  shocker
 0  shocker's
-13  shockhead
+14  shockhead
 0  shockheaded
 0  shocking
 0  shockingly
@@ -241662,7 +241662,7 @@
 0  shorl
 0  shorls
 2  shorn
-80  Short
+81  Short
 0  Short's
 0  shortage
 0  shortage's
@@ -241750,7 +241750,7 @@
 0  Shostakovich
 0  Shostakovitch
 0  Shostakovitch's
-27  shot
+28  shot
 0  shot's
 0  shote
 0  shotes
@@ -241778,7 +241778,7 @@
 0  shough
 0  shoughs
 402  should
-38  shoulder
+40  shoulder
 0  shoulder's
 1  shouldered
 0  shouldering
@@ -243154,8 +243154,8 @@
 0  silverside
 0  silverside's
 0  silverskin
-1  silversmith
-0  silversmith's
+0  silversmith
+1  silversmith's
 0  silversmithing
 0  silversmithings
 0  Silverstar
@@ -243518,7 +243518,7 @@
 0  Singh's
 0  Singhalese
 0  Singhalese's
-19  singing
+20  singing
 0  singing's
 0  singingly
 17  single
@@ -245185,7 +245185,7 @@
 1  sleepiness
 0  sleepiness's
 0  sleepinesses
-12  sleeping
+13  sleeping
 0  sleeping's
 0  sleepless
 0  sleeplessly
@@ -245813,7 +245813,7 @@
 0  sluit
 0  slum
 0  slum's
-17  slumber
+15  slumber
 0  slumber's
 1  slumbered
 0  slumberer
@@ -246161,7 +246161,7 @@
 0  Smilax
 0  Smilax's
 0  smilaxes
-24  smile
+25  smile
 0  smile's
 101  smiled
 0  smileful
@@ -247286,7 +247286,7 @@
 0  Snydersburg's
 0  snye
 0  snyes
-1998  SO
+1999  SO
 0  soak
 0  soak's
 0  soakage
@@ -247643,7 +247643,7 @@
 0  softbound's
 0  softcover
 0  softcovers
-3  soften
+1  soften
 5  softened
 0  softener
 0  softener's
@@ -247651,7 +247651,7 @@
 0  softening's
 0  softens
 2  softer
-1  softest
+2  softest
 0  softhead
 0  softheaded
 0  softheadedly
@@ -247669,7 +247669,7 @@
 0  softlanding
 0  softling
 0  softlings
-48  softly
+49  softly
 1  softness
 0  softness's
 0  softnesses
@@ -248267,7 +248267,7 @@
 11  sometimes
 0  someway
 0  someways
-271  somewhat
+273  somewhat
 0  somewhat's
 0  somewhen
 0  somewhence
@@ -248352,7 +248352,7 @@
 0  Somoza's
 0  soms
 111  Son
-0  Son's
+2  Son's
 0  sonance
 0  sonances
 0  sonancy
@@ -248386,8 +248386,8 @@
 0  sone
 0  sone's
 0  soneri
-47  song
-0  song's
+46  song
+1  song's
 0  songbird
 0  songbird's
 0  songbook
@@ -248541,7 +248541,7 @@
 0  sooterkins
 0  sootflake
 0  sootflakes
-107  sooth
+108  sooth
 0  sooth's
 2  soothe
 0  soothed
@@ -248763,7 +248763,7 @@
 0  sorehons
 0  sorel
 0  sorels
-30  sorely
+31  sorely
 0  soreness
 0  soreness's
 0  sorenesses
@@ -248965,7 +248965,7 @@
 0  soukous
 0  soukouses
 119  soul
-0  soul's
+1  soul's
 0  soulbell
 0  souled
 0  soulful
@@ -249208,8 +249208,8 @@
 0  souvlakia's
 0  sov
 0  sovenance
-3  sovereign
-0  sovereign's
+2  sovereign
+1  sovereign's
 0  sovereignly
 0  sovereignties
 0  sovereigntist
@@ -249860,7 +249860,7 @@
 1  Speakers
 0  speakership
 0  speakership's
-32  speaking
+33  speaking
 0  speaking's
 0  speakingly
 0  speakout
@@ -249888,8 +249888,8 @@
 0  spearheaded
 0  spearheading
 0  spearing
-5  Spearman
-0  Spearman's
+4  Spearman
+1  Spearman's
 3  spearmen
 0  spearmint
 0  spearmint's
@@ -250159,7 +250159,7 @@
 0  speedfully
 1  speedier
 0  speediest
-53  speedily
+54  speedily
 0  speediness
 0  speediness's
 0  speedinesses
@@ -250242,7 +250242,7 @@
 0  speleothems
 0  spelk
 0  spelks
-13  spell
+14  spell
 0  spell's
 0  spellable
 0  spellbind
@@ -252613,7 +252613,7 @@
 0  SST
 0  SSW
 0  SSW's
-69  ST
+53  ST
 0  st's
 0  Sta
 0  Staatsburg
@@ -253013,7 +253013,7 @@
 0  stalworths
 0  Stambaugh
 0  Stambaugh's
-0  Stamboul
+1  Stamboul
 0  Stamboul's
 0  Stambul
 0  Stambul's
@@ -253477,7 +253477,7 @@
 0  stateliness
 0  stateliness's
 0  statelinesses
-8  stately
+9  stately
 10  statement
 0  statement's
 0  statemented
@@ -253803,7 +253803,7 @@
 0  steeking
 0  steekit
 0  steeks
-35  steel
+36  steel
 0  steel's
 0  steelbow
 0  steelbows
@@ -254204,7 +254204,7 @@
 0  stephanotis
 0  stephanotis's
 0  stephanotises
-41  Stephen
+40  Stephen
 0  Stephens
 0  Stephensburg
 0  Stephensburg's
@@ -254435,7 +254435,7 @@
 0  sternite
 0  sternites
 0  sternitic
-5  sternly
+6  sternly
 0  sternmost
 0  sternness
 0  sternness's
@@ -254771,7 +254771,7 @@
 0  stilbite
 0  stilbites
 0  stilbs
-5  stile
+6  stile
 0  stile's
 0  stiled
 0  Stilesville
@@ -255026,7 +255026,7 @@
 0  stirring's
 0  stirringly
 0  stirrings's
-8  stirrup
+9  stirrup
 0  stirrup's
 0  stishie
 0  stishovite
@@ -255356,8 +255356,8 @@
 0  stompingly
 0  stonable
 0  stond
-47  Stone
-0  stone's
+45  Stone
+2  stone's
 0  stonebass
 0  stoneboat
 0  stoneboats
@@ -255456,7 +255456,7 @@
 0  stonkers
 0  stonking
 0  stonks
-18  stony
+19  stony
 0  Stonybottom
 0  Stonybottom's
 0  Stonybrook
@@ -255592,7 +255592,7 @@
 0  stork's
 0  storksbill
 0  storksbill's
-10  storm
+11  storm
 0  storm's
 0  stormbelt
 0  stormbird
@@ -255932,13 +255932,13 @@
 0  strandwolf
 0  Strang
 0  Strang's
-66  strange
+67  strange
 3  strangely
 0  strangeness
 0  strangeness's
 0  strangenesses
-20  stranger
-0  stranger's
+19  stranger
+1  stranger's
 0  strangered
 0  strangering
 0  strangest
@@ -256162,7 +256162,7 @@
 0  streaking
 0  streakings
 0  streaky
-68  stream
+69  stream
 0  stream's
 0  streambed
 0  streambed's
@@ -256615,7 +256615,7 @@
 0  stroganoffs
 0  Stroh
 0  Stroh's
-13  stroke
+14  stroke
 0  stroke's
 5  stroked
 0  stroker
@@ -256649,7 +256649,7 @@
 0  strombuses
 0  Stromsburg
 0  Stromsburg's
-124  Strong
+127  Strong
 0  Strong's
 0  strongarm
 0  strongarmed
@@ -256933,7 +256933,7 @@
 2  study
 0  study's
 0  studying
-11  stuff
+12  stuff
 0  stuff's
 1  stuffed
 0  stuffer
@@ -257824,8 +257824,8 @@
 0  subjacency
 0  subjacent
 0  subjacently
-10  subject
-0  subject's
+9  subject
+1  subject's
 4  subjected
 0  subjectified
 0  subjectifies
@@ -258210,7 +258210,7 @@
 0  subprimates
 0  subprincipal
 0  subprincipals
-1  subprior
+0  subprior
 0  subprioress
 0  subpriors
 0  subproblem
@@ -258904,7 +258904,7 @@
 0  succussion
 0  succussion's
 0  succussive
-274  such
+277  such
 0  such's
 0  Suches
 0  Suches's
@@ -259438,7 +259438,7 @@
 0  Sulligent's
 0  Sullivan
 0  Sullivan's
-0  Sully
+1  Sully
 0  sully's
 0  sullying
 0  sulpha
@@ -259666,8 +259666,8 @@
 0  summonsed
 0  summonses
 0  summonsing
-1  Sumner
-0  Sumner's
+0  Sumner
+1  Sumner's
 0  Sumneytown
 0  Sumneytown's
 0  sumo
@@ -259707,8 +259707,8 @@
 0  Sumterville
 0  Sumterville's
 0  Sumy
-154  Sun
-0  Sun's
+149  Sun
+5  Sun's
 0  Sunapee
 0  Sunapee's
 0  sunback
@@ -259922,8 +259922,8 @@
 0  sunscreening
 0  sunseeker
 0  sunseekers
-29  sunset
-0  sunset's
+28  sunset
+1  sunset's
 0  sunsetting
 0  sunshade
 0  sunshade's
@@ -261140,7 +261140,7 @@
 0  surd
 0  surd's
 0  surdity
-65  sure
+66  sure
 0  surefire
 0  surefooted
 0  surefootedly
@@ -262132,7 +262132,7 @@
 0  sweer
 0  sweered
 0  sweert
-132  Sweet
+133  Sweet
 0  sweet's
 0  sweetbread
 0  sweetbread's
@@ -262194,7 +262194,7 @@
 0  sweirt
 0  swelchie
 0  swelchies
-5  swell
+4  swell
 0  swell's
 0  swelldom
 5  swelled
@@ -262522,8 +262522,8 @@
 0  swoppers
 0  swopping
 0  swoppings
-150  sword
-0  sword's
+148  sword
+2  sword's
 0  swordbearer
 0  swordbill
 0  swordbills
@@ -263593,7 +263593,7 @@
 0  Szymanowski
 0  Szymborska
 0  Szymborska's
-44  T
+3  T
 0  T'ang
 0  T's
 0  TA
@@ -263678,7 +263678,7 @@
 0  tablanette
 0  tablature
 0  tablature's
-43  table
+44  table
 0  table's
 0  tableau
 0  tableau's
@@ -264282,7 +264282,7 @@
 0  taki
 0  takin
 0  takin's
-19  taking
+20  taking
 0  taking's
 0  takingly
 0  takingness
@@ -264646,7 +264646,7 @@
 0  tamer's
 0  Tamera
 0  Tamera's
-4  Tamerlane
+3  Tamerlane
 0  Tamerlane's
 0  tames
 0  tamest
@@ -267012,7 +267012,7 @@
 0  tempering
 0  tempering's
 0  tempes
-7  tempest
+6  tempest
 0  tempest's
 0  tempested
 0  tempesting
@@ -267436,7 +267436,7 @@
 0  tentering
 0  tentful
 0  tentfuls
-2  tenth
+3  tenth
 0  tenth's
 0  tenthly
 0  tentie
@@ -268118,7 +268118,7 @@
 0  tetchy
 0  teth
 0  teth's
-2  tether
+1  tether
 0  tether's
 0  tetherball
 0  tetherball's
@@ -268435,7 +268435,7 @@
 0  Teyde
 0  Tezel
 0  TGIF
-8  Th
+0  Th
 0  Th's
 0  thack
 0  thacked
@@ -268603,8 +268603,8 @@
 0  tharms
 0  Tharp
 0  Tharp's
-4589  that
-1  that's
+4570  that
+16  that's
 0  thataway
 2  thatch
 0  thatch's
@@ -268742,7 +268742,7 @@
 0  thecodont's
 0  Thedford
 0  Thedford's
-1487  thee
+1492  thee
 0  thee's
 0  theed
 0  theeing
@@ -268794,7 +268794,7 @@
 0  Thelma's
 0  thelytokous
 0  thelytoky
-1222  them
+1226  them
 0  them's
 0  thema
 0  themata
@@ -268812,7 +268812,7 @@
 0  themself
 46  themselves
 0  themselves's
-1145  then
+1147  then
 0  then's
 0  thenabout
 0  thenabouts
@@ -269032,8 +269032,8 @@
 0  Theravadas
 0  therblig
 0  therbligs
-1239  there
-0  there's
+1244  there
+2  there's
 13  thereabout
 3  thereabouts
 45  thereafter
@@ -269047,7 +269047,7 @@
 6  therefor
 114  therefore
 7  therefrom
-102  therein
+103  therein
 0  thereinafter
 0  thereinbefore
 2  thereinto
@@ -269055,7 +269055,7 @@
 0  theremins
 0  thereness
 0  thereness's
-135  thereof
+137  thereof
 26  thereon
 0  thereout
 0  Theresa
@@ -269314,7 +269314,7 @@
 0  thesaurus
 0  thesaurus's
 0  thesauruses
-411  these
+412  these
 0  these's
 0  Thesean
 0  Theseus
@@ -269456,7 +269456,7 @@
 0  thieveries
 0  thievery
 0  thievery's
-41  thieves
+42  thieves
 1  thieving
 0  thieving's
 0  thievish
@@ -269515,7 +269515,7 @@
 0  thindowns
 213  thine
 0  thine's
-133  thing
+134  thing
 0  thing's
 0  thingamabob
 0  thingamabob's
@@ -269673,7 +269673,7 @@
 0  thirtysomething
 0  thirtysomethings
 0  thirtytwomo
-1381  this
+1384  this
 0  this's
 0  thisaway
 0  Thisbe
@@ -269697,7 +269697,7 @@
 0  thixotropies
 0  thixotropy
 0  thlipsis
-10  tho
+0  tho
 0  thoft
 0  thofts
 0  thole
@@ -269861,12 +269861,12 @@
 0  those's
 0  Thoth
 0  Thoth's
-2162  thou
+2161  thou
 0  thou's
 0  thoued
 442  though
 194  thought
-0  thought's
+1  thought's
 0  thoughtcast
 0  thoughtcasts
 0  thoughted
@@ -270072,7 +270072,7 @@
 0  thrivingly
 0  thrivingness
 0  thrivings
-14  thro
+0  thro
 7  throat
 0  throat's
 0  throatband
@@ -270142,7 +270142,7 @@
 0  thromboxanes
 0  thrombus
 0  thrombus's
-35  throne
+36  throne
 0  throne's
 0  throned
 0  throneless
@@ -270168,7 +270168,7 @@
 0  throttler's
 0  throttling
 0  throttling's
-310  through
+309  through
 0  throughganging
 0  throughgoing
 0  throughither
@@ -270313,8 +270313,8 @@
 0  thumpingly
 0  Thun
 0  thunbergia
-11  thunder
-0  thunder's
+10  thunder
+1  thunder's
 0  thunderation
 0  thunderations
 0  thunderbearer
@@ -270523,7 +270523,7 @@
 0  thysanuran
 0  thysanurans
 0  thysanurous
-39  thyself
+40  thyself
 0  thyself's
 0  Ti
 0  Ti's
@@ -270673,7 +270673,7 @@
 0  tiddlywinks
 0  tiddlywinks's
 0  tiddy
-26  Tide
+27  Tide
 0  Tide's
 0  tided
 0  tideland
@@ -271040,8 +271040,8 @@
 0  Timbuctoo's
 0  Timbuktu
 0  Timbuktu's
-357  time
-0  time's
+358  time
+1  time's
 0  timecard
 0  timecard's
 1  timed
@@ -271773,7 +271773,7 @@
 0  tnpk
 0  TNT
 0  TNT's
-6900  to
+6903  to
 0  Toaalta
 0  Toaalta's
 0  Toabaja
@@ -271866,8 +271866,8 @@
 0  Tobolsk
 0  Tobruk
 0  Tobruk's
-7  Toby
-0  toby's
+6  Toby
+1  toby's
 0  Tobyhanna
 0  Tobyhanna's
 0  toc
@@ -271987,7 +271987,7 @@
 0  togate
 0  togated
 0  toged
-179  together
+181  together
 0  togetherness
 0  togetherness's
 0  togethernesses
@@ -272452,8 +272452,8 @@
 0  tongmen
 0  tongster
 0  tongsters
-27  tongue
-0  tongue's
+26  tongue
+1  tongue's
 2  tongued
 0  tongueless
 0  tonguelet
@@ -273537,8 +273537,8 @@
 0  towelled
 0  towelling
 0  towelling's
-62  tower
-0  tower's
+59  tower
+1  tower's
 0  towered
 0  towerier
 0  toweriest
@@ -274908,7 +274908,7 @@
 0  tranters
 0  tranting
 0  trants
-10  trap
+11  trap
 0  trap's
 0  trapan
 0  Trapani
@@ -275058,7 +275058,7 @@
 0  traveler's
 0  traveling
 0  traveling's
-1  travelled
+2  travelled
 4  traveller
 0  traveller's
 1  travelling
@@ -275229,7 +275229,7 @@
 0  tredilles
 0  tredrille
 0  tredrilles
-204  Tree
+208  Tree
 0  tree's
 0  Treece
 0  Treece's
@@ -275457,7 +275457,7 @@
 0  Trespiedras's
 0  Trespinos
 0  Trespinos's
-0  tress
+1  tress
 0  tress's
 0  tressed
 0  tressel
@@ -276168,7 +276168,7 @@
 0  trilogies
 0  trilogy
 0  trilogy's
-11  trim
+12  trim
 0  trim's
 0  trimaran
 0  trimaran's
@@ -277257,7 +277257,7 @@
 0  trudgings
 0  Trudy
 0  Trudy's
-111  true
+112  true
 0  true's
 0  trueblue
 0  trueblues
@@ -277304,7 +277304,7 @@
 0  Trullan
 0  Trullan's
 0  trulls
-28  truly
+29  truly
 0  Truman
 0  Truman's
 0  Trumann
@@ -277439,7 +277439,7 @@
 0  trustworthy
 5  trusty
 0  trusty's
-53  Truth
+55  Truth
 3  truthful
 0  truthfully
 2  truthfulness
@@ -278037,7 +278037,7 @@
 0  tumulus
 0  tumulus's
 0  tumuluses
-2  tun
+1  tun
 0  tun's
 0  tuna
 0  tunabilities
@@ -278408,7 +278408,7 @@
 0  turmoiled
 0  turmoiling
 0  turms
-83  turn
+80  turn
 0  turn's
 0  turnable
 0  turnabout
@@ -279051,7 +279051,7 @@
 0  Twizzlers's
 0  twizzles
 0  twizzling
-326  two
+327  two
 0  two's
 0  twoccer
 0  twoccers
@@ -279361,10 +279361,10 @@
 0  tyrannosauruses
 1  tyrannous
 0  tyrannously
-2  tyranny
-0  tyranny's
-29  tyrant
-0  tyrant's
+1  tyranny
+1  tyranny's
+27  tyrant
+2  tyrant's
 0  Tyre
 0  tyred
 0  Tyree
@@ -280154,7 +280154,7 @@
 0  ums
 0  umteenth
 0  umwhile
-9  UN
+8  UN
 0  UN's
 0  Una
 0  Una's
@@ -280932,7 +280932,7 @@
 0  unburrowed
 0  unburrowing
 0  unburrows
-1  unburthen
+0  unburthen
 0  unburthened
 0  unburthening
 0  unburthens
@@ -281204,8 +281204,8 @@
 0  unclassified
 0  unclassy
 0  unclawed
-12  uncle
-0  uncle's
+10  uncle
+2  uncle's
 1  unclean
 0  uncleaned
 0  uncleaner
@@ -282419,7 +282419,7 @@
 0  understaffing
 0  understaffings
 0  understaffs
-16  understand
+18  understand
 0  understandabilities
 0  understandability
 0  understandability's
@@ -282447,7 +282447,7 @@
 0  understeers
 0  understock
 0  understocks
-22  understood
+23  understood
 0  understorey
 0  understories
 0  understory
@@ -283373,7 +283373,7 @@
 0  unfumed
 0  unfunded
 0  unfunny
-1  unfurl
+0  unfurl
 0  unfurled
 0  unfurling
 0  unfurls
@@ -283397,7 +283397,7 @@
 0  ungainliness
 0  ungainliness's
 0  ungainlinesses
-2  ungainly
+3  ungainly
 0  ungainsaid
 0  ungainsayable
 0  ungallant
@@ -287026,7 +287026,7 @@
 0  untroubledly
 0  untroubledness
 0  untroublednesses
-1  untrue
+2  untrue
 0  untrueness
 0  untruer
 1  untruest
@@ -287285,7 +287285,7 @@
 0  unwelcomeness
 0  unwelcoming
 0  unwelded
-3  unwell
+4  unwell
 0  unwellness
 1  unwept
 0  unwet
@@ -287872,7 +287872,7 @@
 0  upreached
 0  upreaches
 0  upreaching
-2  uprear
+0  uprear
 1  upreared
 0  uprearing
 0  uprears
@@ -288120,7 +288120,7 @@
 0  uptrended
 0  uptrending
 0  uptrends
-4  upturn
+0  upturn
 0  upturn's
 4  upturned
 0  upturning
@@ -288526,7 +288526,7 @@
 0  ursons
 0  Ursprache
 0  Urspraches
-230  Ursula
+214  Ursula
 0  Ursuline
 0  Ursulines
 0  Ursus
@@ -288705,7 +288705,7 @@
 0  usuriously
 0  usuriousness
 0  usuriousnesses
-1  usurp
+0  usurp
 0  usurpation
 0  usurpation's
 0  usurpative
@@ -289010,8 +289010,8 @@
 0  Vaduz's
 0  vae
 0  vaes
-1  vagabond
-0  vagabond's
+0  vagabond
+1  vagabond's
 0  vagabondage
 0  vagabondage's
 0  vagabonded
@@ -289214,7 +289214,7 @@
 0  valiancies
 13  valiancy
 0  valiancy's
-30  valiant
+31  valiant
 0  valiant's
 2  valiantly
 0  valiantness
@@ -289269,7 +289269,7 @@
 0  Valletta
 0  Valletta's
 66  valley
-0  valley's
+1  valley's
 0  valleyed
 0  Valliant
 0  Valliant's
@@ -289978,7 +289978,7 @@
 0  Vauban
 0  Vaucluse
 0  Vaud
-0  vaudeville
+1  vaudeville
 0  vaudeville's
 0  vaudevillean
 0  vaudevilleans
@@ -291827,7 +291827,7 @@
 0  Vietnamized
 0  Vietnamizes
 0  Vietnamizing
-23  view
+24  view
 0  view's
 0  viewable
 0  Viewdata
@@ -291959,7 +291959,7 @@
 0  villagizations
 0  Villahermosa
 0  Villahermosa's
-7  villain
+8  villain
 0  villain's
 0  villainage
 0  villainage's
@@ -292341,8 +292341,8 @@
 0  virginalists
 0  virginally
 0  virginhood
-1  Virginia
-0  Virginia's
+0  Virginia
+1  Virginia's
 0  Virginian
 0  Virginian's
 0  virginities
@@ -292608,13 +292608,13 @@
 2  visited
 0  visitee
 0  visitees
-14  visiter
+10  visiter
 0  visiters
 0  visites
 1  visiting
 0  visiting's
-1  visitor
-0  visitor's
+0  visitor
+1  visitor's
 0  visitorial
 0  visitress
 0  visitresses
@@ -293138,7 +293138,7 @@
 0  voguishnesses
 0  Vogul
 0  Vogul's
-158  voice
+159  voice
 0  voice's
 1  voiced
 0  voicedness
@@ -293612,7 +293612,7 @@
 0  voussoiring
 0  Vouvray
 0  Vouvrays
-8  vow
+9  vow
 0  vow's
 1  vowed
 0  vowel
@@ -294365,7 +294365,7 @@
 0  walies
 0  waling
 0  walis
-22  walk
+19  walk
 0  walk's
 0  walkabilities
 0  walkability
@@ -294531,7 +294531,7 @@
 0  Walstonburg's
 0  Walt
 0  Walt's
-12  Walter
+11  Walter
 0  Walterboro
 0  Walterboro's
 0  Walters
@@ -294787,8 +294787,8 @@
 0  Wapwallopen
 0  Wapwallopen's
 0  waqf
-109  war
-0  war's
+108  war
+1  war's
 0  waratah
 0  waratah's
 0  Warba
@@ -295060,7 +295060,7 @@
 1  warring
 0  Warrington
 28  warrior
-0  warrior's
+1  warrior's
 0  warrioress
 0  warrioresses
 0  Warsaw
@@ -295220,7 +295220,7 @@
 0  Waskom's
 0  wasm
 0  wasms
-0  wasn't
+10  wasn't
 0  Wasola
 0  Wasola's
 2  WASP
@@ -295260,7 +295260,7 @@
 0  wastable
 0  wastage
 0  wastage's
-50  waste
+51  waste
 0  waste's
 0  wastebasket
 0  wastebasket's
@@ -295305,7 +295305,7 @@
 0  wastrife
 0  wastry
 0  wasts
-7  wat
+6  wat
 0  Wataga
 0  Wataga's
 0  watap
@@ -295368,7 +295368,7 @@
 0  watchtower's
 0  watchword
 0  watchword's
-167  water
+169  water
 0  waterage
 0  waterages
 0  waterbear
@@ -295806,7 +295806,7 @@
 0  waxworm
 0  waxworms
 0  waxy
-444  way
+445  way
 0  way's
 0  Wayan
 0  Wayan's
@@ -295895,8 +295895,8 @@
 0  WC
 0  wcs
 0  wd
-1164  we
-0  we'll
+1159  we
+5  we'll
 0  we're
 0  we's
 0  we've
@@ -295975,8 +295975,8 @@
 0  wearable's
 0  Weare
 0  Weare's
-2  wearer
-0  wearer's
+1  wearer
+1  wearer's
 17  wearied
 0  wearier
 0  wearies
@@ -296348,7 +296348,7 @@
 0  weigela's
 0  weigelia
 0  weigelias
-4  weigh
+3  weigh
 0  weigh's
 0  weighable
 0  weighage
@@ -296410,7 +296410,7 @@
 0  Weinert's
 0  Weippe
 0  Weippe's
-4  weir
+5  weir
 0  weir's
 5  weird
 0  weird's
@@ -296959,12 +296959,12 @@
 0  Wharton
 0  wharve
 0  wharves
-801  what
-2  what's
+800  what
+3  what's
 0  whatabouts
 0  whatchamacallit
 0  whatchamacallit's
-0  whate'er
+2  whate'er
 0  Whately
 0  Whately's
 46  whatever
@@ -296984,7 +296984,7 @@
 0  whatsits
 10  whatso
 0  whatsoe'er
-15  whatsoever
+16  whatsoever
 0  whatsoever's
 0  whatsomever
 0  whatten
@@ -296994,7 +296994,7 @@
 0  whaurs
 0  wheal
 0  wheal's
-35  wheat
+37  wheat
 0  wheat's
 0  wheatbird
 0  Wheatcroft
@@ -297125,7 +297125,7 @@
 0  whelp's
 0  whelped
 0  whelping
-972  when
+971  when
 0  when's
 3  whenas
 46  whence
@@ -297214,7 +297214,7 @@
 0  wheyishness
 0  wheylike
 0  whf
-964  which
+965  which
 0  which's
 0  whichever
 0  whichever's
@@ -297284,7 +297284,7 @@
 0  whigmaleery
 0  Whigship
 0  Whigship's
-440  while
+446  while
 0  while's
 1  whiled
 0  whilere
@@ -297526,7 +297526,7 @@
 0  whisking
 0  whisky
 0  whisky's
-5  whisper
+4  whisper
 0  whisper's
 9  whispered
 0  whisperer
@@ -298046,7 +298046,7 @@
 0  widdled
 0  widdles
 0  widdling
-11  widdy
+9  widdy
 64  wide
 0  wide's
 0  wideawake
@@ -298182,7 +298182,7 @@
 0  wiggling
 0  wiggly
 0  wiggy
-1  Wight
+2  Wight
 0  wight's
 0  wighted
 0  wighting
@@ -298511,7 +298511,7 @@
 0  Wilsonian
 0  Wilsonville
 0  Wilsonville's
-260  wilt
+262  wilt
 0  wilt's
 0  wilted
 0  wilting
@@ -298684,7 +298684,7 @@
 0  Windom
 0  Windom's
 0  windore
-46  window
+47  window
 0  windowdress
 0  windowed
 0  windowing
@@ -298756,7 +298756,7 @@
 3  windy
 0  Windyville
 0  Windyville's
-69  wine
+70  wine
 0  wine's
 0  wineberry
 0  wineberry's
@@ -299130,7 +299130,7 @@
 0  Wisd
 0  Wisden
 0  Wisden's
-46  Wisdom
+47  Wisdom
 0  Wisdom's
 130  Wise
 0  Wise's
@@ -299167,7 +299167,7 @@
 5  wisest
 0  wisewoman
 0  wisewomen
-32  wish
+31  wish
 0  wish's
 0  wisha
 0  wishbone
@@ -299280,7 +299280,7 @@
 0  witgatbooms
 0  witgats
 2320  with
-139  withal
+140  withal
 0  Withams
 0  Withams's
 2  withdraw
@@ -299303,7 +299303,7 @@
 0  withed
 0  Withee
 0  Withee's
-4  wither
+3  wither
 0  Witherbee
 0  Witherbee's
 0  withered
@@ -299422,7 +299422,7 @@
 0  wivern
 0  wivern's
 0  wivers
-4  wives
+3  wives
 0  wiving
 0  Wixom
 0  Wixom's
@@ -299493,8 +299493,8 @@
 0  Wodenism's
 0  wodge
 0  wodges
-21  woe
-0  woe's
+18  woe
+3  woe's
 0  woebegone
 0  woebegoneness
 0  woebegonenesses
@@ -299613,13 +299613,13 @@
 0  wolvers
 0  Wolverton
 0  Wolverton's
-7  wolves
+6  wolves
 0  wolving
 0  wolvings
 0  wolvish
 0  wolvishly
-268  woman
-0  woman's
+256  woman
+12  woman's
 0  womanbody
 0  womaned
 0  womanfully
@@ -299668,7 +299668,7 @@
 0  womby
 0  Womelsdorf
 0  Womelsdorf's
-147  women
+144  women
 0  womenfolk
 0  womenfolk's
 0  womenfolks's
@@ -299679,15 +299679,15 @@
 0  wommera
 0  wommeras
 0  womyn
-22  won
+21  won
 0  won's
-0  won't
+1  won't
 0  Wonalancet
 0  Wonalancet's
 32  Wonder
 0  Wonderbra
 0  Wonderbra's
-36  wondered
+37  wondered
 0  wonderer
 0  wonderers
 6  wonderful
@@ -300129,7 +300129,7 @@
 0  worcesterberry
 0  Worcestershire
 0  Worcestershires
-244  Word
+246  Word
 0  Word's
 0  wordage
 0  wordage's
@@ -300295,7 +300295,7 @@
 0  workwomen
 0  Worland
 0  Worland's
-286  World
+152  World
 0  worldbeater
 0  worldbeaters
 0  worlded
@@ -300314,7 +300314,7 @@
 0  worldwide
 0  Worley
 0  Worley's
-13  worm
+12  worm
 0  wormcast
 0  wormcast's
 0  wormed
@@ -300383,7 +300383,7 @@
 0  worryingly
 0  worrywart
 0  worrywart's
-49  worse
+50  worse
 0  worse's
 0  worsen
 1  worsened
@@ -300465,13 +300465,13 @@
 17  wottest
 5  wotteth
 0  wotting
-1  Wotton
+0  Wotton
 0  woubit
 0  woubits
-647  would
+645  would
 0  would've
 11  wouldest
-0  wouldn't
+4  wouldn't
 0  woulds
 57  wouldst
 12  wound
@@ -301670,7 +301670,7 @@
 0  yardmaster
 0  yardmaster's
 0  yardmen
-8  Yards
+7  Yards
 0  yardstick
 0  yardstick's
 0  yardwand
@@ -301801,9 +301801,9 @@
 0  yd
 0  ydrad
 0  ydred
-404  ye
+400  ye
 0  ye's
-436  yea
+439  yea
 0  yea's
 0  Yeaddiss
 0  Yeaddiss's
@@ -301825,8 +301825,8 @@
 0  yeanling
 0  yeanlings
 0  yeans
-48  year
-0  year's
+46  year
+2  year's
 0  yearbook
 0  yearbook's
 0  yeard
@@ -301980,8 +301980,8 @@
 0  Yentai
 0  yente
 0  yentes
-6  yeoman
-0  yeoman's
+3  yeoman
+3  yeoman's
 0  yeomanly
 0  yeomanries
 0  yeomanry
@@ -302031,8 +302031,8 @@
 0  yessiree
 0  yest
 3  yester
-28  yesterday
-0  yesterday's
+27  yesterday
+1  yesterday's
 0  yestereve
 0  yestereven
 0  yesterevening
@@ -302049,7 +302049,7 @@
 1  yestreen
 0  yestreens
 0  yesty
-658  yet
+659  yet
 0  Yeti
 0  Yetis
 0  yett
@@ -302359,12 +302359,12 @@
 0  Yossarian's
 0  yottabyte
 0  yottabytes
-515  you
-0  you'd
+513  you
+1  you'd
 0  you'll
 0  you're
 0  you's
-0  you've
+1  you've
 0  youk
 0  youked
 0  youking
@@ -302377,7 +302377,7 @@
 0  youngers
 8  youngest
 0  youngish
-17  youngling
+18  youngling
 0  younglings
 0  youngly
 0  youngness

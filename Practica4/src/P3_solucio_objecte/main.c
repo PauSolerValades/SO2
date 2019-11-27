@@ -11,6 +11,8 @@
 #include <ctype.h> 
 
 #include "red-black-tree.h"
+#include "tree-to-mmap.h"
+#include "dbfnames-mmap.h"
 
 #define MAXCHAR      100
 #define MAGIC_NUMBER 0x01234567
@@ -459,19 +461,21 @@ int main(int argc, char **argv)
 
                     if(strlen(str1)){
                         /* és tan petit que no fa falta usar una funció. */
-                        
                         n_data = find_node(tree, str1);
-                        
-                        if(n_data != NULL)
-                            printf("%s surt %d vegades", str1, n_data->num_times);
-                        else
-                            printf("La paraula no apareix al diccionari...");
+                        printf("%s surt %d vegades", str1, n_data->num_times);
                         
                     }else{
+//                         ./main "$1" | sort -nr | head -n 1
+                        char* a;
+                        if(fgets(str2, MAXCHAR, stdin))
+                            str2[strlen(str2)-1]=0;
                         
                         top_1(tree);
                         
-                        if(system("cat tmp.txt | sort -nr | head -n1")){}
+                        a = malloc(sizeof(char)*(strlen("cat tmp.txt | sort -nr | head -n" + 1)));
+                        a = strcat("cat tmp.txt | sort -nr | head -n", "5");
+                        if(system(a)){
+                        }
                     }
                 
                 }else{ printf("L'arbre no ha estat creat.\n"); }
