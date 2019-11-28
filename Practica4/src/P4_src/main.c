@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h> 
+#include <signal.h>
+
 
 #include "red-black-tree.h"
 #include "tree-to-mmap.h"
@@ -200,7 +202,8 @@ rb_tree* practica2(char* str1, char* str2)
     char* auxFilePath;
     char* mmap;
     char* mmap_data;
-    int num_fitxers;
+    char num[MAXCHAR];
+    int num_fitxers = 2;
 
     /* L'arbre amb el diccionari s'ha de crear de la mateixa manera que a la practica 2 i 3 */
     
@@ -239,23 +242,28 @@ rb_tree* practica2(char* str1, char* str2)
     }
     
     /* Necessitem el nombre de fitxers que hi ha a llista.cfg per poder accedir a cadaun d'ells. */
-    if(!fread(num_fitxers, sizeof(int), 1, data)){
+    if(!fgets(num, MAXCHAR, data)){
         printf("Problem in lecture of NUM_FITXERS in PRACTICA4\n");
         delete_tree(tree);
         init_tree(tree);
         return tree;
     }
     
+    num[strlen(num)] = '\0';
+    num_fitxers = atoi(num);
     printf("%d\n", num_fitxers);
+    
+    fseek(data, 0, SEEK_SET);
+    /*rewind(data);*/
     
     /* Carrega TOTS els fitxers de data al MMAP */
     mmap_data = dbfnames_to_mmap(data); /* HA FALLAT AQUÍ. */
     
     fclose(data); /* tanca str2. Ja no el necessitem perque ja està mapat a memòria. */
     
-    for(int fitxer=1; fitxer<=num_fitxers; fitxer++){
+    
+    for(int fitxer=0; fitxer<num_fitxers; fitxer++){
         auxFilePath = get_dbfname_from_mmap(mmap_data, fitxer);
-        
         search_words(tree, auxFilePath);
         
     }
@@ -266,10 +274,233 @@ rb_tree* practica2(char* str1, char* str2)
     /* Deserialitzem l'arbre del mmap. */
     deserialize_node_data_from_mmap(tree, mmap);
     
+    
     return tree;
 
 }
 
+void sigusr(int signal){
+    // Function to control la merda 
+}
+
+void parent(){
+    pause();
+
+}
+
+void child(char* str2, rb_tree* tree){
+
+    FILE* data;
+    char num[MAXCHAR];
+    char* auxFilePath;
+    char* mmap_data;
+    int num_fitxers;
+    
+    /* Obrim el fitxer de fitxers */
+    data = fopen(str2,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
+
+    if (!data) {
+        printf("Could not open file: %s in MAIN\n", str2);
+        delete_tree(tree);
+        init_tree(tree);
+        exit(1);
+    }
+    
+    /* Necessitem el nombre de fitxers que hi ha a llista.cfg per poder accedir a cadaun d'ells. */
+    if(!fgets(num, MAXCHAR, data)){
+        printf("Problem in lecture of NUM_FITXERS in PRACTICA4\n");
+        delete_tree(tree);
+        init_tree(tree);
+        exit(1);
+    }
+    
+    num[strlen(num)] = '\0';
+    num_fitxers = atoi(num);
+    printf("%d\n", num_fitxers);
+    
+    fseek(data, 0, SEEK_SET);
+    /*rewind(data);*/
+    
+    /* Carrega TOTS els fitxers de data al MMAP */
+    mmap_data = dbfnames_to_mmap(data);
+    
+    fclose(data); /* tanca str2. Ja no el necessitem perque ja està mapat a memòria. */
+    
+    for(int fitxer=0; fitxer<num_fitxers; fitxer++){
+        auxFilePath = get_dbfname_from_mmap(mmap_data, fitxer);
+        search_words(tree, auxFilePath);
+    }
+    
+    /* Quan acabem alliberem el mmap de la memòria compartida */
+    dbfnames_munmmap(mmap_data);
+    
+    kill(getppid(), SIGUSR1);
+    
+    exit(0);
+}
+
+
+
+rb_tree* crear_arbre_fill(char* str1, char* str2)
+{
+    FILE *diccionari;
+    char word[MAXCHAR];
+    char* mmap;
+    int id;
+
+    /* L'arbre amb el diccionari s'ha de crear de la mateixa manera que a la practica 2 i 3 */
+    
+    rb_tree *tree;
+    tree = (rb_tree *) malloc(sizeof(rb_tree));
+    init_tree(tree);
+    
+    /* Obrim el diccionari que ens passin */
+    diccionari = fopen(str1, "r");
+    
+    if (!diccionari) {
+        printf("Could not open file: %s in MAIN\n", str1);
+        fclose(diccionari);
+        return tree;
+    }
+    
+    /* Omplim l'arbre amb les paraules del fitxer "diccionari" */
+    while(fgets(word, MAXCHAR, diccionari) != NULL)
+        diccionari_arbre(tree, word);
+    
+    fclose(diccionari);
+    
+    /* Mapejem l'arbre a memòria. */
+    mmap = serialize_node_data_to_mmap(tree);
+    
+    
+    /* COMENÇA LA GENERACIÓ DE FILL(S): EL PARTO */
+    
+    /* Definim les funcions que es cridaran quan una senyal sigui llençada o rebuda */
+    signal(SIGUSR2,sigusr); /* Pare a fill */
+    signal(SIGUSR1,sigusr); /* Fill a pare */
+    
+    id = fork();
+    
+    if(id != 0)
+        parent();
+    else
+        child(str2, tree);
+    
+    /* Deserialitzem l'arbre del mmap. */
+    deserialize_node_data_from_mmap(tree, mmap);
+    
+    
+    return tree;
+}
+
+void parent_fills(){
+    pause();
+
+}
+
+void child_fills(rb_tree* tree, int index_fitxer){
+
+    char* auxFilePath;
+    
+    auxFilePath = get_dbfname_from_mmap(mmap_data, index_fitxer);
+    
+    /* RACE CONDITIONS */
+    
+    search_words(tree, auxFilePath);
+    
+    
+    kill(getppid(), SIGUSR1);
+    
+    exit(0);
+}
+
+
+
+rb_tree* crear_arbre_fills(char* str1, char* str2)
+{
+    FILE *data, *diccionari;
+    char word[MAXCHAR], num[MAXCHAR];
+    char* mmap;
+    char* mmap_data;
+    int id, num_fitxers;
+
+    /* L'arbre amb el diccionari s'ha de crear de la mateixa manera que a la practica 2 i 3 */
+    
+    rb_tree *tree;
+    tree = (rb_tree *) malloc(sizeof(rb_tree));
+    init_tree(tree);
+    
+    /* Obrim el diccionari que ens passin */
+    diccionari = fopen(str1, "r");
+    
+    if (!diccionari) {
+        printf("Could not open file: %s in MAIN\n", str1);
+        fclose(diccionari);
+        return tree;
+    }
+    
+    /* Omplim l'arbre amb les paraules del fitxer "diccionari" */
+    while(fgets(word, MAXCHAR, diccionari) != NULL)
+        diccionari_arbre(tree, word);
+    
+    fclose(diccionari);
+    
+    /* Mapejem l'arbre a memòria. */
+    mmap = serialize_node_data_to_mmap(tree);
+    
+    /* Obrim el fitxer de fitxers */
+    data = fopen(str2,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
+
+    if (!data) {
+        printf("Could not open file: %s in MAIN\n", str2);
+        delete_tree(tree);
+        init_tree(tree);
+        return tree;
+    }
+    
+    /* Necessitem el nombre de fitxers que hi ha a llista.cfg per poder accedir a cadaun d'ells. */
+    if(!fgets(num, MAXCHAR, data)){
+        printf("Problem in lecture of NUM_FITXERS in PRACTICA4\n");
+        delete_tree(tree);
+        init_tree(tree);
+        return tree;
+    }
+    
+    num[strlen(num)] = '\0';
+    num_fitxers = atoi(num);
+    printf("%d\n", num_fitxers);
+    
+    fseek(data, 0, SEEK_SET);
+    /*rewind(data);*/
+    
+    /* Carrega TOTS els fitxers de data al MMAP */
+    mmap_data = dbfnames_to_mmap(data);
+    
+    fclose(data); /* tanca str2. Ja no el necessitem perque ja està mapat a memòria. */
+    
+    
+    /* COMENÇA LA GENERACIÓ DE FILL(S): EL PARTO */
+    
+    /* Definim les funcions que es cridaran quan una senyal sigui llençada o rebuda */
+    signal(SIGUSR2,sigusr); /* Pare a fill */
+    signal(SIGUSR1,sigusr); /* Fill a pare */
+    
+    for(int fitxer=0; fitxer<num_fitxers/4; fitxer++){
+        id = fork();
+        
+        if(id != 0)
+            parent_fills();
+        else
+            child_fills(tree, fitxer);
+
+    }
+
+    /* Deserialitzem l'arbre del mmap. */
+    deserialize_node_data_from_mmap(tree, mmap);
+    
+    
+    return tree;
+}
 
 void nodes_tree_inorder(node *current, FILE* fd) {
  
@@ -436,7 +667,7 @@ int main(int argc, char **argv)
                 if(fgets(str2, MAXCHAR, stdin))
                     str2[strlen(str2)-1]=0;
                 
-                tree = practica2(str1, str2);
+                tree = crear_arbre_fill(str1, str2);
 
                 diccionari[strlen(str1)-1]=0;
                 strcpy(diccionari, str1);
