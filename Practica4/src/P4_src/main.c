@@ -27,18 +27,20 @@
 
 int menu() 
 {
-    char str[5];
+    char str[7];
     int opcio=0;
 
     printf("\n\nMenu\n\n");
-    printf(" 1 - Creacio de l'arbre\n");
-    printf(" 2 - Emmagatzemar arbre a disc\n");
-    printf(" 3 - Llegir arbre de disc\n");
-    printf(" 4 - Consultar informacio de l'arbre\n");
-    printf(" 5 - Sortir\n\n");
+    printf(" 1 - Creacio de l'arbre mapejat a memòria\n");
+    printf(" 2 - Creacio de l'arbre amb un pare i un fill\n");
+    printf(" 3 - Creacio de l'arbre amb un pare i múltiples fills\n");
+    printf(" 4 - Emmagatzemar arbre a disc\n");
+    printf(" 5 - Llegir arbre de disc\n");
+    printf(" 6 - Consultar informacio de l'arbre\n");
+    printf(" 7 - Sortir\n\n");
     printf("   Escull opcio: ");
 
-    if(fgets(str, 5, stdin))
+    if(fgets(str, 7, stdin))
         opcio = atoi(str); 
 
     return opcio;
@@ -196,7 +198,7 @@ void search_words(rb_tree* tree, char* filename){
  * Hem de fer el canvi en aquesta funció, la reanomenarem a practica4
  * 
  */
-rb_tree* practica2(char* str1, char* str2)
+rb_tree* practica4(char* str1, char* str2)
 {
     FILE *data, *diccionari;
     char* auxFilePath;
@@ -398,7 +400,7 @@ void parent_fills(){
 
 }
 
-void child_fills(rb_tree* tree, int index_fitxer){
+void child_fills(rb_tree* tree, int index_fitxer, char* mmap_data){
 
     char* auxFilePath;
     
@@ -491,7 +493,7 @@ rb_tree* crear_arbre_fills(char* str1, char* str2)
         if(id != 0)
             parent_fills();
         else
-            child_fills(tree, fitxer);
+            child_fills(tree, fitxer, mmap_data);
 
     }
 
@@ -667,7 +669,7 @@ int main(int argc, char **argv)
                 if(fgets(str2, MAXCHAR, stdin))
                     str2[strlen(str2)-1]=0;
                 
-                tree = crear_arbre_fill(str1, str2);
+                tree = practica4(str1, str2);
 
                 diccionari[strlen(str1)-1]=0;
                 strcpy(diccionari, str1);
@@ -676,6 +678,40 @@ int main(int argc, char **argv)
                 break;
 
             case 2:
+                printf("Fitxer de diccionari de paraules: ");
+                if(fgets(str1, MAXCHAR, stdin))
+                    str1[strlen(str1)-1]=0;
+
+                printf("Fitxer de base de dades: ");
+                if(fgets(str2, MAXCHAR, stdin))
+                    str2[strlen(str2)-1]=0;
+                
+                tree = crear_arbre_fill(str1, str2);
+
+                diccionari[strlen(str1)-1]=0;
+                strcpy(diccionari, str1);
+                
+                printf("Elements: %d\n", tree->num_elements);
+                break;
+                
+            case 3:
+                printf("Fitxer de diccionari de paraules: ");
+                if(fgets(str1, MAXCHAR, stdin))
+                    str1[strlen(str1)-1]=0;
+
+                printf("Fitxer de base de dades: ");
+                if(fgets(str2, MAXCHAR, stdin))
+                    str2[strlen(str2)-1]=0;
+                
+                tree = crear_arbre_fills(str1, str2);
+
+                diccionari[strlen(str1)-1]=0;
+                strcpy(diccionari, str1);
+                
+                printf("Elements: %d\n", tree->num_elements);
+                break;
+                
+            case 4:
                 printf("Nom de fitxer en que es desara l'arbre: ");
                 if(fgets(str1, MAXCHAR, stdin))
                     str1[strlen(str1)-1]=0;
@@ -685,8 +721,8 @@ int main(int argc, char **argv)
                 
                 }else{ printf("L'arbre no ha estat creat.\n"); } 
                 break;
-
-            case 3:
+                
+            case 5:
                 printf("Nom del fitxer que conte l'arbre: ");
                 if(fgets(str1, MAXCHAR, stdin))
                     str1[strlen(str1)-1]=0;
@@ -701,7 +737,7 @@ int main(int argc, char **argv)
 
                 break;
 
-            case 4:
+            case 6:
                  if(tree != NULL){
                         
                     printf("Paraula a buscar o polsa enter per saber la paraula que apareix mes vegades: ");
@@ -730,13 +766,13 @@ int main(int argc, char **argv)
 
                 break;
 
-            case 5:
+            case 7:
                 
                 if(tree != NULL){
                     delete_tree(tree);
                     free(tree);
                     
-                }else{ printf("L'arbre no ha estat creat.\n"); }
+                }
 
                 break;
 
@@ -745,7 +781,7 @@ int main(int argc, char **argv)
 
         } /* switch */
     }
-    while (opcio != 5);
+    while (opcio != 7);
 
     return 0;
 }
