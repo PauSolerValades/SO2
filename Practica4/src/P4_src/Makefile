@@ -10,7 +10,10 @@ TARGET = main
 CFLAGS = -Wall -Werror -O
 
 # Linker options 
-LFLAGS = -lm
+LFLAGS = -lpthread
+
+# Sempahore?
+#LDFLAGS = -lpthread
 
 # There is no need to change the instructions below this
 # line. Change if you really know what you are doing.

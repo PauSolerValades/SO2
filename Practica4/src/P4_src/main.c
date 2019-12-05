@@ -10,6 +10,13 @@
 #include <string.h>
 #include <ctype.h> 
 #include <signal.h>
+#include <pthread.h>
+#include <semaphore.h>
+#include <sys/wait.h>
+#include <sys/mman.h>
+#include <sys/sysinfo.h>
+#include <fcntl.h>
+#include <time.h> 
 
 
 #include "red-black-tree.h"
@@ -18,6 +25,23 @@
 
 #define MAXCHAR      100
 #define MAGIC_NUMBER 0x01234567
+#define NUM_PROCS    get_nprocs() /* No canviar */ 
+
+/* 
+ * MEMÒRIA COMPARTIDA PER ALS MÚTLIPLES FILLS (sinó la tenim no tots els fitxers poden saber aquestes dades)
+ *  - int counter: compta el nombre de fitxers que hem obert
+ *  - sem_t clau_counter: regula quan els fills canvien el nombre de fitxers vistos
+ *  - sem_t clau_tree: regula quan els fills poden escriure a l'arbre.
+ * 
+ */
+
+typedef struct shared_mem {
+    sem_t clau_counter;
+    sem_t clau_tree;
+    int counter;
+} shared_mem;
+
+shared_mem *s;
 
 /**
  * 
@@ -258,11 +282,12 @@ rb_tree* practica4(char* str1, char* str2)
     fseek(data, 0, SEEK_SET);
     /*rewind(data);*/
     
+    time_t c1 = clock();
+    
     /* Carrega TOTS els fitxers de data al MMAP */
-    mmap_data = dbfnames_to_mmap(data); /* HA FALLAT AQUÍ. */
+    mmap_data = dbfnames_to_mmap(data);
     
     fclose(data); /* tanca str2. Ja no el necessitem perque ja està mapat a memòria. */
-    
     
     for(int fitxer=0; fitxer<num_fitxers; fitxer++){
         auxFilePath = get_dbfname_from_mmap(mmap_data, fitxer);
@@ -276,6 +301,9 @@ rb_tree* practica4(char* str1, char* str2)
     /* Deserialitzem l'arbre del mmap. */
     deserialize_node_data_from_mmap(tree, mmap);
     
+    c1 = clock() - c1;
+    double temps = ((double) c1)/CLOCKS_PER_SEC;
+    printf("Time: %f s\n", temps);
     
     return tree;
 
@@ -283,11 +311,6 @@ rb_tree* practica4(char* str1, char* str2)
 
 void sigusr(int signal){
     // Function to control la merda 
-}
-
-void parent(){
-    pause();
-
 }
 
 void child(char* str2, rb_tree* tree){
@@ -348,7 +371,7 @@ rb_tree* crear_arbre_fill(char* str1, char* str2)
     FILE *diccionari;
     char word[MAXCHAR];
     char* mmap;
-    int id;
+    pid_t id;
 
     /* L'arbre amb el diccionari s'ha de crear de la mateixa manera que a la practica 2 i 3 */
     
@@ -376,55 +399,38 @@ rb_tree* crear_arbre_fill(char* str1, char* str2)
     
     
     /* COMENÇA LA GENERACIÓ DE FILL(S): EL PARTO */
+    time_t c1 = clock();
     
     /* Definim les funcions que es cridaran quan una senyal sigui llençada o rebuda */
-    signal(SIGUSR2,sigusr); /* Pare a fill */
     signal(SIGUSR1,sigusr); /* Fill a pare */
     
     id = fork();
     
     if(id != 0)
-        parent();
+        pause();
     else
         child(str2, tree);
     
     /* Deserialitzem l'arbre del mmap. */
     deserialize_node_data_from_mmap(tree, mmap);
     
+    c1 = clock() - c1;
+    double temps = ((double) c1)/CLOCKS_PER_SEC;
+    printf("Time: %f s\n", temps);
     
     return tree;
 }
-
-void parent_fills(){
-    pause();
-
-}
-
-void child_fills(rb_tree* tree, int index_fitxer, char* mmap_data){
-
-    char* auxFilePath;
-    
-    auxFilePath = get_dbfname_from_mmap(mmap_data, index_fitxer);
-    
-    /* RACE CONDITIONS */
-    
-    search_words(tree, auxFilePath);
-    
-    
-    kill(getppid(), SIGUSR1);
-    
-    exit(0);
-}
-
 
 
 rb_tree* crear_arbre_fills(char* str1, char* str2)
 {
     FILE *data, *diccionari;
     char word[MAXCHAR], num[MAXCHAR];
-    char* mmap;
+    char* mmap_arbre;
     char* mmap_data;
-    int id, num_fitxers;
+    char* auxFilePath;
+    pid_t id;
+    int num_fitxers, max_fills, temp, status = 0;
 
     /* L'arbre amb el diccionari s'ha de crear de la mateixa manera que a la practica 2 i 3 */
     
@@ -448,7 +454,7 @@ rb_tree* crear_arbre_fills(char* str1, char* str2)
     fclose(diccionari);
     
     /* Mapejem l'arbre a memòria. */
-    mmap = serialize_node_data_to_mmap(tree);
+    mmap_arbre = serialize_node_data_to_mmap(tree);
     
     /* Obrim el fitxer de fitxers */
     data = fopen(str2,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
@@ -472,7 +478,7 @@ rb_tree* crear_arbre_fills(char* str1, char* str2)
     num_fitxers = atoi(num);
     printf("%d\n", num_fitxers);
     
-    fseek(data, 0, SEEK_SET);
+    fseek(data, 0, SEEK_SET); /* Tornem a posar el punter al principi del fitxer per generar el mmap de data */
     /*rewind(data);*/
     
     /* Carrega TOTS els fitxers de data al MMAP */
@@ -481,25 +487,75 @@ rb_tree* crear_arbre_fills(char* str1, char* str2)
     fclose(data); /* tanca str2. Ja no el necessitem perque ja està mapat a memòria. */
     
     
-    /* COMENÇA LA GENERACIÓ DE FILL(S): EL PARTO */
+    /* 
+     *
+     * 
+     * 
+     * COMENÇA LA GENERACIÓ DE FILL(S): EL PARTO 
+     * 
+     * 
+     * 
+     */
     
-    /* Definim les funcions que es cridaran quan una senyal sigui llençada o rebuda */
-    signal(SIGUSR2,sigusr); /* Pare a fill */
-    signal(SIGUSR1,sigusr); /* Fill a pare */
+    time_t c1 = clock();
     
-    for(int fitxer=0; fitxer<num_fitxers/4; fitxer++){
+    s = mmap(NULL, sizeof(shared_mem), PROT_READ | PROT_WRITE,
+             MAP_SHARED | MAP_ANONYMOUS, -1, 0);
+    
+    /* Inicialitzem el semàfor i la memòria compartida */
+    s->counter = 0;
+    sem_init(&s->clau_counter, 1, 1);
+    sem_init(&s->clau_tree, 1, 1);
+    
+    max_fills = NUM_PROCS;
+    
+    for(int i=0; i<max_fills; i++){
         id = fork();
+    
+        if(id == 0){
         
-        if(id != 0)
-            parent_fills();
-        else
-            child_fills(tree, fitxer, mmap_data);
-
+            /*printf("[son] pid %d from [parent] %d pid\n",getpid(), getppid());*/
+            while(1){
+                
+                /* RACE CONDITIONS */
+                sem_wait(&s->clau_counter); // lock
+                temp = s->counter;
+                s->counter++;
+                sem_post(&s->clau_counter); // unlock
+                
+                
+                if(temp < num_fitxers){
+                    auxFilePath = get_dbfname_from_mmap(mmap_data, temp);
+                    
+                    
+                    /*
+                    printf("Filename mmap: %s\n", auxFilePath);
+                    printf("Counter: %d \n", s->counter);
+                    */
+                    
+                    sem_wait(&s->clau_tree);
+                    search_words(tree, auxFilePath);
+                    sem_post(&s->clau_tree);
+                    
+                }else{ /* Tots els fitxers estan llegits */
+                    break;
+                }
+                
+            }
+            exit(1);
+        }
     }
 
-    /* Deserialitzem l'arbre del mmap. */
-    deserialize_node_data_from_mmap(tree, mmap);
+    while ((wait(&status)) > 0); /* Esperem a que tots els processos s'acabin */
+
+    /* Deserialitzem l'arbre del mmap i desmapejem la memòria compartida i els fitxers */
+    munmap(s, sizeof(shared_mem));
+    dbfnames_munmmap(mmap_data);
+    deserialize_node_data_from_mmap(tree, mmap_arbre);
     
+    c1 = clock() - c1;
+    double temps = ((double) c1)/CLOCKS_PER_SEC;
+    printf("Time: %f s\n", temps);
     
     return tree;
 }
