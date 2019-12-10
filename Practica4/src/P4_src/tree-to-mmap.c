@@ -3,6 +3,8 @@
 #include <string.h>
 #include <errno.h>
 #include <sys/mman.h>
+#include <semaphore.h>
+
 
 #include "red-black-tree.h"
 
@@ -83,6 +85,11 @@ char *serialize_node_data_to_mmap_recursive(node *x, char *pointer_mmap)
 
   n_data_dest->key       = n_data_ori->key;
   n_data_dest->num_times = n_data_ori->num_times;
+  n_data_dest->clau_node = n_data_ori->clau_node;   /* OJO AQUESTA LINIA ÉS NOVÍSSIMA LMAO, EXPLICACIÓ A SOTA */
+  
+  /* Aparentment el node quan es mapeja a memòria ha d'updatejar les variables que poden canviar en el mateix. És a dir: tota variable de node data que canvii s'ha de notificar pel seguent node.
+   En cas de que no hi sigui, els semafors no fan res, ja que es troben totes a 1, els canviis o no perque total, no s'actualitza.
+   */
 
   /* Free the original node data */
 

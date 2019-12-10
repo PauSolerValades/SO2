@@ -27,6 +27,7 @@ typedef struct node_data_
     // add or remove fields as you need.
     int num_times;
     int len; /* longitud de la paraula */
+    sem_t clau_node;
 } node_data; 
 
 /**

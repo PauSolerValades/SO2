@@ -23,6 +23,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
+#include <semaphore.h>
+
 
 #include "red-black-tree.h"
 
@@ -40,6 +42,7 @@ int strc;
 void free_node_data(node_data *data)
 {
     free(data->key);
+    sem_destroy(&data->clau_node);
     free(data);
 }
 
