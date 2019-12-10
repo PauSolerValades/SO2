@@ -100,7 +100,6 @@ void diccionari_arbre(rb_tree* tree, char* word){
     
     char* auxWord;
     node_data *n_data;
-    int ct = 0;
     int sem;
         
     /*
@@ -138,12 +137,6 @@ void diccionari_arbre(rb_tree* tree, char* word){
         insert_node(tree, n_data);
         
     }
-
-    ct++;
-    
-    
-    //printf("Arbre creat amb %d paraules!\n", ct);
-    
 }
 
 void search_words(rb_tree* tree, char* filename){
@@ -216,7 +209,7 @@ void search_words(rb_tree* tree, char* filename){
                 if (temp != NULL) {
                     sem_wait(&temp->clau_node);
     
-                    temp->num_times++; /* SEGUR QUE ÉS AQUÍ LA PÈRDUA JODER */
+                    temp->num_times++;
                     
                     sem_post(&temp->clau_node);
                 }
@@ -268,7 +261,7 @@ rb_tree* crear_arbre_fills(char* str1, char* str2, int fills)
     
     /* Mapejem l'arbre a memòria. */
     mmap_arbre = serialize_node_data_to_mmap(tree);
-        
+    
     /* Obrim el fitxer de fitxers */
     data = fopen(str2,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
 
@@ -299,7 +292,11 @@ rb_tree* crear_arbre_fills(char* str1, char* str2, int fills)
     
     fclose(data); /* tanca str2. Ja no el necessitem perque ja està mapat a memòria. */
     
+    max_fills = NUM_PROCS;
     
+    if(fills <= max_fills)
+        max_fills = fills;
+
     /* 
      *
      * 
@@ -309,18 +306,13 @@ rb_tree* crear_arbre_fills(char* str1, char* str2, int fills)
      * 
      * 
      */
-        
+    
     s = mmap(NULL, sizeof(shared_mem), PROT_READ | PROT_WRITE,
              MAP_SHARED | MAP_ANONYMOUS, -1, 0);
     
     /* Inicialitzem el semàfor i la memòria compartida */
     s->counter = 0;
     sem_init(&s->clau_counter, 1, 1);
-    
-    max_fills = NUM_PROCS;
-    
-    if(fills <= max_fills)
-        max_fills = fills;
     
     for(int i=0; i<max_fills; i++){
         id = fork();
@@ -340,6 +332,13 @@ rb_tree* crear_arbre_fills(char* str1, char* str2, int fills)
                 if(temp < num_fitxers){
                     
                     auxFilePath = get_dbfname_from_mmap(mmap_data, temp);
+                    
+                    
+                    /*
+                    printf("Filename mmap: %s\n", auxFilePath);
+                    printf("Counter: %d \n", s->counter);
+                    */
+                    
                     search_words(tree, auxFilePath);
                     
                 }else{ /* Tots els fitxers estan llegits */
@@ -352,11 +351,12 @@ rb_tree* crear_arbre_fills(char* str1, char* str2, int fills)
 
     while((wait(&status)) > 0); /* Esperem a que tots els processos s'acabin */
 
+
     /* Deserialitzem l'arbre del mmap i desmapejem la memòria compartida i els fitxers */
     munmap(s, sizeof(shared_mem));
     dbfnames_munmmap(mmap_data);
     deserialize_node_data_from_mmap(tree, mmap_arbre);
-    
+
     return tree;
 }
 
