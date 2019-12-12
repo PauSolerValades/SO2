@@ -16,7 +16,6 @@
 #include <sys/mman.h>
 #include <sys/sysinfo.h>
 #include <fcntl.h>
-#include <time.h> 
 
 
 #include "red-black-tree.h"
@@ -25,22 +24,13 @@
 
 #define MAXCHAR      100
 #define MAGIC_NUMBER 0x01234567
-#define NUM_PROCS    get_nprocs() /* No canviar */ 
 
-/* 
- * MEMÒRIA COMPARTIDA PER ALS MÚTLIPLES FILLS (sinó la tenim no tots els fitxers poden saber aquestes dades)
- *  - int counter: compta el nombre de fitxers que hem obert
- *  - sem_t clau_counter: regula quan els fills canvien el nombre de fitxers vistos
- *  - sem_t clau_tree: regula quan els fills poden escriure a l'arbre.
- * 
- */
+struct args_fil {
+    char* data;
+    rb_tree* tree;
+};
 
-typedef struct shared_mem {
-    sem_t clau_counter;
-    int counter;
-} shared_mem;
-
-shared_mem *s;
+pthread_t fil;
 
 /**
  * 
@@ -54,7 +44,7 @@ int menu()
     int opcio=0;
 
     printf("\n\nMenu\n\n");
-    printf(" 1 - Creacio de l'arbre amb un pare i múltiples fills\n");
+    printf(" 1 - Creacio de l'arbre amb un fil\n");
     printf(" 2 - Emmagatzemar arbre a disc\n");
     printf(" 3 - Llegir arbre de disc\n");
     printf(" 4 - Consultar informacio de l'arbre\n");
@@ -100,7 +90,6 @@ void diccionari_arbre(rb_tree* tree, char* word){
     
     char* auxWord;
     node_data *n_data;
-    int sem;
         
     /*
     printf("Word: %s\n", word);
@@ -127,11 +116,6 @@ void diccionari_arbre(rb_tree* tree, char* word){
         n_data->num_times = 0;
         
         n_data->len = strlen(auxWord);
-        
-        sem = sem_init(&n_data->clau_node, 1, 1);
-        
-        if(sem == -1)
-            printf("%d\n", sem);
         
         /* We insert the node in the tree */
         insert_node(tree, n_data);
@@ -206,12 +190,8 @@ void search_words(rb_tree* tree, char* filename){
                 temp = find_node(tree, paraula);
                 
                 /* RACE CONDITIONS */
-                if (temp != NULL) {
-                    sem_wait(&temp->clau_node);
-    
+                if (temp != NULL) {    
                     temp->num_times++;
-                    
-                    sem_post(&temp->clau_node);
                 }
                                         
             }
@@ -228,18 +208,53 @@ void search_words(rb_tree* tree, char* filename){
     
 }
 
-rb_tree* crear_arbre_fills(char* str1, char* str2, int fills)
+void *fil_fn(void *arg)
 {
-    FILE *data, *diccionari;
-    char word[MAXCHAR], num[MAXCHAR];
-    char* mmap_arbre;
-    char* mmap_data;
+    FILE* data;
+    int control = 0;
+    char filename[MAXCHAR];
     char* auxFilePath;
-    pid_t id;
-    int num_fitxers, max_fills, temp, status = 0;
-
-    /* L'arbre amb el diccionari s'ha de crear de la mateixa manera que a la practica 2 i 3 */
+    struct args_fil *arguments = (struct args_fil *) arg;
     
+    /* Obrim el fitxer de fitxers */
+    data = fopen(arguments->data,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
+
+    if (!data) {
+//         printf("Could not open file: %s in MAIN\n", arguments->data);
+        //delete_tree(arguments->tree);
+        //init_tree(arguments->tree);
+    }
+    
+    while(fgets(filename, MAXCHAR, data)){
+        if(control==0){
+            control++;
+            
+        }else{
+           
+            /* Retallem l'string per poder-lo passar a la funcio i que llegeixi be el path */
+            auxFilePath = retallar_strings(filename);
+            
+            search_words(arguments->tree, auxFilePath);
+            
+            free(auxFilePath);
+        }
+    }
+    
+    fclose(data);
+    
+    return NULL;
+}
+
+rb_tree* crear_arbre_fil(char* str1, char* str2)
+{
+    FILE *diccionari;
+    char word[MAXCHAR];
+    int err;
+    void *tret;
+    struct args_fil *arguments;
+    
+    arguments = malloc(sizeof(struct args_fil));
+
     rb_tree *tree;
     tree = (rb_tree *) malloc(sizeof(rb_tree));
     init_tree(tree);
@@ -259,104 +274,20 @@ rb_tree* crear_arbre_fills(char* str1, char* str2, int fills)
     
     fclose(diccionari);
     
-    /* Mapejem l'arbre a memòria. */
-    mmap_arbre = serialize_node_data_to_mmap(tree);
     
-    /* Obrim el fitxer de fitxers */
-    data = fopen(str2,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
-
-    if (!data) {
-        printf("Could not open file: %s in MAIN\n", str2);
-        delete_tree(tree);
-        init_tree(tree);
-        return tree;
+    /* Creo els fils, com et quedes JJ? :) */
+    
+    arguments->data = str2;
+    arguments->tree = tree;
+    
+    err = pthread_create(&fil, NULL, fil_fn, (void *) arguments);
+    if (err != 0) {
+        printf("Error al crear el fil secundari.\n");
+        exit(1);
     }
     
-    /* Necessitem el nombre de fitxers que hi ha a llista.cfg per poder accedir a cadaun d'ells. */
-    if(!fgets(num, MAXCHAR, data)){
-        printf("Problem in lecture of NUM_FITXERS in PRACTICA4\n");
-        delete_tree(tree);
-        init_tree(tree);
-        return tree;
-    }
+    pthread_join(fil, &tret);
     
-    num[strlen(num)] = '\0';
-    num_fitxers = atoi(num);
-    printf("%d\n", num_fitxers);
-    
-    fseek(data, 0, SEEK_SET); /* Tornem a posar el punter al principi del fitxer per generar el mmap de data */
-    /*rewind(data);*/
-    
-    /* Carrega TOTS els fitxers de data al MMAP */
-    mmap_data = dbfnames_to_mmap(data);
-    
-    fclose(data); /* tanca str2. Ja no el necessitem perque ja està mapat a memòria. */
-    
-    max_fills = NUM_PROCS;
-    
-    if(fills <= max_fills)
-        max_fills = fills;
-
-    /* 
-     *
-     * 
-     * 
-     * COMENÇA LA GENERACIÓ DE FILL(S): EL PARTO 
-     * 
-     * 
-     * 
-     */
-    
-    s = mmap(NULL, sizeof(shared_mem), PROT_READ | PROT_WRITE,
-             MAP_SHARED | MAP_ANONYMOUS, -1, 0);
-    
-    /* Inicialitzem el semàfor i la memòria compartida */
-    s->counter = 0;
-    sem_init(&s->clau_counter, 1, 1);
-    
-    for(int i=0; i<max_fills; i++){
-        id = fork();
-    
-        if(id == 0){
-        
-            /*printf("[son] pid %d from [parent] %d pid\n",getpid(), getppid());*/
-            while(1){
-                
-                /* RACE CONDITIONS */
-                sem_wait(&s->clau_counter); // lock
-                temp = s->counter;
-                s->counter++;
-                sem_post(&s->clau_counter); // unlock
-                
-                
-                if(temp < num_fitxers){
-                    
-                    auxFilePath = get_dbfname_from_mmap(mmap_data, temp);
-                    
-                    
-                    /*
-                    printf("Filename mmap: %s\n", auxFilePath);
-                    printf("Counter: %d \n", s->counter);
-                    */
-                    
-                    search_words(tree, auxFilePath);
-                    
-                }else{ /* Tots els fitxers estan llegits */
-                    break;
-                }
-            }
-            exit(1);
-        }
-    }
-
-    while((wait(&status)) > 0); /* Esperem a que tots els processos s'acabin */
-
-
-    /* Deserialitzem l'arbre del mmap i desmapejem la memòria compartida i els fitxers */
-    munmap(s, sizeof(shared_mem));
-    dbfnames_munmmap(mmap_data);
-    deserialize_node_data_from_mmap(tree, mmap_arbre);
-
     return tree;
 }
 
@@ -497,8 +428,8 @@ void top_1(rb_tree *tree){
 
 int main(int argc, char **argv)
 {
-    char str1[MAXCHAR], str2[MAXCHAR], str3[MAXCHAR];
-    int opcio, fills;
+    char str1[MAXCHAR], str2[MAXCHAR];
+    int opcio;
 
     
     rb_tree *tree;
@@ -525,15 +456,7 @@ int main(int argc, char **argv)
                 if(fgets(str2, MAXCHAR, stdin))
                     str2[strlen(str2)-1]=0;
                 
-                printf("Nombre de fills al crear l'arbre (default: get_nprocs; per default: int > get_nprocs):");
-                if(fgets(str3, MAXCHAR, stdin)){
-                    str3[strlen(str3)-1]=0;
-                    fills = atoi(str3);
-                }else{
-                    fills = 0;
-                }
-                
-                tree = crear_arbre_fills(str1, str2, fills);
+                tree = crear_arbre_fil(str1, str2);
                 
                 printf("Elements: %d\n", tree->num_elements);
                 break;

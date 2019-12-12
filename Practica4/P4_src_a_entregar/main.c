@@ -292,7 +292,7 @@ rb_tree* practica4(char* str1, char* str2)
         
     }
     
-    /* Quan acabem alliberem memòria??? */
+    /* Quan acabem alliberem memòria */
     dbfnames_munmmap(mmap_data);
     
     /* Deserialitzem l'arbre del mmap. */
@@ -346,7 +346,15 @@ void child(char* str2, rb_tree* tree){
     
     for(int fitxer=0; fitxer<num_fitxers; fitxer++){
         auxFilePath = get_dbfname_from_mmap(mmap_data, fitxer);
-        search_words(tree, auxFilePath);
+        search_words(tree, auxFilePath);typedef struct shared_mem {
+    sem_t clau_counter;
+    sem_t clau_tree;
+    int counter;
+} shared_mem;rb_tree*
+
+shared_mem *s;
+
+/**
     }
     
     /* Quan acabem alliberem el mmap de la memòria compartida */
@@ -419,7 +427,7 @@ rb_tree* crear_arbre_fills(char* str1, char* str2)
     char* mmap_data;
     char* auxFilePath;
     pid_t id;
-    int num_fitxers, max_fills, temp, status = 0;
+    int num_fitxers, max_fillrb_tree*s, temp, status = 0;
 
     /* L'arbre amb el diccionari s'ha de crear de la mateixa manera que a la practica 2 i 3 */
     
