@@ -31,6 +31,7 @@ struct args_fil {
 };
 
 pthread_t fil;
+pthread_t fils[15];
 
 /**
  * 
@@ -287,6 +288,86 @@ rb_tree* crear_arbre_fil(char* str1, char* str2)
     }
     
     pthread_join(fil, &tret);
+    
+    return tree;
+}
+
+void *fils_fn(void *arg)
+{
+//     MIRAR GETLINE
+    FILE* data;
+    int control = 0;
+    char filename[MAXCHAR];
+    char* auxFilePath;
+    struct args_fil *arguments = (struct args_fil *) arg;
+    
+    /* Obrim el fitxer de fitxers */
+    data = fopen(arguments->data,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
+
+    if (!data) {
+//         printf("Could not open file: %s in MAIN\n", arguments->data);
+        //delete_tree(arguments->tree);
+        //init_tree(arguments->tree);
+    }
+    
+    while(fgets(filename, MAXCHAR, data)){
+        if(control==0){
+            control++;
+            
+        }else{
+           
+            /* Retallem l'string per poder-lo passar a la funcio i que llegeixi be el path */
+            auxFilePath = retallar_strings(filename);
+            
+            search_words(arguments->tree, auxFilePath);
+            
+            free(auxFilePath);
+        }
+    }
+    
+    fclose(data);
+    
+    return NULL;
+}
+
+rb_tree* crear_arbre_fils(char* str1, char* str2)
+{
+    FILE *diccionari;
+    char word[MAXCHAR];
+    int err;
+    void *tret;
+    struct args_fil *arguments;
+
+    rb_tree *tree;
+    tree = (rb_tree *) malloc(sizeof(rb_tree));
+    init_tree(tree);
+    
+    /* Obrim el diccionari que ens passin */
+    diccionari = fopen(str1, "r");
+    
+    if (!diccionari) {
+        printf("Could not open file: %s in MAIN\n", str1);
+        fclose(diccionari);
+        return tree;
+    }
+    
+    /* Omplim l'arbre amb les paraules del fitxer "diccionari" */
+    while(fgets(word, MAXCHAR, diccionari) != NULL)
+        diccionari_arbre(tree, word);
+    
+    fclose(diccionari);
+    
+    for(i = 0; i < 15; i++) {
+        arguments = malloc(sizeof(struct args_fil));
+        arguments->data = str2;
+        arguments->tree = tree;
+        
+        pthread_create(fils+i, NULL, fils_fn, (void *) arguments);
+    }
+    
+    for(i = 0; i < 15; i++) {
+        pthread_join(fil, &tret);
+    }
     
     return tree;
 }
