@@ -24,14 +24,24 @@
 
 #define MAXCHAR      100
 #define MAGIC_NUMBER 0x01234567
+#define NUM_FILS     4
 
 struct args_fil {
     char* data;
     rb_tree* tree;
 };
 
+struct args_fils {
+    FILE* data;
+    rb_tree* tree;
+    int num_fitxers;
+};
+
 pthread_t fil;
-pthread_t fils[15];
+pthread_t fils[4];
+pthread_mutex_t mutex_write = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t mutex_join = PTHREAD_MUTEX_INITIALIZER;
+int control=0;
 
 /**
  * 
@@ -41,18 +51,19 @@ pthread_t fils[15];
 
 int menu() 
 {
-    char str[5];
+    char str[6];
     int opcio=0;
 
     printf("\n\nMenu\n\n");
     printf(" 1 - Creacio de l'arbre amb un fil\n");
-    printf(" 2 - Emmagatzemar arbre a disc\n");
-    printf(" 3 - Llegir arbre de disc\n");
-    printf(" 4 - Consultar informacio de l'arbre\n");
-    printf(" 5 - Sortir\n\n");
+    printf(" 2 - Creacio de l'arbre amb múltiples fils\n");
+    printf(" 3 - Emmagatzemar arbre a disc\n");
+    printf(" 4 - Llegir arbre de disc\n");
+    printf(" 5 - Consultar informacio de l'arbre\n");
+    printf(" 6 - Sortir\n\n");
     printf("   Escull opcio: ");
 
-    if(fgets(str, 5, stdin))
+    if(fgets(str, 6, stdin))
         opcio = atoi(str); 
 
     return opcio;
@@ -190,7 +201,6 @@ void search_words(rb_tree* tree, char* filename){
                 /* search 'paraula' in the tree and if found, increment 'num_times' */
                 temp = find_node(tree, paraula);
                 
-                /* RACE CONDITIONS */
                 if (temp != NULL) {    
                     temp->num_times++;
                 }
@@ -214,7 +224,7 @@ void *fil_fn(void *arg)
     FILE* data;
     int control = 0;
     char filename[MAXCHAR];
-    char* auxFilePath;
+//     char* auxFilePath;
     struct args_fil *arguments = (struct args_fil *) arg;
     
     /* Obrim el fitxer de fitxers */
@@ -224,6 +234,7 @@ void *fil_fn(void *arg)
 //         printf("Could not open file: %s in MAIN\n", arguments->data);
         //delete_tree(arguments->tree);
         //init_tree(arguments->tree);
+        return NULL;
     }
     
     while(fgets(filename, MAXCHAR, data)){
@@ -232,12 +243,10 @@ void *fil_fn(void *arg)
             
         }else{
            
-            /* Retallem l'string per poder-lo passar a la funcio i que llegeixi be el path */
-            auxFilePath = retallar_strings(filename);
+            filename[strlen(filename)-1] = 0;
+            control++;
+            search_words(arguments->tree, filename);
             
-            search_words(arguments->tree, auxFilePath);
-            
-            free(auxFilePath);
         }
     }
     
@@ -294,49 +303,42 @@ rb_tree* crear_arbre_fil(char* str1, char* str2)
 
 void *fils_fn(void *arg)
 {
-//     MIRAR GETLINE
-    FILE* data;
-    int control = 0;
+    int fitxers;
     char filename[MAXCHAR];
-    char* auxFilePath;
-    struct args_fil *arguments = (struct args_fil *) arg;
+    struct args_fils *arguments = (struct args_fils *) arg;
     
-    /* Obrim el fitxer de fitxers */
-    data = fopen(arguments->data,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
-
-    if (!data) {
-//         printf("Could not open file: %s in MAIN\n", arguments->data);
-        //delete_tree(arguments->tree);
-        //init_tree(arguments->tree);
-    }
+    fitxers = arguments->num_fitxers;
     
-    while(fgets(filename, MAXCHAR, data)){
-        if(control==0){
+    while(1){
+        
+        /* RACE CONDITIONS */
+        pthread_mutex_lock(&mutex_write);
+        if(fgets(filename, MAXCHAR, arguments->data) != NULL){
+            filename[strlen(filename)-1] = 0;
             control++;
             
-        }else{
-           
-            /* Retallem l'string per poder-lo passar a la funcio i que llegeixi be el path */
-            auxFilePath = retallar_strings(filename);
-            
-            search_words(arguments->tree, auxFilePath);
-            
-            free(auxFilePath);
+            printf("%s\n", filename);
+            search_words(arguments->tree, filename);
         }
+        pthread_mutex_unlock(&mutex_write);
+//         printf("%s\n", filename);
+                
+        if(control == fitxers-1){
+            break;
+        }
+
     }
-    
-    fclose(data);
-    
-    return NULL;
+        
+    return ((void *) 0);
 }
 
 rb_tree* crear_arbre_fils(char* str1, char* str2)
 {
-    FILE *diccionari;
-    char word[MAXCHAR];
-    int err;
+    FILE *diccionari, *data;
+    char word[MAXCHAR], num[MAXCHAR];
+    int num_fitxers;
     void *tret;
-    struct args_fil *arguments;
+    struct args_fils *arguments;
 
     rb_tree *tree;
     tree = (rb_tree *) malloc(sizeof(rb_tree));
@@ -350,23 +352,51 @@ rb_tree* crear_arbre_fils(char* str1, char* str2)
         fclose(diccionari);
         return tree;
     }
-    
+         
     /* Omplim l'arbre amb les paraules del fitxer "diccionari" */
     while(fgets(word, MAXCHAR, diccionari) != NULL)
         diccionari_arbre(tree, word);
     
     fclose(diccionari);
     
-    for(i = 0; i < 15; i++) {
-        arguments = malloc(sizeof(struct args_fil));
-        arguments->data = str2;
+    
+    /* Obrim el fitxer de fitxers */
+    data = fopen(str2,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
+
+    if (!data) {
+//         printf("Could not open file: %s in MAIN\n", arguments->data);
+        //delete_tree(arguments->tree);
+        //init_tree(arguments->tree);
+        return NULL;
+    }
+    
+    if(!fgets(num, MAXCHAR, data)){
+        printf("Problem in lecture of NUM_FITXERS in PRACTICA4\n");
+        return NULL;
+    }
+    
+    num[strlen(num)] = '\0';
+    num_fitxers = atoi(num);
+    printf("%d\n", num_fitxers);
+    
+    for(int i = 0; i < NUM_FILS; i++) {
+        arguments = malloc(sizeof(struct args_fils));
+        arguments->data = data;
         arguments->tree = tree;
+        arguments->num_fitxers = num_fitxers;
         
         pthread_create(fils+i, NULL, fils_fn, (void *) arguments);
     }
     
-    for(i = 0; i < 15; i++) {
+    sleep(1);
+    fclose(data);
+
+    
+    for(int i = 0; i < NUM_FILS; i++) {
+        pthread_mutex_lock(&mutex_join);
         pthread_join(fil, &tret);
+        pthread_mutex_unlock(&mutex_join);
+
     }
     
     return tree;
@@ -543,6 +573,20 @@ int main(int argc, char **argv)
                 break;
                 
             case 2:
+                printf("Fitxer de diccionari de paraules: ");
+                if(fgets(str1, MAXCHAR, stdin))
+                    str1[strlen(str1)-1]=0;
+
+                printf("Fitxer de base de dades: ");
+                if(fgets(str2, MAXCHAR, stdin))
+                    str2[strlen(str2)-1]=0;
+                
+                tree = crear_arbre_fils(str1, str2);
+                
+                printf("Elements: %d\n", tree->num_elements);
+                break;
+                
+            case 3:
                 printf("Nom de fitxer en que es desara l'arbre: ");
                 if(fgets(str1, MAXCHAR, stdin))
                     str1[strlen(str1)-1]=0;
@@ -553,7 +597,7 @@ int main(int argc, char **argv)
                 }else{ printf("L'arbre no ha estat creat.\n"); } 
                 break;
                 
-            case 3:
+            case 4:
                 printf("Nom del fitxer que conte l'arbre: ");
                 if(fgets(str1, MAXCHAR, stdin))
                     str1[strlen(str1)-1]=0;
@@ -568,7 +612,7 @@ int main(int argc, char **argv)
 
                 break;
 
-            case 4:
+            case 5:
                  if(tree != NULL){
                         
                     printf("Paraula a buscar o polsa enter per saber la paraula que apareix més vegades: ");
@@ -597,12 +641,11 @@ int main(int argc, char **argv)
 
                 break;
 
-            case 5:
+            case 6:
                 
                 if(tree != NULL){
                     delete_tree(tree);
                     free(tree);
-                    
                 }
 
                 break;
@@ -612,7 +655,7 @@ int main(int argc, char **argv)
 
         } /* switch */
     }
-    while (opcio != 5);
+    while (opcio != 6);
 
     return 0;
 }
