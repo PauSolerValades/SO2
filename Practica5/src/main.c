@@ -38,10 +38,13 @@ struct args_fils {
 };
 
 pthread_t fil;
-pthread_t fils[4];
+
 pthread_mutex_t mutex_write = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t mutex_join = PTHREAD_MUTEX_INITIALIZER;
-int control=0;
+pthread_mutex_t mutex_jj = PTHREAD_MUTEX_INITIALIZER;
+
+pthread_cond_t cond;
+int control=0, control_2=0;
 
 /**
  * 
@@ -67,6 +70,45 @@ int menu()
         opcio = atoi(str); 
 
     return opcio;
+}
+
+void update_arbre(node *current, node *current_copy) {
+    
+    if (current == NULL){
+        return;
+    }
+    else{
+        if (current->left != NIL)
+            update_arbre(current->left, current_copy->left);
+        
+        current_copy->data->len = current->data->len;
+        current_copy->data->key = current->data->key;
+        current_copy->data->num_times = current->data->num_times;
+        
+        if (current->right != NIL)
+            update_arbre(current->right, current_copy->right);
+    }
+}
+
+
+void print_arbre(node *current) {
+ 
+    if (current == NULL){
+        return;
+    }
+    else{
+        if (current->left != NIL)
+            print_arbre(current->left);
+        
+        int len = current->data->len;
+        char* key = current->data->key;
+        int num_times = current->data->num_times;
+        
+        printf("Key: %s\t\t Len: %d\t Times: %d\n", key, len, num_times);
+        
+        if (current->right != NIL)
+            print_arbre(current->right);
+    }
 }
 
 char* retallar_strings(char* string){
@@ -201,8 +243,10 @@ void search_words(rb_tree* tree, char* filename){
                 /* search 'paraula' in the tree and if found, increment 'num_times' */
                 temp = find_node(tree, paraula);
                 
-                if (temp != NULL) {    
+                if (temp != NULL) {
+                    pthread_mutex_lock(&mutex_jj);
                     temp->num_times++;
+                    pthread_mutex_unlock(&mutex_jj);
                 }
                                         
             }
@@ -237,6 +281,13 @@ void *fil_fn(void *arg)
         return NULL;
     }
     
+    rb_tree *tree_fil;
+    tree_fil = (rb_tree *) malloc(sizeof(rb_tree));
+    init_tree(tree_fil);
+    
+    tree_fil->root = arguments->tree->root;
+    tree_fil->num_elements = arguments->tree->num_elements;
+    
     while(fgets(filename, MAXCHAR, data)){
         if(control==0){
             control++;
@@ -245,7 +296,7 @@ void *fil_fn(void *arg)
            
             filename[strlen(filename)-1] = 0;
             control++;
-            search_words(arguments->tree, filename);
+            search_words(tree_fil, filename);
             
         }
     }
@@ -303,33 +354,45 @@ rb_tree* crear_arbre_fil(char* str1, char* str2)
 
 void *fils_fn(void *arg)
 {
-    int fitxers;
+    int tmp;
     char filename[MAXCHAR];
     struct args_fils *arguments = (struct args_fils *) arg;
     
-    fitxers = arguments->num_fitxers;
+    rb_tree *tree_fil;
+    tree_fil = (rb_tree *) malloc(sizeof(rb_tree));
+    init_tree(tree_fil);
     
+    tree_fil->root = arguments->tree->root;
+    tree_fil->num_elements = arguments->tree->num_elements;
+  
     while(1){
         
-        /* RACE CONDITIONS */
         pthread_mutex_lock(&mutex_write);
-        if(fgets(filename, MAXCHAR, arguments->data) != NULL){
-            filename[strlen(filename)-1] = 0;
-            control++;
-            
-            printf("%s\n", filename);
-            search_words(arguments->tree, filename);
-        }
+        
+        printf("Locked\n");
+        tmp = control_2;
+        control_2++;
+        if(fgets(filename, MAXCHAR, arguments->data) == NULL){}
+        
         pthread_mutex_unlock(&mutex_write);
-//         printf("%s\n", filename);
-                
-        if(control == fitxers-1){
-            break;
+        
+        if(tmp < arguments->num_fitxers){ 
+            filename[strlen(filename)-1]=0;
+            
+            search_words(tree_fil, filename);
+            
+        }else{
+            break; 
         }
 
     }
         
-    return ((void *) 0);
+    pthread_mutex_lock(&mutex_join);
+    update_arbre(arguments->tree->root, tree_fil->root);
+    pthread_mutex_unlock(&mutex_join);
+
+    return ((void *) 0); 
+    
 }
 
 rb_tree* crear_arbre_fils(char* str1, char* str2)
@@ -337,7 +400,7 @@ rb_tree* crear_arbre_fils(char* str1, char* str2)
     FILE *diccionari, *data;
     char word[MAXCHAR], num[MAXCHAR];
     int num_fitxers;
-    void *tret;
+    pthread_t fils[NUM_FILS];
     struct args_fils *arguments;
 
     rb_tree *tree;
@@ -360,13 +423,10 @@ rb_tree* crear_arbre_fils(char* str1, char* str2)
     fclose(diccionari);
     
     
-    /* Obrim el fitxer de fitxers */
-    data = fopen(str2,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
+    data = fopen(str2, "r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
 
     if (!data) {
-//         printf("Could not open file: %s in MAIN\n", arguments->data);
-        //delete_tree(arguments->tree);
-        //init_tree(arguments->tree);
+        printf("Could not open file: %s in MAIN\n", str2);
         return NULL;
     }
     
@@ -384,20 +444,15 @@ rb_tree* crear_arbre_fils(char* str1, char* str2)
         arguments->data = data;
         arguments->tree = tree;
         arguments->num_fitxers = num_fitxers;
+    
+        pthread_create(&(fils[i]), NULL, fils_fn, (void *) arguments);
+    }
         
-        pthread_create(fils+i, NULL, fils_fn, (void *) arguments);
-    }
-    
-    sleep(1);
-    fclose(data);
-
-    
     for(int i = 0; i < NUM_FILS; i++) {
-        pthread_mutex_lock(&mutex_join);
-        pthread_join(fil, &tret);
-        pthread_mutex_unlock(&mutex_join);
-
+        pthread_join(fils[i], NULL);
     }
+    
+    fclose(data);
     
     return tree;
 }
