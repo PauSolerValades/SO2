@@ -386,6 +386,8 @@ void *fils_fn(void *arg)
         }
 
     }
+    
+    /* AQUÍ ÉS ON HA D'ANAR LA BARRERA. RECORDA QUE S'HA DE TREURE EL MUTEX_JJ*/
         
     pthread_mutex_lock(&mutex_join);
     update_arbre(arguments->tree->root, tree_fil->root);
