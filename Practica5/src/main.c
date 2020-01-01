@@ -13,6 +13,7 @@
 #include <pthread.h>
 #include <semaphore.h>
 #include <sys/wait.h>
+#include <sys/syscall.h>
 #include <sys/mman.h>
 #include <sys/sysinfo.h>
 #include <fcntl.h>
@@ -369,10 +370,11 @@ void *fils_fn(void *arg)
         
         pthread_mutex_lock(&mutex_write);
         
-        printf("Locked\n");
         tmp = control_2;
         control_2++;
         if(fgets(filename, MAXCHAR, arguments->data) == NULL){}
+        
+        printf("ID: %ld Filename: %s Control: %d \n", syscall(SYS_gettid), filename, control);
         
         pthread_mutex_unlock(&mutex_write);
         
@@ -388,7 +390,9 @@ void *fils_fn(void *arg)
     }
     
     /* AQUÍ ÉS ON HA D'ANAR LA BARRERA. RECORDA QUE S'HA DE TREURE EL MUTEX_JJ*/
-        
+    
+    print_arbre(tree_fil->root);
+    
     pthread_mutex_lock(&mutex_join);
     update_arbre(arguments->tree->root, tree_fil->root);
     pthread_mutex_unlock(&mutex_join);
