@@ -37,7 +37,7 @@ pthread_t fil;
 pthread_mutex_t mutex_write = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t mutex_join = PTHREAD_MUTEX_INITIALIZER;
 
-pthread_mutex_t mutex_malloc = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t mutex_malloc = PTHREAD_MUTEX_INITIALIZER; /* Tant malloc com free no son funcions threadsafe, així que les hem de protegir amb un mutex */
 
 int control=0; /* Variable global per a controlar quin fill accedeix a cada fitxer */
 
@@ -98,7 +98,11 @@ char* retallar_strings(char* string){
     int lenString;
     
     lenString = strlen(string) - 1;
+    
+    pthread_mutex_lock(&mutex_malloc);
     newString = malloc((lenString+1) * sizeof(char));
+    pthread_mutex_unlock(&mutex_malloc);
+    
     for(int i = 0; i <= lenString; i++) 
         newString[i] = string[i];
     newString[lenString] = 0;
@@ -236,10 +240,19 @@ void search_words(rb_tree* tree, char* filename){
     
 }
 
+/**
+ *
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
 void copiar_nodes_arbre(node *current, rb_tree* tree_copy) {
     
     node_data *n_data;
-
+    char* key;
     
     if (current == NULL){
         return;
@@ -253,7 +266,18 @@ void copiar_nodes_arbre(node *current, rb_tree* tree_copy) {
         pthread_mutex_unlock(&mutex_malloc);
         
         n_data->len = current->data->len;
-        n_data->key = current->data->key;
+        
+        pthread_mutex_lock(&mutex_malloc);
+        key = malloc((current->data->len +1) * sizeof(char));
+        pthread_mutex_unlock(&mutex_malloc);
+        
+        /* Aquí podriem cridar a retallar_strings, però com que quan la fem servir no s'apliquen race conditions, hem preferit reeimplementar-la tota en aquesta petita funció. Així en assegurem un comportament més consistent */
+        
+        for(int i = 0; i <= current->data->len; i++) 
+            key[i] = current->data->key[i];
+        key[current->data->len] = 0;        
+        
+        n_data->key = key;
         n_data->num_times = current->data->num_times;
         
         insert_node(tree_copy, n_data);
@@ -324,9 +348,16 @@ void *fils_fn(void *arg)
     }
     
     pthread_mutex_lock(&mutex_join);
+    
     update_arbre(arguments->tree->root, tree_fil);
+    
     delete_tree(tree_fil);
+    free(tree_fil);
+    
+    free(arguments);
+    
     pthread_mutex_unlock(&mutex_join);
+    
     
     return ((void *) 0); 
     
@@ -358,8 +389,7 @@ rb_tree* crear_arbre_fils(char* str1, char* str2, int nombre_fils)
         diccionari_arbre(tree, word);
     
     fclose(diccionari);
-    
-    
+        
     data = fopen(str2, "r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
 
     if (!data) {
