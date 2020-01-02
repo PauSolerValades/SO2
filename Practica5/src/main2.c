@@ -25,7 +25,6 @@
 
 #define MAXCHAR      100
 #define MAGIC_NUMBER 0x01234567
-#define NUM_FILS     4
 
 struct args_fils {
     FILE* data;
@@ -324,12 +323,12 @@ void *fils_fn(void *arg)
     
 }
 
-rb_tree* crear_arbre_fils(char* str1, char* str2)
+rb_tree* crear_arbre_fils(char* str1, char* str2, int nombre_fils)
 {
     FILE *diccionari, *data;
     char word[MAXCHAR], num[MAXCHAR];
     int num_fitxers;
-    pthread_t fils[NUM_FILS];
+    pthread_t fils[nombre_fils];
     struct args_fils *arguments;
 
     rb_tree *tree;
@@ -368,7 +367,7 @@ rb_tree* crear_arbre_fils(char* str1, char* str2)
     num_fitxers = atoi(num);
     printf("%d\n", num_fitxers);
     
-    for(int i = 0; i < NUM_FILS; i++) {
+    for(int i = 0; i < nombre_fils; i++) {
         arguments = malloc(sizeof(struct args_fils));
         arguments->data = data;
         arguments->tree = tree;
@@ -377,13 +376,11 @@ rb_tree* crear_arbre_fils(char* str1, char* str2)
         pthread_create(&(fils[i]), NULL, fils_fn, (void *) arguments);
     }
         
-    for(int i = 0; i < NUM_FILS; i++) {
+    for(int i = 0; i < nombre_fils; i++) {
         pthread_join(fils[i], NULL);
     }
     
     fclose(data);
-    
-    free();
     
     return tree;
 }
@@ -526,7 +523,8 @@ void top_1(rb_tree *tree){
 
 int main(int argc, char **argv)
 {
-    char str1[MAXCHAR], str2[MAXCHAR];
+    char str1[MAXCHAR], str2[MAXCHAR], str3[MAXCHAR];
+    int nombre_fils;
     int opcio;
 
     
@@ -554,7 +552,13 @@ int main(int argc, char **argv)
                 if(fgets(str2, MAXCHAR, stdin))
                     str2[strlen(str2)-1]=0;
                 
-                tree = crear_arbre_fils(str1, str2);
+                printf("Nombre de fils: ");
+                if(fgets(str3, MAXCHAR, stdin))
+                    str3[strlen(str3)-1]=0;
+                
+                nombre_fils = atoi(str3);
+                
+                tree = crear_arbre_fils(str1, str2, nombre_fils);
                 
                 printf("Elements: %d\n", tree->num_elements);
                 break;
