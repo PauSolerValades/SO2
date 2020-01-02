@@ -98,11 +98,7 @@ char* retallar_strings(char* string){
     int lenString;
     
     lenString = strlen(string) - 1;
-    
-    pthread_mutex_lock(&mutex_malloc);
-    newString = malloc((lenString+1) * sizeof(char));
-    pthread_mutex_unlock(&mutex_malloc);
-    
+    newString = malloc((lenString+1) * sizeof(char));    
     for(int i = 0; i <= lenString; i++) 
         newString[i] = string[i];
     newString[lenString] = 0;
@@ -300,8 +296,11 @@ void update_arbre(node *current, rb_tree* tree_copy) {
             update_arbre(current->left, tree_copy);
         
         n_data = find_node(tree_copy, current->data->key);
-        if(n_data != NULL)
+        if(n_data != NULL){
+            pthread_mutex_lock(&mutex_join);
             current->data->num_times += n_data->num_times;
+            pthread_mutex_unlock(&mutex_join);
+        }    
             
         if (current->right != NIL)
             update_arbre(current->right, tree_copy);
@@ -315,11 +314,9 @@ void *fils_fn(void *arg)
     struct args_fils *arguments = (struct args_fils *) arg;
     
     rb_tree *tree_fil;
-    
     pthread_mutex_lock(&mutex_malloc);
     tree_fil = (rb_tree *) malloc(sizeof(rb_tree));
     pthread_mutex_unlock(&mutex_malloc);
-    
     init_tree(tree_fil);
         
     copiar_nodes_arbre(arguments->tree->root, tree_fil);
@@ -346,17 +343,19 @@ void *fils_fn(void *arg)
         }
 
     }
-    
-    pthread_mutex_lock(&mutex_join);
+
     
     update_arbre(arguments->tree->root, tree_fil);
+    
+    
+    pthread_mutex_lock(&mutex_malloc);
     
     delete_tree(tree_fil);
     free(tree_fil);
     
     free(arguments);
     
-    pthread_mutex_unlock(&mutex_join);
+    pthread_mutex_unlock(&mutex_malloc);
     
     
     return ((void *) 0); 
