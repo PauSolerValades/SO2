@@ -1,6 +1,6 @@
 /**
  *
- * Practica 3 
+ * Practica 5
  *
  */
 
@@ -27,11 +27,6 @@
 #define MAGIC_NUMBER 0x01234567
 #define NUM_FILS     4
 
-struct args_fil {
-    char* data;
-    rb_tree* tree;
-};
-
 struct args_fils {
     FILE* data;
     rb_tree* tree;
@@ -42,10 +37,8 @@ pthread_t fil;
 
 pthread_mutex_t mutex_write = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t mutex_join = PTHREAD_MUTEX_INITIALIZER;
-pthread_mutex_t mutex_jj = PTHREAD_MUTEX_INITIALIZER;
 
-pthread_cond_t cond;
-int control=0, control_2=0;
+int control=0; /* Variable global per a controlar quin fill accedeix a cada fitxer */
 
 /**
  * 
@@ -55,42 +48,22 @@ int control=0, control_2=0;
 
 int menu() 
 {
-    char str[6];
+    char str[5];
     int opcio=0;
 
     printf("\n\nMenu\n\n");
-    printf(" 1 - Creacio de l'arbre amb un fil\n");
-    printf(" 2 - Creacio de l'arbre amb múltiples fils\n");
-    printf(" 3 - Emmagatzemar arbre a disc\n");
-    printf(" 4 - Llegir arbre de disc\n");
-    printf(" 5 - Consultar informacio de l'arbre\n");
-    printf(" 6 - Sortir\n\n");
+    printf(" 1 - Creacio de l'arbre amb fils\n");
+    printf(" 2 - Emmagatzemar arbre a disc\n");
+    printf(" 3 - Llegir arbre de disc\n");
+    printf(" 4 - Consultar informacio de l'arbre\n");
+    printf(" 5 - Sortir\n\n");
     printf("   Escull opcio: ");
 
-    if(fgets(str, 6, stdin))
+    if(fgets(str, 5, stdin))
         opcio = atoi(str); 
 
     return opcio;
 }
-
-void update_arbre(node *current, node *current_copy) {
-    
-    if (current == NULL){
-        return;
-    }
-    else{
-        if (current->left != NIL)
-            update_arbre(current->left, current_copy->left);
-        
-        current_copy->data->len = current->data->len;
-        current_copy->data->key = current->data->key;
-        current_copy->data->num_times = current->data->num_times;
-        
-        if (current->right != NIL)
-            update_arbre(current->right, current_copy->right);
-    }
-}
-
 
 void print_arbre(node *current) {
  
@@ -245,9 +218,7 @@ void search_words(rb_tree* tree, char* filename){
                 temp = find_node(tree, paraula);
                 
                 if (temp != NULL) {
-                    pthread_mutex_lock(&mutex_jj);
                     temp->num_times++;
-                    pthread_mutex_unlock(&mutex_jj);
                 }
                                         
             }
@@ -264,93 +235,50 @@ void search_words(rb_tree* tree, char* filename){
     
 }
 
-void *fil_fn(void *arg)
-{
-    FILE* data;
-    int control = 0;
-    char filename[MAXCHAR];
-//     char* auxFilePath;
-    struct args_fil *arguments = (struct args_fil *) arg;
+void copiar_nodes_arbre(node *current, rb_tree* tree_copy) {
     
-    /* Obrim el fitxer de fitxers */
-    data = fopen(arguments->data,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
+    node_data *n_data;
 
-    if (!data) {
-//         printf("Could not open file: %s in MAIN\n", arguments->data);
-        //delete_tree(arguments->tree);
-        //init_tree(arguments->tree);
-        return NULL;
+    
+    if (current == NULL){
+        return;
     }
-    
-    rb_tree *tree_fil;
-    tree_fil = (rb_tree *) malloc(sizeof(rb_tree));
-    init_tree(tree_fil);
-    
-    tree_fil->root = arguments->tree->root;
-    tree_fil->num_elements = arguments->tree->num_elements;
-    
-    while(fgets(filename, MAXCHAR, data)){
-        if(control==0){
-            control++;
-            
-        }else{
-           
-            filename[strlen(filename)-1] = 0;
-            control++;
-            search_words(tree_fil, filename);
-            
-        }
+    else{
+        if (current->left != NIL)
+            copiar_nodes_arbre(current->left, tree_copy);
+        
+        n_data = malloc(sizeof(node_data));
+        
+        n_data->len = current->data->len;
+        n_data->key = current->data->key;
+        n_data->num_times = current->data->num_times;
+        
+        insert_node(tree_copy, n_data);
+        
+        if (current->right != NIL)
+            copiar_nodes_arbre(current->right, tree_copy);
     }
-    
-    fclose(data);
-    
-    return NULL;
 }
 
-rb_tree* crear_arbre_fil(char* str1, char* str2)
-{
-    FILE *diccionari;
-    char word[MAXCHAR];
-    int err;
-    void *tret;
-    struct args_fil *arguments;
-    
-    arguments = malloc(sizeof(struct args_fil));
 
-    rb_tree *tree;
-    tree = (rb_tree *) malloc(sizeof(rb_tree));
-    init_tree(tree);
+void update_arbre(node *current, rb_tree* tree_copy) {
     
-    /* Obrim el diccionari que ens passin */
-    diccionari = fopen(str1, "r");
+    node_data *n_data;
     
-    if (!diccionari) {
-        printf("Could not open file: %s in MAIN\n", str1);
-        fclose(diccionari);
-        return tree;
+    if (current == NULL){
+        return;
+    }else{
+        
+        if (current->left != NIL)
+            update_arbre(current->left, tree_copy);
+        
+        n_data = find_node(tree_copy, current->data->key);
+        if(n_data != NULL)
+            current->data->num_times += n_data->num_times;
+            
+        if (current->right != NIL)
+            update_arbre(current->right, tree_copy);
     }
-    
-    /* Omplim l'arbre amb les paraules del fitxer "diccionari" */
-    while(fgets(word, MAXCHAR, diccionari) != NULL)
-        diccionari_arbre(tree, word);
-    
-    fclose(diccionari);
-    
-    
-    /* Creo els fils, com et quedes JJ? :) */
-    
-    arguments->data = str2;
-    arguments->tree = tree;
-    
-    err = pthread_create(&fil, NULL, fil_fn, (void *) arguments);
-    if (err != 0) {
-        printf("Error al crear el fil secundari.\n");
-        exit(1);
-    }
-    
-    pthread_join(fil, &tret);
-    
-    return tree;
 }
 
 void *fils_fn(void *arg)
@@ -362,19 +290,18 @@ void *fils_fn(void *arg)
     rb_tree *tree_fil;
     tree_fil = (rb_tree *) malloc(sizeof(rb_tree));
     init_tree(tree_fil);
-    
-    tree_fil->root = arguments->tree->root;
-    tree_fil->num_elements = arguments->tree->num_elements;
-  
+        
+    copiar_nodes_arbre(arguments->tree->root, tree_fil);
+      
     while(1){
         
         pthread_mutex_lock(&mutex_write);
         
-        tmp = control_2;
-        control_2++;
+        tmp = control;
+        control++;
         if(fgets(filename, MAXCHAR, arguments->data) == NULL){}
         
-        printf("ID: %ld Filename: %s Control: %d \n", syscall(SYS_gettid), filename, control);
+        //printf("ID: %ld Filename: %s Control: %d \n", syscall(SYS_gettid), filename, control);
         
         pthread_mutex_unlock(&mutex_write);
         
@@ -389,14 +316,10 @@ void *fils_fn(void *arg)
 
     }
     
-    /* AQUÍ ÉS ON HA D'ANAR LA BARRERA. RECORDA QUE S'HA DE TREURE EL MUTEX_JJ*/
-    
-    print_arbre(tree_fil->root);
-    
     pthread_mutex_lock(&mutex_join);
-    update_arbre(arguments->tree->root, tree_fil->root);
+    update_arbre(arguments->tree->root, tree_fil);
     pthread_mutex_unlock(&mutex_join);
-
+    
     return ((void *) 0); 
     
 }
@@ -459,6 +382,8 @@ rb_tree* crear_arbre_fils(char* str1, char* str2)
     }
     
     fclose(data);
+    
+    free();
     
     return tree;
 }
@@ -591,6 +516,7 @@ void top_1(rb_tree *tree){
     
     
 }
+
 /**
  * 
  *  Main procedure
@@ -628,26 +554,12 @@ int main(int argc, char **argv)
                 if(fgets(str2, MAXCHAR, stdin))
                     str2[strlen(str2)-1]=0;
                 
-                tree = crear_arbre_fil(str1, str2);
-                
-                printf("Elements: %d\n", tree->num_elements);
-                break;
-                
-            case 2:
-                printf("Fitxer de diccionari de paraules: ");
-                if(fgets(str1, MAXCHAR, stdin))
-                    str1[strlen(str1)-1]=0;
-
-                printf("Fitxer de base de dades: ");
-                if(fgets(str2, MAXCHAR, stdin))
-                    str2[strlen(str2)-1]=0;
-                
                 tree = crear_arbre_fils(str1, str2);
                 
                 printf("Elements: %d\n", tree->num_elements);
                 break;
                 
-            case 3:
+            case 2:
                 printf("Nom de fitxer en que es desara l'arbre: ");
                 if(fgets(str1, MAXCHAR, stdin))
                     str1[strlen(str1)-1]=0;
@@ -658,7 +570,7 @@ int main(int argc, char **argv)
                 }else{ printf("L'arbre no ha estat creat.\n"); } 
                 break;
                 
-            case 4:
+            case 3:
                 printf("Nom del fitxer que conte l'arbre: ");
                 if(fgets(str1, MAXCHAR, stdin))
                     str1[strlen(str1)-1]=0;
@@ -673,7 +585,7 @@ int main(int argc, char **argv)
 
                 break;
 
-            case 5:
+            case 4:
                  if(tree != NULL){
                         
                     printf("Paraula a buscar o polsa enter per saber la paraula que apareix més vegades: ");
@@ -702,7 +614,7 @@ int main(int argc, char **argv)
 
                 break;
 
-            case 6:
+            case 5:
                 
                 if(tree != NULL){
                     delete_tree(tree);
@@ -716,7 +628,7 @@ int main(int argc, char **argv)
 
         } /* switch */
     }
-    while (opcio != 6);
+    while (opcio != 5);
 
     return 0;
 }
