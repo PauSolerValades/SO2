@@ -1,6 +1,6 @@
 /**
  *
- * Practica 3 
+ * Practica 5
  *
  */
 
@@ -43,6 +43,8 @@ pthread_t fil;
 pthread_mutex_t mutex_write = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t mutex_join = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t mutex_jj = PTHREAD_MUTEX_INITIALIZER;
+
+pthread_mutex_t mutex_malloc = PTHREAD_MUTEX_INITIALIZER;
 
 pthread_cond_t cond;
 int control=0, control_2=0;
@@ -154,6 +156,7 @@ void diccionari_arbre(rb_tree* tree, char* word){
     
     printf("\n");
     */
+    
     /* Search if the key is in the tree */
     if (find_node(tree, word) == NULL) {
         
@@ -337,7 +340,7 @@ rb_tree* crear_arbre_fil(char* str1, char* str2)
     fclose(diccionari);
     
     
-    /* Creo els fils, com et quedes JJ? :) */
+    /* Creem els fils */
     
     arguments->data = str2;
     arguments->tree = tree;
@@ -360,7 +363,11 @@ void *fils_fn(void *arg)
     struct args_fils *arguments = (struct args_fils *) arg;
     
     rb_tree *tree_fil;
+    
+    pthread_mutex_lock(&mutex_malloc);
     tree_fil = (rb_tree *) malloc(sizeof(rb_tree));
+    pthread_mutex_unlock(&mutex_malloc);
+    
     init_tree(tree_fil);
     
     tree_fil->root = arguments->tree->root;
@@ -389,12 +396,11 @@ void *fils_fn(void *arg)
 
     }
     
-    /* AQUÍ ÉS ON HA D'ANAR LA BARRERA. RECORDA QUE S'HA DE TREURE EL MUTEX_JJ*/
-    
     print_arbre(tree_fil->root);
     
     pthread_mutex_lock(&mutex_join);
     update_arbre(arguments->tree->root, tree_fil->root);
+    delete_tree(tree_fil);
     pthread_mutex_unlock(&mutex_join);
 
     return ((void *) 0); 
