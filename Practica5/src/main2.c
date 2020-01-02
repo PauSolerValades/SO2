@@ -37,6 +37,8 @@ pthread_t fil;
 pthread_mutex_t mutex_write = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t mutex_join = PTHREAD_MUTEX_INITIALIZER;
 
+pthread_mutex_t mutex_malloc = PTHREAD_MUTEX_INITIALIZER;
+
 int control=0; /* Variable global per a controlar quin fill accedeix a cada fitxer */
 
 /**
@@ -246,7 +248,9 @@ void copiar_nodes_arbre(node *current, rb_tree* tree_copy) {
         if (current->left != NIL)
             copiar_nodes_arbre(current->left, tree_copy);
         
+        pthread_mutex_lock(&mutex_malloc);
         n_data = malloc(sizeof(node_data));
+        pthread_mutex_unlock(&mutex_malloc);
         
         n_data->len = current->data->len;
         n_data->key = current->data->key;
@@ -287,7 +291,11 @@ void *fils_fn(void *arg)
     struct args_fils *arguments = (struct args_fils *) arg;
     
     rb_tree *tree_fil;
+    
+    pthread_mutex_lock(&mutex_malloc);
     tree_fil = (rb_tree *) malloc(sizeof(rb_tree));
+    pthread_mutex_unlock(&mutex_malloc);
+    
     init_tree(tree_fil);
         
     copiar_nodes_arbre(arguments->tree->root, tree_fil);
@@ -317,6 +325,7 @@ void *fils_fn(void *arg)
     
     pthread_mutex_lock(&mutex_join);
     update_arbre(arguments->tree->root, tree_fil);
+    delete_tree(tree_fil);
     pthread_mutex_unlock(&mutex_join);
     
     return ((void *) 0); 
