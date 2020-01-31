@@ -1,6 +1,6 @@
 /**
  *
- * Practica 5
+ * Practica 5 - v1
  *
  */
 
@@ -44,8 +44,6 @@ pthread_mutex_t mutex_write = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t mutex_join = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t mutex_jj = PTHREAD_MUTEX_INITIALIZER;
 
-pthread_mutex_t mutex_malloc = PTHREAD_MUTEX_INITIALIZER;
-
 pthread_cond_t cond;
 int control=0, control_2=0;
 
@@ -75,45 +73,6 @@ int menu()
     return opcio;
 }
 
-void update_arbre(node *current, node *current_copy) {
-    
-    if (current == NULL){
-        return;
-    }
-    else{
-        if (current->left != NIL)
-            update_arbre(current->left, current_copy->left);
-        
-        current_copy->data->len = current->data->len;
-        current_copy->data->key = current->data->key;
-        current_copy->data->num_times = current->data->num_times;
-        
-        if (current->right != NIL)
-            update_arbre(current->right, current_copy->right);
-    }
-}
-
-
-void print_arbre(node *current) {
- 
-    if (current == NULL){
-        return;
-    }
-    else{
-        if (current->left != NIL)
-            print_arbre(current->left);
-        
-        int len = current->data->len;
-        char* key = current->data->key;
-        int num_times = current->data->num_times;
-        
-        printf("Key: %s\t\t Len: %d\t Times: %d\n", key, len, num_times);
-        
-        if (current->right != NIL)
-            print_arbre(current->right);
-    }
-}
-
 char* retallar_strings(char* string){
     
     /*
@@ -140,8 +99,8 @@ void diccionari_arbre(rb_tree* tree, char* word){
     /**
     * 
     * diccionari_arbre indexa les paraules del fitxer 'words' a l'arbre passat per paràmetre.
-    * Arguments: rb_tree* tree
-    * Retorn: void
+    * ARGUMENTS: rb_tree* tree
+    * RETURN: void
     * 
     */
     
@@ -188,10 +147,10 @@ void search_words(rb_tree* tree, char* filename){
      * 'search_words' extreu les paraules del fitxer 'filename' i, per cada paraula,
      * recorre l'arbre comparant-la amb les keys dels nodes. Si troba una coincidencia
      * augmenta el num_times del node amb la key corresponent en 1.
-     * Arguments:
+     * ARGUMENTS:
      *  rb_tree* tree: arbre red_black_tree.c proporcionat a la pràctica
      *  char* filename: nom del fitxer que extraurem les paraules.
-     * Retorn: void
+     * RETURN: void
      *
      */
 
@@ -267,209 +226,64 @@ void search_words(rb_tree* tree, char* filename){
     
 }
 
-void *fil_fn(void *arg)
-{
-    FILE* data;
-    int control = 0;
-    char filename[MAXCHAR];
-//     char* auxFilePath;
-    struct args_fil *arguments = (struct args_fil *) arg;
+void update_arbre(node *current, node *current_copy) {
     
-    /* Obrim el fitxer de fitxers */
-    data = fopen(arguments->data,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
-
-    if (!data) {
-//         printf("Could not open file: %s in MAIN\n", arguments->data);
-        //delete_tree(arguments->tree);
-        //init_tree(arguments->tree);
-        return NULL;
+    /*
+     * Funcio que actualitza recursivament un arbre a partir d'un altre passant
+     * per parametre els roots dels dos.
+     * ARGUMENTS: dos node*, els roots del dos arbres
+     * RETURN: void
+     */
+    
+    if (current == NULL){
+        return;
     }
-    
-    rb_tree *tree_fil;
-    tree_fil = (rb_tree *) malloc(sizeof(rb_tree));
-    init_tree(tree_fil);
-    
-    tree_fil->root = arguments->tree->root;
-    tree_fil->num_elements = arguments->tree->num_elements;
-    
-    while(fgets(filename, MAXCHAR, data)){
-        if(control==0){
-            control++;
-            
-        }else{
-           
-            filename[strlen(filename)-1] = 0;
-            control++;
-            search_words(tree_fil, filename);
-            
-        }
+    else{
+        if (current->left != NIL)
+            update_arbre(current->left, current_copy->left);
+        
+        current_copy->data->len = current->data->len;
+        current_copy->data->key = current->data->key;
+        current_copy->data->num_times = current->data->num_times;
+        
+        if (current->right != NIL)
+            update_arbre(current->right, current_copy->right);
     }
-    
-    fclose(data);
-    
-    return NULL;
 }
 
-rb_tree* crear_arbre_fil(char* str1, char* str2)
-{
-    FILE *diccionari;
-    char word[MAXCHAR];
-    int err;
-    void *tret;
-    struct args_fil *arguments;
+void print_arbre(node *current) {
     
-    arguments = malloc(sizeof(struct args_fil));
-
-    rb_tree *tree;
-    tree = (rb_tree *) malloc(sizeof(rb_tree));
-    init_tree(tree);
-    
-    /* Obrim el diccionari que ens passin */
-    diccionari = fopen(str1, "r");
-    
-    if (!diccionari) {
-        printf("Could not open file: %s in MAIN\n", str1);
-        fclose(diccionari);
-        return tree;
+    /*
+     * Funcio que imprimeix l'arbre per pantalla fent un dfs in-order
+     * ARGUMENTS: node*, la root de l'arbre a imprimir.
+     * RETURN: void
+     */
+ 
+    if (current == NULL){
+        return;
     }
-    
-    /* Omplim l'arbre amb les paraules del fitxer "diccionari" */
-    while(fgets(word, MAXCHAR, diccionari) != NULL)
-        diccionari_arbre(tree, word);
-    
-    fclose(diccionari);
-    
-    
-    /* Creem els fils */
-    
-    arguments->data = str2;
-    arguments->tree = tree;
-    
-    err = pthread_create(&fil, NULL, fil_fn, (void *) arguments);
-    if (err != 0) {
-        printf("Error al crear el fil secundari.\n");
-        exit(1);
-    }
-    
-    pthread_join(fil, &tret);
-    
-    return tree;
-}
-
-void *fils_fn(void *arg)
-{
-    int tmp;
-    char filename[MAXCHAR];
-    struct args_fils *arguments = (struct args_fils *) arg;
-    
-    rb_tree *tree_fil;
-    
-    pthread_mutex_lock(&mutex_malloc);
-    tree_fil = (rb_tree *) malloc(sizeof(rb_tree));
-    pthread_mutex_unlock(&mutex_malloc);
-    
-    init_tree(tree_fil);
-    
-    tree_fil->root = arguments->tree->root;
-    tree_fil->num_elements = arguments->tree->num_elements;
-  
-    while(1){
+    else{
+        if (current->left != NIL)
+            print_arbre(current->left);
         
-        pthread_mutex_lock(&mutex_write);
+        int len = current->data->len;
+        char* key = current->data->key;
+        int num_times = current->data->num_times;
         
-        tmp = control_2;
-        control_2++;
-        if(fgets(filename, MAXCHAR, arguments->data) == NULL){}
+        printf("Key: %s\t\t Len: %d\t Times: %d\n", key, len, num_times);
         
-        printf("ID: %ld Filename: %s Control: %d \n", syscall(SYS_gettid), filename, control);
-        
-        pthread_mutex_unlock(&mutex_write);
-        
-        if(tmp < arguments->num_fitxers){ 
-            filename[strlen(filename)-1]=0;
-            
-            search_words(tree_fil, filename);
-            
-        }else{
-            break; 
-        }
-
+        if (current->right != NIL)
+            print_arbre(current->right);
     }
-    
-    print_arbre(tree_fil->root);
-    
-    pthread_mutex_lock(&mutex_join);
-    update_arbre(arguments->tree->root, tree_fil->root);
-    delete_tree(tree_fil);
-    pthread_mutex_unlock(&mutex_join);
-
-    return ((void *) 0); 
-    
-}
-
-rb_tree* crear_arbre_fils(char* str1, char* str2)
-{
-    FILE *diccionari, *data;
-    char word[MAXCHAR], num[MAXCHAR];
-    int num_fitxers;
-    pthread_t fils[NUM_FILS];
-    struct args_fils *arguments;
-
-    rb_tree *tree;
-    tree = (rb_tree *) malloc(sizeof(rb_tree));
-    init_tree(tree);
-    
-    /* Obrim el diccionari que ens passin */
-    diccionari = fopen(str1, "r");
-    
-    if (!diccionari) {
-        printf("Could not open file: %s in MAIN\n", str1);
-        fclose(diccionari);
-        return tree;
-    }
-         
-    /* Omplim l'arbre amb les paraules del fitxer "diccionari" */
-    while(fgets(word, MAXCHAR, diccionari) != NULL)
-        diccionari_arbre(tree, word);
-    
-    fclose(diccionari);
-    
-    
-    data = fopen(str2, "r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
-
-    if (!data) {
-        printf("Could not open file: %s in MAIN\n", str2);
-        return NULL;
-    }
-    
-    if(!fgets(num, MAXCHAR, data)){
-        printf("Problem in lecture of NUM_FITXERS in PRACTICA4\n");
-        return NULL;
-    }
-    
-    num[strlen(num)] = '\0';
-    num_fitxers = atoi(num);
-    printf("%d\n", num_fitxers);
-    
-    for(int i = 0; i < NUM_FILS; i++) {
-        arguments = malloc(sizeof(struct args_fils));
-        arguments->data = data;
-        arguments->tree = tree;
-        arguments->num_fitxers = num_fitxers;
-    
-        pthread_create(&(fils[i]), NULL, fils_fn, (void *) arguments);
-    }
-        
-    for(int i = 0; i < NUM_FILS; i++) {
-        pthread_join(fils[i], NULL);
-    }
-    
-    fclose(data);
-    
-    return tree;
 }
 
 void nodes_tree_inorder(node *current, FILE* fd) {
+    
+    /*
+     * Funcio que imprimeix l'arbre en un fitxer fent un dfs in-order
+     * ARGUMENTS: node*, la root de l'arbre a imprimir.
+     * RETURN: void
+     */
  
     if (current == NULL){
         return;
@@ -495,6 +309,12 @@ void nodes_tree_inorder(node *current, FILE* fd) {
 }
 
 void guardar_arbre(char* filename, rb_tree* tree){
+    
+    /*
+     * Funcio que emmagatzema l'arbre a memoria
+     * ARGUMENTS: l'arbre a guardar i el nom del fitxer on el volem guardar
+     * RETURN: void
+     */
 
     FILE* fd;
     
@@ -519,6 +339,12 @@ void guardar_arbre(char* filename, rb_tree* tree){
 }
 
 rb_tree* recuperar_arbre(char* filename){
+    
+    /*
+     * Funcio que recupera l'arbre de memoria
+     * ARGUMENTS: el nom del fitxer on esta guardat l'arbre
+     * RETURN: rb_tree*, l'abre que recuperem de memoria
+     */
     
     FILE* fd;
     int magic, MAGIC, num_nodes, len_key=0, num_times=0;    
@@ -545,8 +371,6 @@ rb_tree* recuperar_arbre(char* filename){
             printf("Magic error");
             fclose(fd);
             return NULL;
-            
-        
         }
     }
     
@@ -587,6 +411,12 @@ rb_tree* recuperar_arbre(char* filename){
 
 void top_1(rb_tree *tree){
  
+    /*
+     * Funcio que impreix el top 1 de paraules que apareixen mes vegades
+     * ARGUMENTS: l'arbre a consultar
+     * RETURN: void
+     */
+    
     FILE *fd;
     
     fd = fopen("tmp.txt", "w");
@@ -594,9 +424,248 @@ void top_1(rb_tree *tree){
     print_tree_inorder_file(tree->root, fd);
     
     fclose(fd);
+}
+
+/**
+ * 
+ *  Metodes dels threads
+ *
+ */
+
+void *fil_fn(void *arg){
     
+    /*
+     * Funcio del thread quan nomes en tenim un, obre el fitxer d'on extraurem les
+     * dades, copia l'arbre del pare en un arbre propi del thread i l'actualitza
+     * amb les dades adients. Despres, tanca el fitxer
+     * ARGUMENTS: void *arg, en aquest cas es un struct definit a l'inici del programa
+     * RETURN: void*
+     */
+    
+    FILE* data;
+    int control = 0;
+    char filename[MAXCHAR];
+
+    struct args_fil *arguments = (struct args_fil *) arg;
+    
+    data = fopen(arguments->data,"r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
+
+    if (!data) {
+        return NULL;
+    }
+    
+    rb_tree *tree_fil;
+    tree_fil = (rb_tree *) malloc(sizeof(rb_tree));
+    init_tree(tree_fil);
+    
+    tree_fil->root = arguments->tree->root;
+    tree_fil->num_elements = arguments->tree->num_elements;
+    
+    while(fgets(filename, MAXCHAR, data)){
+        if(control==0){
+            control++;
+            
+        }else{
+           
+            filename[strlen(filename)-1] = 0;
+            control++;
+            search_words(tree_fil, filename);
+            
+        }
+    }
+    
+    fclose(data);
+    
+    return NULL;
+}
+
+rb_tree* crear_arbre_fil(char* str1, char* str2){
+    
+    /*
+     * Funcio que indexa les paraules del diccionari i llavors crea un fil secundari 
+     * perque sigui aquest el que faci el search_words dels fitxers. Despres, torna a
+     * unir el fil secundari al principal
+     * ARGUMENTS: char* str1, el diccionari, i char* str2, el fitxer amb els noms dels
+     * fitxers a llegir
+     * RETURN: rb_tree*
+     */
+    
+    FILE *diccionari;
+    char word[MAXCHAR];
+    int err;
+    void *tret;
+    struct args_fil *arguments;
+    
+    /* Reservem memoria per l'struct que li passarem al fil */
+    arguments = malloc(sizeof(struct args_fil));
+
+    rb_tree *tree;
+    tree = (rb_tree *) malloc(sizeof(rb_tree));
+    init_tree(tree);
+    
+    /* Obrim el diccionari que ens passin */
+    diccionari = fopen(str1, "r");
+    
+    if (!diccionari) {
+        printf("Could not open file: %s in MAIN\n", str1);
+        fclose(diccionari);
+        return tree;
+    }
+    
+    /* Omplim l'arbre amb les paraules del fitxer "diccionari" */
+    while(fgets(word, MAXCHAR, diccionari) != NULL)
+        diccionari_arbre(tree, word);
+    
+    fclose(diccionari);
+    
+    
+    /* Creem els fils */
+    
+    arguments->data = str2;
+    arguments->tree = tree;
+    
+    err = pthread_create(&fil, NULL, fil_fn, (void *) arguments);
+    if (err != 0) {
+        printf("Error al crear el fil secundari.\n");
+        exit(1);
+    }
+    
+    /* Ajuntem els fils */
+    
+    pthread_join(fil, &tret);
+    
+    return tree;
+}
+
+void *fils_fn(void *arg){
+    
+    /*
+     * Funcio dels fils secundaris, crea un arbre pel fil en el que es trobi, i copia
+     * el passat per parametre, aleshores mitjançant un comptador, agafa el fitxer que
+     * li pertoca recorrer en l'fgets i en compta el numero de vegades que apareix
+     * cada paraula. Despres, actualitza l'arbre del pare amb les dades noves.
+     * Tant l'augment del comptador com l'update de l'arbre equeeixen de monitors per
+     * evitar problemes entre fils
+     * ARGUMENTS: struct d'on traiem el fitxer, l'arbre i el nombre de fitxers
+     * RETURN: void
+     */
+    
+    int tmp;
+    char filename[MAXCHAR];
+    struct args_fils *arguments = (struct args_fils *) arg;
+    
+    rb_tree *tree_fil;
+    
+    tree_fil = (rb_tree *) malloc(sizeof(rb_tree));
+    
+    init_tree(tree_fil);
+    
+    tree_fil->root = arguments->tree->root;
+    tree_fil->num_elements = arguments->tree->num_elements;
+  
+    while(1){
+        
+        pthread_mutex_lock(&mutex_write);
+        
+        tmp = control_2;
+        control_2++;
+        if(fgets(filename, MAXCHAR, arguments->data) == NULL){}
+        
+        printf("ID: %ld Filename: %s Control: %d \n", syscall(SYS_gettid), filename, control);
+        
+        pthread_mutex_unlock(&mutex_write);
+        
+        if(tmp < arguments->num_fitxers){ 
+            filename[strlen(filename)-1]=0;
+            
+            search_words(tree_fil, filename);
+            
+        }else{
+            break; 
+        }
+
+    }
+    
+    print_arbre(tree_fil->root);
+    
+    pthread_mutex_lock(&mutex_join);
+    update_arbre(arguments->tree->root, tree_fil->root);
+    pthread_mutex_unlock(&mutex_join);
+
+    return ((void *) 0); 
     
 }
+
+rb_tree* crear_arbre_fils(char* str1, char* str2){
+    
+    /*
+     * Funcio que indexa les paraules del diccionari i llavors crea n fils secundaris 
+     * perque siguin aquests els que faci el search_words dels fitxers. Despres, torna a
+     * unir els fils secundaris al principal
+     * ARGUMENTS: char* str1, el diccionari, i char* str2, el fitxer amb els noms dels
+     * fitxers a llegir
+     * RETURN: rb_tree*
+     */
+    
+    FILE *diccionari, *data;
+    char word[MAXCHAR], num[MAXCHAR];
+    int num_fitxers;
+    pthread_t fils[NUM_FILS];
+    struct args_fils *arguments;
+
+    rb_tree *tree;
+    tree = (rb_tree *) malloc(sizeof(rb_tree));
+    init_tree(tree);
+    
+    /* Obrim el diccionari que ens passin */
+    diccionari = fopen(str1, "r");
+    
+    if (!diccionari) {
+        printf("Could not open file: %s in MAIN\n", str1);
+        fclose(diccionari);
+        return tree;
+    }
+         
+    /* Omplim l'arbre amb les paraules del fitxer "diccionari" */
+    while(fgets(word, MAXCHAR, diccionari) != NULL)
+        diccionari_arbre(tree, word);
+    
+    fclose(diccionari);
+    
+    data = fopen(str2, "r"); /* obrim el fitxer amb tots els camins dels fitxers d'on extraurem les dades */
+
+    if (!data) {
+        printf("Could not open file: %s in MAIN\n", str2);
+        return NULL;
+    }
+    
+    if(!fgets(num, MAXCHAR, data)){
+        printf("Problem in lecture of NUM_FITXERS in PRACTICA4\n");
+        return NULL;
+    }
+    
+    num[strlen(num)] = '\0';
+    num_fitxers = atoi(num);
+    printf("%d\n", num_fitxers);
+    
+    for(int i = 0; i < NUM_FILS; i++) {
+        arguments = malloc(sizeof(struct args_fils));
+        arguments->data = data;
+        arguments->tree = tree;
+        arguments->num_fitxers = num_fitxers;
+    
+        pthread_create(&(fils[i]), NULL, fils_fn, (void *) arguments);
+    }
+        
+    for(int i = 0; i < NUM_FILS; i++) {
+        pthread_join(fils[i], NULL);
+    }
+    
+    fclose(data);
+    
+    return tree;
+}
+
 /**
  * 
  *  Main procedure
